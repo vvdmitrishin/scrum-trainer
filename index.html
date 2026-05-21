@@ -66,6 +66,12 @@
   .opt.wrong{border-color:var(--bad);background:rgba(248,113,113,.12)}
   .opt .mk{margin-left:auto;font-weight:700;font-size:13px}
   .opt.correct .mk{color:var(--ok)} .opt.wrong .mk{color:var(--bad)}
+  .onum{flex-shrink:0;min-width:22px;height:22px;padding:0 5px;border-radius:6px;border:1px solid var(--line);background:#10161f;color:var(--muted);font-size:12px;font-weight:700;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+  .opt.sel .onum{border-color:var(--accent);color:var(--accent)}
+  .opt.correct .onum{border-color:var(--ok);color:var(--ok)}
+  .opt.wrong .onum{border-color:var(--bad);color:var(--bad)}
+  .kbdhint{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
+  .kbdhint b{color:var(--accent2);font-weight:700}
   .exp{background:var(--panel2);border-left:3px solid var(--accent);border-radius:8px;padding:12px 15px;margin:14px 0;font-size:14px;color:#cdd9e6}
   .exp b{color:var(--accent)}
   .nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
@@ -151,6 +157,7 @@
       <button class="btn" id="finishBtn" onclick="app.submit()">Finish ✓</button>
     </div>
     <div class="palette" id="palette"></div>
+    <div class="kbdhint">⌨ Press <b>1–9</b> to choose · <b>Enter</b> to continue</div>
   </div>
 
   <!-- RESULTS -->

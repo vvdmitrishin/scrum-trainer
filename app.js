@@ -23,6 +23,7 @@ const app={
     sel.onchange=()=>this.setCert(sel.value);
     $("count").onchange=()=>this.updatePool();
     $("mode").onchange=()=>this.syncControls();
+    document.addEventListener("keydown",e=>this.onKey(e));
     if(ids.length){this.setCert(ids[0]);}
     else{$("start").innerHTML='<p style="color:var(--bad)">No question banks loaded. Check the data/ files.</p>';}
   },
@@ -146,6 +147,7 @@ const app={
       }
       html+=`<label class="${cls}" onclick="app.toggle(${i})">`+
         `<input type="${isMulti?'checkbox':'radio'}" ${sel?'checked':''} ${it.checked?'disabled':''} onclick="event.preventDefault()">`+
+        `<span class="onum">${i+1}</span>`+
         `<span>${o.t}</span>${mark}</label>`;
     });
     $("qbox").innerHTML=html;
@@ -179,6 +181,23 @@ const app={
   },
 
   check(){const it=this.items[this.idx];if(!it.selected.length)return;it.checked=true;this.render();},
+
+  onKey(e){
+    if(document.getElementById("quiz").classList.contains("hide")||this.finished)return;
+    const tag=(e.target.tagName||"").toLowerCase();
+    if(tag==="select"||tag==="textarea")return;
+    const it=this.items[this.idx]; if(!it)return;
+    if(e.key>="1"&&e.key<="9"){
+      const i=+e.key-1;
+      if(i<it.opts.length&&!it.checked)this.toggle(i);
+      e.preventDefault(); return;
+    }
+    if(e.key==="Enter"){
+      e.preventDefault();
+      if(this.mode==="practice"&&!it.checked){ if(it.selected.length)this.check(); return; }
+      if(this.idx<this.items.length-1)this.next(); else this.submit();
+    }
+  },
 
   isCorrect(it){
     const correct=it.opts.map((o,i)=>o.c?i:-1).filter(i=>i>=0).sort();
