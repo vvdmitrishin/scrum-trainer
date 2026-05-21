@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trainers — study &amp; practice</title>
+<style>
+  :root{
+    --bg:#0e131b; --panel:#161d28; --panel2:#1d2735; --line:#2a3647;
+    --txt:#e6edf5; --muted:#8aa0b6; --accent:#2dd4bf; --accent2:#38bdf8;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(1200px 600px at 70% -10%,#1a2738 0,var(--bg) 60%);
+    color:var(--txt);min-height:100vh;line-height:1.5}
+  .wrap{max-width:920px;margin:0 auto;padding:40px 20px 80px}
+  header{margin-bottom:34px}
+  .logo{width:46px;height:46px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:grid;place-items:center;font-weight:800;color:#04222b;font-size:22px;margin-bottom:16px}
+  h1{font-size:30px;margin:0 0 6px;font-weight:800;letter-spacing:-.5px}
+  .sub{color:var(--muted);font-size:15px;max-width:560px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:8px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;
+    display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:.16s;
+    box-shadow:0 10px 30px rgba(0,0,0,.22)}
+  .card:hover{transform:translateY(-3px);border-color:var(--accent2);box-shadow:0 16px 40px rgba(0,0,0,.32)}
+  .card.soon{opacity:.5;pointer-events:none}
+  .ct{font-size:18px;font-weight:700;margin:0 0 6px}
+  .cd{color:var(--muted);font-size:14px;flex:1}
+  .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+  .tag{font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:var(--accent);
+    background:rgba(45,212,191,.12);padding:4px 10px;border-radius:99px}
+  .tag.alt{color:var(--accent2);background:rgba(56,189,248,.12)}
+  .go{margin-top:18px;font-weight:700;color:var(--accent2);font-size:14px}
+  .foot{color:var(--muted);font-size:12px;margin-top:40px;border-top:1px solid var(--line);padding-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">S</div>
+    <h1>Scrum Trainers</h1>
+    <div class="sub">Self-contained, browser-based Scrum certification trainers. No install, no build, works offline — open one and go.</div>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="psm-i/index.html">
+      <p class="ct">PSM I — Scrum Master</p>
+      <p class="cd">Professional Scrum Master I practice exam. Single / multiple-answer / true-false, timed exam mode, instant-feedback practice mode, 85% pass mark.</p>
+      <div class="tags"><span class="tag">Scrum</span><span class="tag alt">48 questions</span><span class="tag">Scrum Guide 2020</span></div>
+      <div class="go">Start →</div>
+    </a>
+
+    <!-- Add new trainers as cards here. Pattern: folder/index.html, self-contained HTML. -->
+    <div class="card soon">
+      <p class="ct">More coming…</p>
+      <p class="cd">Next trainers drop in here. Each is its own folder with a single self-contained index.html.</p>
+      <div class="tags"><span class="tag">soon</span></div>
+    </div>
+  </div>
+
+  <div class="foot">Open <code>index.html</code> for this hub, or any trainer's folder directly. Everything runs locally in the browser.</div>
+</div>
+</body>
+</html>

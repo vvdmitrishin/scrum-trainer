@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSM I Practice — Scrum Master Exam Trainer</title>
+<style>
+  :root{
+    --bg:#0e131b; --panel:#161d28; --panel2:#1d2735; --line:#2a3647;
+    --txt:#e6edf5; --muted:#8aa0b6; --accent:#2dd4bf; --accent2:#38bdf8;
+    --ok:#34d399; --bad:#f87171; --warn:#fbbf24;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(1200px 600px at 70% -10%,#1a2738 0,var(--bg) 60%);
+    color:var(--txt);min-height:100vh;line-height:1.5}
+  .wrap{max-width:820px;margin:0 auto;padding:24px 18px 60px}
+  header.top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .logo{width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:grid;place-items:center;font-weight:800;color:#04222b;font-size:18px}
+  h1{font-size:20px;margin:0;font-weight:700}
+  .sub{color:var(--muted);font-size:13px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  label.fld{flex:1;min-width:160px;display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  select,button{font:inherit}
+  select{width:100%;background:var(--panel2);color:var(--txt);border:1px solid var(--line);
+    border-radius:9px;padding:10px 12px;margin-top:6px}
+  .btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04222b;border:none;
+    padding:12px 20px;border-radius:10px;font-weight:700;cursor:pointer;transition:.15s;font-size:15px}
+  .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  .btn.ghost:hover{background:var(--panel2);filter:none}
+  .btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+  .stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--muted)}
+  .stats b{color:var(--accent);font-size:16px}
+  .toggle{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;color:var(--muted)}
+  .toggle input{width:18px;height:18px;accent-color:var(--accent)}
+  /* quiz */
+  .bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:13px;color:var(--muted)}
+  .timer{font-variant-numeric:tabular-nums;font-weight:700;color:var(--txt);background:var(--panel2);
+    padding:6px 12px;border-radius:8px;border:1px solid var(--line)}
+  .timer.low{color:var(--bad);border-color:var(--bad)}
+  .progress{height:6px;background:var(--panel2);border-radius:99px;overflow:hidden;margin-bottom:18px}
+  .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.3s}
+  .qtype{display:inline-block;font-size:11px;letter-spacing:.5px;text-transform:uppercase;
+    color:var(--accent);background:rgba(45,212,191,.12);padding:3px 9px;border-radius:99px;margin-bottom:10px}
+  .qtext{font-size:18px;font-weight:600;margin:0 0 18px}
+  .opt{display:flex;align-items:flex-start;gap:12px;background:var(--panel2);border:1px solid var(--line);
+    border-radius:10px;padding:13px 15px;margin-bottom:10px;cursor:pointer;transition:.12s}
+  .opt:hover{border-color:var(--accent2)}
+  .opt input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent);flex-shrink:0}
+  .opt.sel{border-color:var(--accent);background:rgba(56,189,248,.08)}
+  .opt.correct{border-color:var(--ok);background:rgba(52,211,153,.12)}
+  .opt.wrong{border-color:var(--bad);background:rgba(248,113,113,.12)}
+  .opt .mk{margin-left:auto;font-weight:700;font-size:13px}
+  .opt.correct .mk{color:var(--ok)}
+  .opt.wrong .mk{color:var(--bad)}
+  .exp{background:var(--panel2);border-left:3px solid var(--accent);border-radius:8px;
+    padding:12px 15px;margin:14px 0;font-size:14px;color:#cdd9e6}
+  .exp b{color:var(--accent)}
+  .nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+  .palette{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+  .pdot{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);
+    color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;display:grid;place-items:center}
+  .pdot.done{border-color:var(--accent);color:var(--accent)}
+  .pdot.cur{outline:2px solid var(--accent2);outline-offset:1px;color:var(--txt)}
+  /* results */
+  .score{text-align:center;padding:10px 0 4px}
+  .score .pct{font-size:54px;font-weight:800;line-height:1}
+  .score .verdict{font-size:20px;font-weight:700;margin-top:6px}
+  .pass{color:var(--ok)} .fail{color:var(--bad)}
+  .rsum{display:flex;justify-content:center;gap:24px;color:var(--muted);font-size:14px;margin-top:8px;flex-wrap:wrap}
+  .review h3{font-size:15px;margin:22px 0 10px;color:var(--muted)}
+  .ritem{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;background:var(--panel)}
+  .ritem .rq{font-weight:600;margin-bottom:8px}
+  .ritem .ra{font-size:14px;margin:3px 0}
+  .ritem .ra.you{color:var(--muted)}
+  .ritem .ra.cor{color:var(--ok)}
+  .badge{float:right;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px}
+  .badge.ok{background:rgba(52,211,153,.15);color:var(--ok)}
+  .badge.no{background:rgba(248,113,113,.15);color:var(--bad)}
+  .hint{font-size:13px;color:var(--warn)}
+  .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
+  .hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo">S</div>
+    <div>
+      <h1>PSM I — Practice Trainer</h1>
+      <div class="sub">Professional Scrum Master I · based on the Scrum Guide 2020</div>
+    </div>
+  </header>
+
+  <!-- START -->
+  <div id="start" class="card">
+    <div class="row">
+      <div style="flex:1;min-width:160px">
+        <label class="fld">Mode</label>
+        <select id="mode">
+          <option value="practice">Practice — instant feedback per question</option>
+          <option value="exam">Exam — timed, review at the end</option>
+        </select>
+      </div>
+      <div style="flex:1;min-width:120px">
+        <label class="fld">Questions</label>
+        <select id="count">
+          <option value="10">10</option>
+          <option value="20" selected>20</option>
+          <option value="30">30</option>
+          <option value="0">All</option>
+        </select>
+      </div>
+    </div>
+    <label class="toggle"><input type="checkbox" id="timed"> Timed (≈45s per question, like the real exam)</label>
+    <div style="margin-top:20px"><button class="btn" onclick="app.start()">Start ▶</button></div>
+    <div class="stats" id="stats"></div>
+    <div class="foot">Pass mark: <b>85%</b>. Real exam = 80 questions / 60 min. This trainer shuffles questions &amp; answers every run.</div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" class="card hide">
+    <div class="bar">
+      <span id="counter"></span>
+      <span class="timer hide" id="timer"></span>
+    </div>
+    <div class="progress"><i id="pbar"></i></div>
+    <div id="qbox"></div>
+    <div id="expbox"></div>
+    <div class="nav">
+      <button class="btn ghost" id="prevBtn" onclick="app.prev()">← Prev</button>
+      <button class="btn" id="checkBtn" onclick="app.check()">Check answer</button>
+      <button class="btn" id="nextBtn" onclick="app.next()">Next →</button>
+      <button class="btn" id="finishBtn" onclick="app.submit()">Finish ✓</button>
+    </div>
+    <div class="palette" id="palette"></div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results" class="card hide"></div>
+</div>
+
+<script>
+/* ============ QUESTION BANK (Scrum Guide 2020) ============ */
+/* c:true marks correct option(s). Options are shuffled at runtime. */
+const QUESTIONS = [
+ {type:"single",q:"The Product Owner is accountable for...",
+  opts:[{t:"Maximizing the value of the product resulting from the work of the Scrum Team",c:true},
+   {t:"Managing the Developers and assigning their tasks"},
+   {t:"Facilitating all Scrum events"},
+   {t:"Removing impediments for the Developers"}],
+  exp:"The Product Owner is accountable for maximizing the value of the product resulting from the work of the Scrum Team."},
+
+ {type:"single",q:"The Scrum Master is accountable for...",
+  opts:[{t:"Establishing Scrum as defined in the Scrum Guide and the Scrum Team's effectiveness",c:true},
+   {t:"Delivering the product on time and on budget"},
+   {t:"Writing the Product Backlog items"},
+   {t:"Approving the Increment before release"}],
+  exp:"The Scrum Master is accountable for establishing Scrum and for the Scrum Team's effectiveness, helping the team improve its practices."},
+
+ {type:"single",q:"Who is accountable for the effectiveness of the Scrum Team?",
+  opts:[{t:"The Scrum Master",c:true},{t:"The Product Owner"},{t:"The Developers"},{t:"The functional manager"}],
+  exp:"The Scrum Master is accountable for the Scrum Team's effectiveness."},
+
+ {type:"multi",q:"Which statements about the Product Owner are true? (select 2)",
+  opts:[{t:"The Product Owner is one person, not a committee",c:true},
+   {t:"The Product Owner may represent the needs of many stakeholders in the Product Backlog",c:true},
+   {t:"The Product Owner is accountable for facilitating the Daily Scrum"},
+   {t:"The Product Owner makes the team's technical implementation decisions"}],
+  exp:"The PO is a single person who may represent many stakeholders' needs in the Product Backlog. They do not run the Daily Scrum or make technical decisions for the Developers."},
+
+ {type:"multi",q:"The Developers are accountable for which of the following? (select 3)",
+  opts:[{t:"Creating a plan for the Sprint, the Sprint Backlog",c:true},
+   {t:"Instilling quality by adhering to a Definition of Done",c:true},
+   {t:"Adapting their plan each day toward the Sprint Goal",c:true},
+   {t:"Maximizing the value of the product"},
+   {t:"Managing the budget and the stakeholders"}],
+  exp:"Developer accountabilities: create the Sprint Backlog, instill quality via the DoD, adapt the daily plan toward the Sprint Goal, and hold each other accountable. Maximizing value is the PO."},
+
+ {type:"single",q:"During the Sprint, who decides how the work is turned into an Increment?",
+  opts:[{t:"The Developers — the Scrum Team is self-managing",c:true},
+   {t:"The Scrum Master assigns the tasks"},
+   {t:"The Product Owner"},
+   {t:"The project manager"}],
+  exp:"Scrum Teams are self-managing: they internally decide who does what, when, and how."},
+
+ {type:"single",q:"What is the recommended maximum size of a Scrum Team?",
+  opts:[{t:"10 or fewer people",c:true},{t:"7 plus or minus 2"},{t:"No more than 9 Developers"},{t:"There is no recommended size"}],
+  exp:"The Scrum Guide says the Scrum Team is typically 10 or fewer people."},
+
+ {type:"tf",q:"A Scrum Team contains no sub-teams or hierarchies.",
+  opts:[{t:"True",c:true},{t:"False"}],
+  exp:"Correct — it is one cohesive unit of professionals with no sub-teams or hierarchies."},
+
+ {type:"tf",q:"Being cross-functional means the Scrum Team has all the skills necessary to create value each Sprint.",
+  opts:[{t:"True",c:true},{t:"False"}],
+  exp:"Cross-functional = the members collectively have all skills needed to create value each Sprint."},
+
+ {type:"single",q:"The entire Scrum Team is accountable for...",
+  opts:[{t:"Creating a valuable, useful Increment every Sprint",c:true},
+   {t:"Only the Increment they personally worked on"},
+   {t:"Producing detailed documentation"},
+   {t:"Reporting individual progress to management"}],
+  exp:"The whole Scrum Team is accountable for creating a valuable, useful Increment every Sprint."},
+
+ {type:"single",q:"What is the maximum timebox for Sprint Planning for a one-month Sprint?",
+  opts:[{t:"8 hours",c:true},{t:"4 hours"},{t:"2 hours"},{t:"There is no fixed timebox"}],
+  exp:"Sprint Planning is timeboxed to a maximum of 8 hours for a one-month Sprint, shorter for shorter Sprints."},
+
+ {type:"multi",q:"Which topics does Sprint Planning address? (select 3)",
+  opts:[{t:"Why is this Sprint valuable?",c:true},
+   {t:"What can be Done this Sprint?",c:true},
+   {t:"How will the chosen work get done?",c:true},
+   {t:"Who is to blame for the previous Sprint's problems?"},
+   {t:"When will the final product ship?"}],
+  exp:"Sprint Planning addresses three topics: Why (Sprint Goal), What (selected items), and How (the plan)."},
+
+ {type:"single",q:"Who crafts the Sprint Goal?",
+  opts:[{t:"The whole Scrum Team, collaboratively, during Sprint Planning",c:true},
+   {t:"The Product Owner alone, before Sprint Planning"},
+   {t:"The Scrum Master"},
+   {t:"The stakeholders"}],
+  exp:"The whole Scrum Team collaborates to define the Sprint Goal during Sprint Planning."},
+
+ {type:"single",q:"What is the timebox for the Daily Scrum?",
+  opts:[{t:"15 minutes",c:true},{t:"30 minutes"},{t:"15 minutes per Developer"},{t:"1 hour"}],
+  exp:"The Daily Scrum is a 15-minute event for the Developers."},
+
+ {type:"single",q:"The Daily Scrum is held for the benefit of whom?",
+  opts:[{t:"The Developers",c:true},{t:"The stakeholders"},{t:"The Scrum Master"},{t:"Management"}],
+  exp:"The Daily Scrum is an event for the Developers of the Scrum Team."},
+
+ {type:"tf",q:"The three questions (what I did, what I will do, any impediments) are mandatory at the Daily Scrum.",
+  opts:[{t:"False",c:true},{t:"True"}],
+  exp:"The 2020 Scrum Guide removed the mandatory three questions. Developers may use any structure they like, as long as it focuses on progress toward the Sprint Goal."},
+
+ {type:"single",q:"What is the purpose of the Sprint Review?",
+  opts:[{t:"To inspect the outcome of the Sprint and determine future adaptations",c:true},
+   {t:"To plan the next Sprint in detail"},
+   {t:"To improve the team's internal process"},
+   {t:"To approve developers' performance"}],
+  exp:"The Sprint Review inspects the outcome of the Sprint and determines future adaptations; the Scrum Team and stakeholders review what was done and what to do next."},
+
+ {type:"single",q:"Maximum timebox for the Sprint Review for a one-month Sprint?",
+  opts:[{t:"4 hours",c:true},{t:"2 hours"},{t:"3 hours"},{t:"8 hours"}],
+  exp:"The Sprint Review is timeboxed to a maximum of 4 hours for a one-month Sprint."},
+
+ {type:"single",q:"What is the purpose of the Sprint Retrospective?",
+  opts:[{t:"To plan ways to increase quality and effectiveness",c:true},
+   {t:"To demonstrate the Increment to stakeholders"},
+   {t:"To re-estimate the Product Backlog"},
+   {t:"To assign blame for missed work"}],
+  exp:"The Retrospective is about planning ways to increase quality and effectiveness — inspecting people, interactions, processes, tools and the DoD."},
+
+ {type:"single",q:"Maximum timebox for the Sprint Retrospective for a one-month Sprint?",
+  opts:[{t:"3 hours",c:true},{t:"1 hour"},{t:"2 hours"},{t:"4 hours"}],
+  exp:"The Sprint Retrospective is timeboxed to a maximum of 3 hours for a one-month Sprint."},
+
+ {type:"tf",q:"A new Sprint starts immediately after the conclusion of the previous Sprint.",
+  opts:[{t:"True",c:true},{t:"False"}],
+  exp:"Correct — there are no gaps between Sprints."},
+
+ {type:"single",q:"Which event concludes the Sprint?",
+  opts:[{t:"The Sprint Retrospective",c:true},{t:"The Sprint Review"},{t:"The Daily Scrum"},{t:"Sprint Planning"}],
+  exp:"The Sprint Retrospective concludes the Sprint."},
+
+ {type:"single",q:"The Sprint is best described as...",
+  opts:[{t:"A container for all the other events",c:true},
+   {t:"A project phase"},
+   {t:"A meeting"},
+   {t:"Always a 2-to-4-week timebox"}],
+  exp:"The Sprint is a container for all other events; it is fixed-length, one month or less."},
+
+ {type:"tf",q:"During a Sprint, scope may be clarified and renegotiated with the Product Owner as more is learned.",
+  opts:[{t:"True",c:true},{t:"False"}],
+  exp:"Correct — scope may be clarified and renegotiated with the PO as more is learned, without endangering the Sprint Goal."},
+
+ {type:"single",q:"The commitment for the Product Backlog is the...",
+  opts:[{t:"Product Goal",c:true},{t:"Sprint Goal"},{t:"Definition of Done"},{t:"Release Plan"}],
+  exp:"Each artifact has a commitment: Product Backlog → Product Goal."},
+
+ {type:"single",q:"The commitment for the Sprint Backlog is the...",
+  opts:[{t:"Sprint Goal",c:true},{t:"Product Goal"},{t:"Definition of Done"},{t:"Velocity"}],
+  exp:"Sprint Backlog → Sprint Goal."},
+
+ {type:"single",q:"The commitment for the Increment is the...",
+  opts:[{t:"Definition of Done",c:true},{t:"Sprint Goal"},{t:"Product Goal"},{t:"Acceptance criteria"}],
+  exp:"Increment → Definition of Done."},
+
+ {type:"single",q:"Who is responsible for ordering the Product Backlog?",
+  opts:[{t:"The Product Owner",c:true},{t:"The Developers"},{t:"The Scrum Master"},{t:"The stakeholders"}],
+  exp:"The Product Owner is accountable for ordering the Product Backlog."},
+
+ {type:"single",q:"Who is responsible for sizing/estimating Product Backlog items?",
+  opts:[{t:"The Developers who will do the work",c:true},
+   {t:"The Product Owner"},
+   {t:"The Scrum Master"},
+   {t:"Management"}],
+  exp:"The Developers who will perform the work are responsible for the sizing; the PO may influence by helping them understand trade-offs."},
+
+ {type:"tf",q:"The Sprint Backlog is a plan by and for the Developers.",
+  opts:[{t:"True",c:true},{t:"False"}],
+  exp:"Correct — the Sprint Backlog is a highly visible, real-time plan by and for the Developers."},
+
+ {type:"single",q:"When does work become part of an Increment?",
+  opts:[{t:"When it meets the Definition of Done",c:true},
+   {t:"When the Product Owner verbally accepts it"},
+   {t:"At the Sprint Review"},
+   {t:"When it is deployed to production"}],
+  exp:"Work cannot be considered part of an Increment unless it meets the Definition of Done."},
+
+ {type:"tf",q:"Work that does not meet the Definition of Done can still be presented at the Sprint Review.",
+  opts:[{t:"False",c:true},{t:"True"}],
+  exp:"Correct — if a PBI does not meet the DoD it cannot be released or even presented at the Sprint Review; it returns to the Product Backlog."},
+
+ {type:"single",q:"If the Definition of Done is part of the organization's standards, then...",
+  opts:[{t:"All Scrum Teams must follow it as a minimum",c:true},
+   {t:"Each team may ignore it and create its own"},
+   {t:"Only new teams must follow it"},
+   {t:"It is merely a suggestion"}],
+  exp:"If the DoD is an organizational standard, all Scrum Teams must follow it as a minimum (they may add stricter criteria)."},
+
+ {type:"single",q:"Product Backlog refinement is best described as...",
+  opts:[{t:"The ongoing act of breaking down and further defining Product Backlog items",c:true},
+   {t:"A mandatory Scrum event held weekly"},
+   {t:"Something only the Product Owner performs"},
+   {t:"A one-time activity done before the first Sprint"}],
+  exp:"Refinement is an ongoing activity to add detail, order and estimates to items — not a formal event."},
+
+ {type:"tf",q:"Product Backlog refinement is one of the formal Scrum events.",
+  opts:[{t:"False",c:true},{t:"True"}],
+  exp:"Correct — refinement is an ongoing activity, not a Scrum event. There are exactly five events (the Sprint + 4)."},
+
+ {type:"multi",q:"What are the three pillars of empiricism in Scrum? (select 3)",
+  opts:[{t:"Transparency",c:true},{t:"Inspection",c:true},{t:"Adaptation",c:true},{t:"Commitment"},{t:"Courage"}],
+  exp:"The three pillars of empirical process control are Transparency, Inspection, and Adaptation."},
+
+ {type:"single",q:"Which of the following is NOT one of the five Scrum Values?",
+  opts:[{t:"Transparency",c:true},{t:"Commitment"},{t:"Courage"},{t:"Focus"}],
+  exp:"The five Scrum Values are Commitment, Focus, Openness, Respect, Courage. Transparency is a pillar of empiricism, not a value."},
+
+ {type:"tf",q:"Scrum is founded on empiricism and lean thinking.",
+  opts:[{t:"True",c:true},{t:"False"}],
+  exp:"Correct — Scrum is founded on empiricism and lean thinking."},
+
+ {type:"single",q:"Halfway through the Sprint, the Sprint Goal becomes obsolete. What can happen?",
+  opts:[{t:"The Product Owner may cancel the Sprint",c:true},
+   {t:"The Scrum Master cancels the Sprint"},
+   {t:"The Developers extend the Sprint"},
+   {t:"The Sprint must continue to its planned end"}],
+  exp:"A Sprint may be cancelled if the Sprint Goal becomes obsolete. Only the Product Owner has the authority to cancel a Sprint."},
+
+ {type:"single",q:"Who has the authority to cancel a Sprint?",
+  opts:[{t:"The Product Owner",c:true},{t:"The Scrum Master"},{t:"The Developers"},{t:"Management"}],
+  exp:"Only the Product Owner can cancel a Sprint."},
+
+ {type:"single",q:"A stakeholder approaches a Developer directly with a new high-priority requirement for the current Sprint. What should happen?",
+  opts:[{t:"The request goes to the Product Owner, who decides its place in the Product Backlog",c:true},
+   {t:"The Developer adds it to the Sprint immediately"},
+   {t:"The Scrum Master adds it to the Sprint Backlog"},
+   {t:"The team votes on it during the Daily Scrum"}],
+  exp:"All changes to product priorities flow through the Product Owner, who manages the Product Backlog."},
+
+ {type:"single",q:"The Product Owner is frequently unavailable, leaving the Developers unsure of priorities. What is the best action for the Scrum Master?",
+  opts:[{t:"Coach the organization and the Product Owner on the value of an engaged Product Owner",c:true},
+   {t:"Make the prioritization decisions on the PO's behalf"},
+   {t:"Cancel the Sprint"},
+   {t:"Ask management to replace the Product Owner"}],
+  exp:"The Scrum Master serves by coaching and helping the organization understand the importance of an engaged Product Owner — not by taking over the role."},
+
+ {type:"single",q:"Mid-Sprint the Developers realize they cannot complete all selected Product Backlog items. What is the most appropriate action?",
+  opts:[{t:"They collaborate with the Product Owner to renegotiate the scope, keeping the Sprint Goal in focus",c:true},
+   {t:"Extend the Sprint by a few days"},
+   {t:"Drop items from the Definition of Done to go faster"},
+   {t:"Immediately add more Developers"}],
+  exp:"Scope can be renegotiated with the PO as more is learned; the Sprint length and the DoD are not changed."},
+
+ {type:"single",q:"Several Scrum Teams work on the same product. How should the Product Backlog and Product Goal be handled?",
+  opts:[{t:"They share one Product Backlog, one Product Goal, and one Product Owner",c:true},
+   {t:"Each team keeps its own Product Backlog and Product Owner"},
+   {t:"Each team defines its own Product Goal"},
+   {t:"They never integrate their work until release"}],
+  exp:"If multiple Scrum Teams work on one product, they share one Product Backlog, one Product Goal and one Product Owner."},
+
+ {type:"tf",q:"A Done Increment must be released to customers at the end of every Sprint.",
+  opts:[{t:"False",c:true},{t:"True"}],
+  exp:"Correct — a usable Increment must be produced, but the decision to release is the Product Owner's. An Increment may be delivered before the Sprint ends, and the Review is never a gate to releasing value."},
+
+ {type:"single",q:"Who attends the Sprint Review?",
+  opts:[{t:"The Scrum Team and key stakeholders invited by the Product Owner",c:true},
+   {t:"Only the Scrum Team"},
+   {t:"Only the Developers"},
+   {t:"Only management"}],
+  exp:"The Sprint Review is a working session where the Scrum Team and key stakeholders collaborate on what was done and what to do next."},
+
+ {type:"single",q:"What does it mean that a Scrum Team is self-managing?",
+  opts:[{t:"They internally decide who does what, when, and how",c:true},
+   {t:"They operate without any manager in the company"},
+   {t:"They set their own salaries"},
+   {t:"They choose the Product Goal themselves"}],
+  exp:"Self-managing means the team internally decides who does what, when, and how."},
+
+ {type:"single",q:"How much work do the Developers take into the Sprint?",
+  opts:[{t:"As much as they forecast they can realistically accomplish; this can be negotiated with the PO",c:true},
+   {t:"All items the Product Owner requests"},
+   {t:"Exactly the velocity of the previous Sprint"},
+   {t:"Whatever management mandates"}],
+  exp:"Developers select the amount of work they forecast they can do; the selection is theirs, negotiated with the PO around the Sprint Goal."}
+];
+
+/* ============ APP ============ */
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const $=id=>document.getElementById(id);
+const STKEY="psm1_attempts";
+
+const app={
+  items:[],idx:0,mode:"practice",timed:false,timeLeft:0,timer:null,finished:false,
+
+  loadStats(){
+    let a=[];try{a=JSON.parse(localStorage.getItem(STKEY)||"[]");}catch(e){}
+    const el=$("stats");
+    if(!a.length){el.innerHTML="<span>No attempts yet — give it a go!</span>";return;}
+    const best=Math.max(...a.map(x=>x.pct));
+    const last=a[a.length-1];
+    el.innerHTML=`<span>Attempts: <b>${a.length}</b></span>`+
+      `<span>Best: <b>${best}%</b></span>`+
+      `<span>Last: <b>${last.pct}%</b> ${last.passed?'✅':'❌'}</span>`;
+  },
+
+  start(){
+    this.mode=$("mode").value;
+    this.timed=$("timed").checked;
+    let n=parseInt($("count").value,10);
+    let pool=shuffle(QUESTIONS);
+    if(n>0&&n<pool.length)pool=pool.slice(0,n);
+    this.items=pool.map(q=>({
+      type:q.type,q:q.q,exp:q.exp,
+      opts:shuffle(q.opts),selected:[],checked:false
+    }));
+    this.idx=0;this.finished=false;
+    this.timeLeft=this.items.length*45;
+    $("start").classList.add("hide");
+    $("results").classList.add("hide");
+    $("quiz").classList.remove("hide");
+    if(this.timed){$("timer").classList.remove("hide");this.tick();this.timer=setInterval(()=>this.tick(),1000);}
+    else{$("timer").classList.add("hide");}
+    this.render();
+  },
+
+  tick(){
+    if(this.timeLeft<=0){clearInterval(this.timer);this.submit();return;}
+    const m=Math.floor(this.timeLeft/60),s=this.timeLeft%60;
+    const t=$("timer");t.textContent=`⏱ ${m}:${String(s).padStart(2,"0")}`;
+    t.classList.toggle("low",this.timeLeft<=60);
+    this.timeLeft--;
+  },
+
+  render(){
+    const it=this.items[this.idx],total=this.items.length;
+    $("counter").textContent=`Question ${this.idx+1} of ${total}`;
+    $("pbar").style.width=((this.idx)/total*100)+"%";
+    const typeLabel=it.type==="multi"?`Multiple answer — select ${it.opts.filter(o=>o.c).length}`
+      :it.type==="tf"?"True / False":"Single answer";
+    const isMulti=it.type==="multi";
+    let html=`<span class="qtype">${typeLabel}</span><p class="qtext">${it.q}</p>`;
+    it.opts.forEach((o,i)=>{
+      const sel=it.selected.includes(i);
+      let cls="opt"+(sel?" sel":"");let mark="";
+      if(it.checked){
+        if(o.c){cls="opt correct";mark='<span class="mk">✔ correct</span>';}
+        else if(sel){cls="opt wrong";mark='<span class="mk">✗ your pick</span>';}
+      }
+      html+=`<label class="${cls}" onclick="app.toggle(${i})">`+
+        `<input type="${isMulti?'checkbox':'radio'}" ${sel?'checked':''} ${it.checked?'disabled':''} onclick="event.preventDefault()">`+
+        `<span>${o.t}</span>${mark}</label>`;
+    });
+    $("qbox").innerHTML=html;
+    $("expbox").innerHTML=it.checked?`<div class="exp"><b>Explanation:</b> ${it.exp}</div>`:"";
+    // nav buttons
+    $("prevBtn").disabled=this.idx===0;
+    const last=this.idx===total-1;
+    $("checkBtn").classList.toggle("hide",this.mode!=="practice"||it.checked);
+    $("nextBtn").classList.toggle("hide",last);
+    $("finishBtn").classList.toggle("hide",!last);
+    // practice mode: must check before moving on
+    if(this.mode==="practice"&&!it.checked){$("nextBtn").disabled=true;$("finishBtn").disabled=true;}
+    else{$("nextBtn").disabled=false;$("finishBtn").disabled=false;}
+    this.palette();
+  },
+
+  palette(){
+    const p=$("palette");p.innerHTML="";
+    this.items.forEach((it,i)=>{
+      const d=document.createElement("div");
+      d.className="pdot"+(it.selected.length?" done":"")+(i===this.idx?" cur":"");
+      d.textContent=i+1;d.onclick=()=>{this.idx=i;this.render();};
+      p.appendChild(d);
+    });
+  },
+
+  toggle(i){
+    const it=this.items[this.idx];
+    if(it.checked)return;
+    if(it.type==="multi"){
+      const k=it.selected.indexOf(i);
+      if(k>=0)it.selected.splice(k,1);else it.selected.push(i);
+    }else{it.selected=[i];}
+    this.render();
+  },
+
+  check(){
+    const it=this.items[this.idx];
+    if(!it.selected.length)return;
+    it.checked=true;this.render();
+  },
+
+  isCorrect(it){
+    const correct=it.opts.map((o,i)=>o.c?i:-1).filter(i=>i>=0).sort();
+    const sel=it.selected.slice().sort();
+    return correct.length===sel.length&&correct.every((v,i)=>v===sel[i]);
+  },
+
+  next(){if(this.idx<this.items.length-1){this.idx++;this.render();}},
+  prev(){if(this.idx>0){this.idx--;this.render();}},
+
+  submit(){
+    if(this.timer)clearInterval(this.timer);
+    this.finished=true;
+    const total=this.items.length;
+    let correct=0;this.items.forEach(it=>{if(this.isCorrect(it))correct++;});
+    const pct=Math.round(correct/total*100);
+    const passed=pct>=85;
+    // save stats
+    let a=[];try{a=JSON.parse(localStorage.getItem(STKEY)||"[]");}catch(e){}
+    a.push({date:Date.now(),mode:this.mode,count:total,correct,pct,passed});
+    try{localStorage.setItem(STKEY,JSON.stringify(a.slice(-50)));}catch(e){}
+    this.results(correct,total,pct,passed);
+  },
+
+  results(correct,total,pct,passed){
+    $("quiz").classList.add("hide");
+    const r=$("results");r.classList.remove("hide");
+    let html=`<div class="score"><div class="pct ${passed?'pass':'fail'}">${pct}%</div>`+
+      `<div class="verdict ${passed?'pass':'fail'}">${passed?'PASS ✅':'NOT YET ❌'}</div>`+
+      `<div class="rsum"><span>Correct: ${correct}/${total}</span><span>Pass mark: 85%</span></div></div>`;
+    html+=`<div class="nav" style="justify-content:center;margin-top:18px">`+
+      `<button class="btn" onclick="app.start()">Retake (new shuffle) ↻</button>`+
+      `<button class="btn ghost" onclick="app.home()">Back to start</button></div>`;
+    html+=`<div class="review"><h3>Review</h3>`;
+    this.items.forEach((it,n)=>{
+      const ok=this.isCorrect(it);
+      const yours=it.selected.length?it.selected.map(i=>it.opts[i].t).join("; "):"(no answer)";
+      const cors=it.opts.filter(o=>o.c).map(o=>o.t).join("; ");
+      html+=`<div class="ritem"><span class="badge ${ok?'ok':'no'}">${ok?'Correct':'Wrong'}</span>`+
+        `<div class="rq">${n+1}. ${it.q}</div>`+
+        `<div class="ra you">Your answer: ${yours}</div>`+
+        (ok?'':`<div class="ra cor">Correct: ${cors}</div>`)+
+        `<div class="exp" style="margin-top:8px"><b>Why:</b> ${it.exp}</div></div>`;
+    });
+    html+=`</div>`;
+    r.innerHTML=html;
+    window.scrollTo(0,0);
+  },
+
+  home(){
+    $("results").classList.add("hide");
+    $("quiz").classList.add("hide");
+    $("start").classList.remove("hide");
+    this.loadStats();
+    window.scrollTo(0,0);
+  }
+};
+app.loadStats();
+</script>
+</body>
+</html>
