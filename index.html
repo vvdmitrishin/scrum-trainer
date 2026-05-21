@@ -7,7 +7,7 @@
 <style>
   :root{
     --bg:#0e131b; --panel:#161d28; --panel2:#1d2735; --line:#2a3647;
-    --txt:#e6edf5; --muted:#8aa0b6; --accent:#2dd4bf; --accent2:#38bdf8;
+    --txt:#e6edf5; --muted:#8aa0b6; --accent:#219AB5; --accent2:#3FB7CE; --slate:#40586F;
     --ok:#34d399; --bad:#f87171; --warn:#fbbf24;
   }
   *{box-sizing:border-box}
@@ -16,8 +16,8 @@
     color:var(--txt);min-height:100vh;line-height:1.5}
   .wrap{max-width:840px;margin:0 auto;padding:24px 18px 60px}
   header.top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-  .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));
-    display:grid;place-items:center;font-weight:800;color:#04222b;font-size:19px}
+  .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--slate));
+    display:grid;place-items:center;font-weight:800;color:#fff;font-size:19px}
   h1{font-size:21px;margin:0;font-weight:800}
   .sub{color:var(--muted);font-size:13px}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px;
@@ -55,13 +55,13 @@
   .timer.low{color:var(--bad);border-color:var(--bad)}
   .progress{height:6px;background:var(--panel2);border-radius:99px;overflow:hidden;margin-bottom:18px}
   .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.3s}
-  .qtype{display:inline-block;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--accent);background:rgba(45,212,191,.12);padding:3px 9px;border-radius:99px;margin-bottom:10px}
-  .qcat{display:inline-block;font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:var(--accent2);background:rgba(56,189,248,.12);padding:3px 9px;border-radius:99px;margin:0 0 10px 6px}
+  .qtype{display:inline-block;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--accent);background:rgba(33,154,181,.16);padding:3px 9px;border-radius:99px;margin-bottom:10px}
+  .qcat{display:inline-block;font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:var(--accent2);background:rgba(63,183,206,.16);padding:3px 9px;border-radius:99px;margin:0 0 10px 6px}
   .qtext{font-size:18px;font-weight:600;margin:0 0 18px}
   .opt{display:flex;align-items:flex-start;gap:12px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:13px 15px;margin-bottom:10px;cursor:pointer;transition:.12s}
   .opt:hover{border-color:var(--accent2)}
   .opt input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent);flex-shrink:0}
-  .opt.sel{border-color:var(--accent);background:rgba(56,189,248,.08)}
+  .opt.sel{border-color:var(--accent);background:rgba(63,183,206,.10)}
   .opt.correct{border-color:var(--ok);background:rgba(52,211,153,.12)}
   .opt.wrong{border-color:var(--bad);background:rgba(248,113,113,.12)}
   .opt .mk{margin-left:auto;font-weight:700;font-size:13px}
