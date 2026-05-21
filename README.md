@@ -68,3 +68,7 @@ Each `data/<id>.js` is an IIFE that registers a bank into `window.BANKS`:
 ```
 
 Rules: `single` = exactly 1 correct, `multi` = 2+ correct, `tf` = 2 options (True/False) with 1 correct. Every `cat` must exist in `cats`. To add a new certification, drop a new `data/<id>.js`, add a `<script>` tag in `index.html`, and (optionally) place its id in `CERT_ORDER` in `app.js`.
+
+## Disclaimer
+
+This tool was created **solely for personal preparation for the certification exams** and has **no commercial purpose**. The questions are original study material written against the official Scrum guides — they are **not** real exam questions. "Scrum.org" and the certification names (PSM, PSPO, PAL, PSD, PSK, PPDV, and others) are trademarks of their respective owners; this project is **not affiliated with, sponsored by, or endorsed by Scrum.org**. For official, authoritative information about the certifications and assessments, visit **https://www.scrum.org/**.
