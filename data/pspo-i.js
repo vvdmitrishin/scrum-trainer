@@ -134,10 +134,12 @@ window.BANKS["pspo-i"] = {
       {t:"Productivity"}
     ], exp:"The Scrum Guide 2020 lists five Scrum values: Commitment, Focus, Openness, Respect, and Courage. Velocity and productivity are sometimes-used metrics, not Scrum values, and can even work against the values when overemphasized." },
 
-    { type:"tf", cat:"framework", q:"The Sprint Goal is the single objective of the Sprint and is the commitment for the Sprint Backlog.", opts:[
-      {t:"True",c:true},
-      {t:"False"}
-    ], exp:"The Scrum Guide 2020 states the Sprint Goal is the single objective for the Sprint and is the commitment for the Sprint Backlog. Each artifact contains a commitment: Product Backlog → Product Goal; Sprint Backlog → Sprint Goal; Increment → Definition of Done." },
+    { type:"single", cat:"framework", q:"A Developer asks during Sprint Planning, 'What exactly are we committing to this Sprint?' What is the most accurate answer per the Scrum Guide 2020?", opts:[
+      {t:"The Sprint Goal — a single objective for the Sprint; the selected Product Backlog items are a forecast that may be renegotiated to achieve the goal.",c:true},
+      {t:"The full set of Product Backlog items selected during Sprint Planning, exactly as listed."},
+      {t:"The team's average velocity, expressed in story points."},
+      {t:"Whatever the Product Owner promises to stakeholders before the Sprint begins."}
+    ], exp:"The Scrum Guide 2020 states the Sprint Goal is the single objective for the Sprint and is the commitment for the Sprint Backlog. The selected items are a forecast; scope may be renegotiated with the Product Owner as more is learned, while the Sprint Goal stays intact. Velocity is an empirical observation, not a commitment device." },
 
     { type:"single", cat:"framework", q:"Why does Scrum limit a Sprint to a maximum of one month?", opts:[
       {t:"When a Sprint's horizon is too long, the Sprint Goal may become invalid, complexity may rise, and risk may increase; shorter cycles enable more frequent inspection and adaptation.",c:true},
@@ -304,10 +306,12 @@ window.BANKS["pspo-i"] = {
       {t:"Stakeholders, who fund the work."}
     ], exp:"The Scrum Guide 2020 states the Developers who will be doing the work are responsible for the sizing. The Product Owner may influence them by helping them understand and select trade-offs, but the size is owned by those who will deliver." },
 
-    { type:"tf", cat:"backlog", q:"The Product Backlog is the single source of work undertaken by the Scrum Team.", opts:[
-      {t:"True",c:true},
-      {t:"False"}
-    ], exp:"The Scrum Guide 2020 explicitly states the Product Backlog is an emergent, ordered list of what is needed to improve the product. It is the single source of work undertaken by the Scrum Team. Work that does not appear in the Product Backlog should not be undertaken by the Scrum Team." },
+    { type:"single", cat:"backlog", q:"A line manager asks the Scrum Team's Developers to spend a few hours each week on a side maintenance project that is not in the Product Backlog. What is the most appropriate response per the Scrum Guide 2020?", opts:[
+      {t:"Decline; if the work has value, it should be added to the Product Backlog where the Product Owner can order it against other items.",c:true},
+      {t:"Accept; small side requests do not affect Scrum so long as the Sprint Goal is met."},
+      {t:"Accept only if the Scrum Master approves."},
+      {t:"Accept and ask the Product Owner to reduce the Sprint Backlog to compensate."}
+    ], exp:"The Scrum Guide 2020 states the Product Backlog is the single source of work undertaken by the Scrum Team. Work outside it bypasses the Product Owner's ordering authority and undermines transparency. If the maintenance work is valuable it belongs in the Product Backlog, ordered by the Product Owner against other work." },
 
     { type:"single", cat:"backlog", q:"What does the Sprint Goal provide for the Sprint Backlog?", opts:[
       {t:"It is the single objective of the Sprint and the commitment for the Sprint Backlog, providing focus and flexibility about how it is achieved.",c:true},
@@ -371,10 +375,12 @@ window.BANKS["pspo-i"] = {
       {t:"Detail is determined only by stakeholder requests, not position."}
     ], exp:"The Scrum Guide 2020 describes refinement as the act of breaking down and further defining Product Backlog items into smaller, more precise items. This is an ongoing activity, and items are refined more as they move higher in the order, so that the most imminent items have enough detail and small enough size to be selected in Sprint Planning." },
 
-    { type:"tf", cat:"backlog", q:"Only the Product Owner can add, remove, or reorder items in the Product Backlog.", opts:[
-      {t:"True",c:true},
-      {t:"False"}
-    ], exp:"The Scrum Guide 2020 states the Product Owner is accountable for the Product Backlog, including its content, availability, and ordering. While anyone may propose changes, only the Product Owner has the authority to decide what enters, what is removed, and in what order. The whole organization must respect those decisions." },
+    { type:"single", cat:"backlog", q:"A Developer feels strongly that a particular Product Backlog item is in the wrong order and would like it moved up. What is the most appropriate path per the Scrum Guide 2020?", opts:[
+      {t:"The Developer raises the concern with the Product Owner, who weighs the input and decides; the Product Owner remains accountable for ordering the Product Backlog.",c:true},
+      {t:"The Developer reorders the item directly, since the Scrum Team is self-managing."},
+      {t:"The Scrum Master decides between the Developer's and the Product Owner's view."},
+      {t:"The team votes on the new order during the next Daily Scrum."}
+    ], exp:"The Scrum Guide 2020 states the Product Owner is accountable for the Product Backlog, including its content, availability, and ordering. Anyone — Developers included — can propose changes, but the decision is the Product Owner's. Self-management refers to the Developers' work, not authority over the Product Backlog." },
 
     { type:"single", cat:"stakeholders", q:"Who attends the Sprint Review?", opts:[
       {t:"The Scrum Team and key stakeholders invited by the Product Owner.",c:true},
@@ -465,10 +471,12 @@ window.BANKS["pspo-i"] = {
       {t:"The organization's QA department exclusively, who hands it to the team."}
     ], exp:"The Scrum Guide 2020 states that if the Definition of Done is part of the standards of the organization, all Scrum Teams must follow it as a minimum. If it is not an organizational standard, the Scrum Team must create a Definition of Done appropriate for the product. The whole Scrum Team owns the DoD." },
 
-    { type:"tf", cat:"framework", q:"When multiple Scrum Teams work together on the same product, each team can maintain its own independent Definition of Done with no overlap with the others.", opts:[
-      {t:"True"},
-      {t:"False",c:true}
-    ], exp:"False. The Scrum Guide 2020 states that if there are multiple Scrum Teams working together on a product, they must mutually define and comply with the same Definition of Done. Individual teams may add stricter criteria for their own context, but the shared product Increment must meet a shared minimum bar." },
+    { type:"single", cat:"framework", q:"Three Scrum Teams collaborate on the same product. Each team has historically used a different Definition of Done. What does the Scrum Guide 2020 require?", opts:[
+      {t:"The teams must mutually define and comply with the same Definition of Done; individual teams may add stricter criteria but the shared Increment must meet a shared minimum bar.",c:true},
+      {t:"Each team keeps its own Definition of Done; the strongest one applies to the integrated Increment."},
+      {t:"The Product Owner picks one Definition of Done and imposes it on all three teams."},
+      {t:"The Scrum Master of each team negotiates a separate DoD per Sprint."}
+    ], exp:"The Scrum Guide 2020 states that if there are multiple Scrum Teams working together on a product, they must mutually define and comply with the same Definition of Done. A shared DoD is what allows their work to integrate into a single Increment with consistent quality. Individual teams may add stricter criteria for their own work, but they cannot weaken the shared bar." },
 
     { type:"single", cat:"framework", q:"At the end of a Sprint, several Product Backlog items selected for the Sprint do not meet the Definition of Done. What happens to them?", opts:[
       {t:"They are not part of the Increment and return to the Product Backlog; the Product Owner orders them along with other work.",c:true},
@@ -477,10 +485,12 @@ window.BANKS["pspo-i"] = {
       {t:"They are released as 'beta' versions to gather user feedback."}
     ], exp:"The Scrum Guide 2020 states that work that does not meet the Definition of Done cannot be released, presented at Sprint Review, or counted toward the Increment. Such items are returned to the Product Backlog and the Product Owner decides their next ordering based on remaining value." },
 
-    { type:"tf", cat:"framework", q:"The Increment may be delivered to stakeholders at any time during the Sprint, not only at the Sprint Review.", opts:[
-      {t:"True",c:true},
-      {t:"False"}
-    ], exp:"The Scrum Guide 2020 explicitly states the Increment may be delivered to stakeholders prior to the end of the Sprint. The Sprint Review should never be considered a gate to releasing value. Multiple Increments may be created within a Sprint, and the Product Owner decides when to release." },
+    { type:"single", cat:"framework", q:"On the Tuesday of a two-week Sprint, the Developers complete a Product Backlog item that meets the Definition of Done and delivers customer value. The Sprint Review is the following Friday. When can this Increment be released?", opts:[
+      {t:"Immediately, if the Product Owner decides to release it; the Sprint Review is not a gate to releasing value.",c:true},
+      {t:"Only after the Sprint Review, since stakeholders must inspect the work first."},
+      {t:"Only at the end of the Sprint, alongside all other Done items."},
+      {t:"Only after the next quarterly release cycle."}
+    ], exp:"The Scrum Guide 2020 explicitly states the Increment may be delivered to stakeholders prior to the end of the Sprint, and the Sprint Review should never be considered a gate to releasing value. Multiple Increments may be created within a Sprint. The Product Owner decides when the Increment is released — continuous delivery as soon as Done is fully Scrum-compliant." },
 
     { type:"single", cat:"framework", q:"A Product Owner is concerned that a particular Developer has been carrying too much of a critical area. What is the Product Owner's most appropriate action?", opts:[
       {t:"Raise the concern transparently with the Scrum Team; the Developers, as a self-managing team, decide internally who does what.",c:true},
@@ -560,10 +570,12 @@ window.BANKS["pspo-i"] = {
       {t:"Three parallel components assigned to three different Developers for separate delivery."}
     ], exp:"To produce a usable Increment each Sprint, items should be split vertically — each slice contains all layers (UI, logic, data) needed to deliver value end-to-end. Horizontal (technical-layer) splits leave you with an unreleasable mid-state. Vertical slicing also supports clearer customer feedback per slice." },
 
-    { type:"tf", cat:"backlog", q:"Defects in the product belong in a separate bug-tracking system outside the Product Backlog so they don't compete with feature work for the Product Owner's attention.", opts:[
-      {t:"True"},
-      {t:"False",c:true}
-    ], exp:"False. The Scrum Guide 2020 states the Product Backlog is the single source of work undertaken by the Scrum Team. Defects, like any other work that affects product value, belong in the Product Backlog so the Product Owner can order them against other items by value, risk, and other factors — and so transparency is preserved." },
+    { type:"single", cat:"backlog", q:"A support team forwards 12 production defects to the Scrum Team this week. The Developers want to know where to record them so the work is transparent. What is the best approach?", opts:[
+      {t:"Capture each defect as a Product Backlog item; the Product Owner orders them against features by value, risk, and other factors.",c:true},
+      {t:"Keep defects in a separate bug-tracker so they don't dilute the feature backlog."},
+      {t:"Push all 12 defects directly into the current Sprint Backlog regardless of the Sprint Goal."},
+      {t:"Let the Scrum Master triage defects privately and decide which ones reach the team."}
+    ], exp:"The Scrum Guide 2020 states the Product Backlog is the single source of work undertaken by the Scrum Team. Defects belong on it like any other work, ordered by the Product Owner based on value, risk, and other factors — preserving transparency. Pushing them into the current Sprint without regard for the Sprint Goal, or hiding them in a parallel tracker, both violate Scrum principles." },
 
     { type:"single", cat:"backlog", q:"A Product Owner discovers the Developers have been carrying significant technical debt that is starting to slow new feature delivery. From an EBM perspective, what is the most appropriate response?", opts:[
       {t:"Treat technical debt reduction as Product Backlog work that competes for ordering with features, recognizing it directly affects Ability to Innovate (A2I).",c:true},
@@ -653,10 +665,12 @@ window.BANKS["pspo-i"] = {
       {t:"Only once per quarter to align with reporting cycles."}
     ], exp:"The Scrum Guide 2020 states the Sprint Review should never be considered a gate to releasing value, and multiple Increments may be created within a Sprint. The Product Owner decides when the Increment is released. Continuous delivery — release as soon as Done — improves Time to Market (an EBM KVA)." },
 
-    { type:"tf", cat:"forecasting", q:"Story points should be directly converted to hours so stakeholders can be given a precise time estimate.", opts:[
-      {t:"True"},
-      {t:"False",c:true}
-    ], exp:"False. As Mike Cohn explains, story points are relative ratios reflecting effort, complexity, and risk — not durations. Converting them to hours defeats their purpose and reintroduces single-point time estimation, which is poor at forecasting in complex work. Velocity (points per Sprint) lets the team forecast capacity empirically without per-point hour conversion." },
+    { type:"single", cat:"forecasting", q:"A stakeholder asks the Product Owner, 'If one story point equals two hours, how many hours will this 13-point item take?' What is the most appropriate response?", opts:[
+      {t:"Decline the conversion and offer an empirical forecast instead: based on recent throughput, communicate how soon similar items have historically been completed.",c:true},
+      {t:"Multiply 13 by 2 and report 26 hours as the precise estimate."},
+      {t:"Ask the Developers to re-estimate the item in hours."},
+      {t:"Refuse to forecast anything since Scrum does not allow predictions."}
+    ], exp:"Story points are relative ratios reflecting effort, complexity, and risk — not durations. Converting them to hours defeats their purpose and reintroduces single-point time estimation, which is poor at forecasting complex work. Empirical, throughput-based forecasts are the appropriate response; Scrum supports forecasting using evidence." },
 
     { type:"single", cat:"forecasting", q:"Mid-Sprint, the Developers discover one of the selected items is significantly larger than estimated and threatens the Sprint Goal. What is the appropriate course of action?", opts:[
       {t:"The Developers and Product Owner renegotiate the scope of the Sprint Backlog to protect the Sprint Goal; only the PO can cancel the Sprint if the goal becomes obsolete.",c:true},
@@ -677,19 +691,19 @@ window.BANKS["pspo-i"] = {
       {t:"False"}
     ], exp:"True. Per Scrum.org and the EBM Guide, the Sprint Goal is the single near-term objective for a Sprint — fitting the EBM definition of an Immediate Tactical Goal that a team works to in the very short term to move toward an Intermediate Goal (Product Goal)." },
 
-    { type:"single", cat:"strategy", q:"Roman Pichler describes a hierarchy of product-direction artifacts. Which order is correct, from longest-term to most-tactical?", opts:[
+    { type:"single", cat:"strategy", q:"A Product Owner is mapping how product-direction artifacts relate to each other. Which order is correct, from longest-term to most-tactical?", opts:[
       {t:"Vision → Strategy → Roadmap → Product Backlog.",c:true},
       {t:"Product Backlog → Roadmap → Strategy → Vision."},
       {t:"Roadmap → Vision → Strategy → Product Backlog."},
       {t:"Vision → Roadmap → Strategy → Product Backlog."}
-    ], exp:"The widely-used Pichler hierarchy: the Vision describes the long-term future state, the Strategy explains how to reach it (problem, market, differentiators, business goals), the Roadmap is a medium-term outcome-based plan, and the Product Backlog is the emergent list of items that will deliver the next steps. Each layer becomes more concrete and shorter-horizon." },
+    ], exp:"The Vision describes the long-term future state of the product. The Strategy explains how to reach it (problem, market, differentiators, business goals). The Roadmap is a medium-term outcome-based plan. The Product Backlog is the emergent list of items that will deliver the next steps. Each layer becomes more concrete and shorter-horizon. The Scrum Guide 2020's Product Goal lives inside the Product Backlog as its commitment." },
 
-    { type:"single", cat:"strategy", q:"A 'North Star Metric' is best described as:", opts:[
-      {t:"A single leading indicator of sustainable customer value that ties product work to long-term business outcomes.",c:true},
+    { type:"single", cat:"strategy", q:"A Product Owner wants a single guiding metric the Scrum Team can use to steer in-flight product decisions, that ties day-to-day work to long-term business outcomes. Which kind of metric is most appropriate?", opts:[
+      {t:"A leading indicator of sustainable customer value (e.g. weekly active users delivering the product's core action).",c:true},
       {t:"A lagging revenue indicator reviewed only at year-end."},
-      {t:"A vanity metric used in marketing campaigns."},
+      {t:"A vanity metric (e.g. total cumulative downloads since launch)."},
       {t:"The team's velocity normalized across Sprints."}
-    ], exp:"The North Star Metric (popularized by Sean Ellis and Amplitude) is a single leading indicator chosen to represent the value the product delivers to customers, intentionally tied to long-term business outcomes. It cannot usually be moved directly, forcing teams to build real value rather than game a number. Velocity and vanity metrics are explicitly contrasted with this concept." },
+    ], exp:"A single guiding customer-value metric must be a leading indicator — one that the team can move now and that predicts long-term outcomes. Lagging indicators arrive too late to steer. Vanity metrics only trend up and cannot drive decisions. Velocity is an internal team measure of output, not customer value. EBM stresses managing toward outcomes rather than output." },
 
     { type:"single", cat:"strategy", q:"Per Scrum.org's 'Managing Products with Agility' competency, one of the Product Owner's core responsibilities under 'Business Strategy' is best described as:", opts:[
       {t:"Bridging the organization's mission and strategy to product execution, aligning product decisions with strategy and adapting based on Increment feedback.",c:true},
@@ -701,7 +715,63 @@ window.BANKS["pspo-i"] = {
     { type:"tf", cat:"strategy", q:"When multiple Scrum Teams work on the same product, each team should set its own Product Goal aligned with its slice of the work.", opts:[
       {t:"True"},
       {t:"False",c:true}
-    ], exp:"False. The Scrum Guide 2020 is explicit: multiple Scrum Teams working together on the same product share the same Product Goal, Product Backlog, and Product Owner. One product → one Product Goal, regardless of how many teams contribute." }
+    ], exp:"False. The Scrum Guide 2020 is explicit: multiple Scrum Teams working together on the same product share the same Product Goal, Product Backlog, and Product Owner. One product → one Product Goal, regardless of how many teams contribute." },
+
+    { type:"single", cat:"framework", q:"During refinement, a Product Owner begins specifying which database tables and class structures the Developers should use to implement an item. What is the most accurate description of this behavior?", opts:[
+      {t:"It is a Product Owner anti-pattern; the Developers, as a self-managing team, decide how the work is technically implemented.",c:true},
+      {t:"It is appropriate as long as the Product Owner has a technical background."},
+      {t:"It is the Product Owner's accountability under 'effective Product Backlog management.'"},
+      {t:"It is required by Scrum so that Sprint Planning can finish on time."}
+    ], exp:"The Scrum Guide 2020 states the Scrum Team is self-managing — the Developers internally decide who does what, when, and how. The Product Owner is accountable for what and why (value, ordering, the Product Goal), not for how the work is implemented. Dictating implementation is a 'Controller' Product Owner anti-pattern that erodes Developer ownership." },
+
+    { type:"single", cat:"framework", q:"During Sprint Planning, the Developers are deciding which Product Backlog items to select for the Sprint. The Product Owner says, 'I'll select these eight items because I think they're the right ones.' What is the most appropriate correction?", opts:[
+      {t:"The Developers select how many items they take on; the Product Owner ensures the team understands value and trade-offs but does not select on the team's behalf.",c:true},
+      {t:"The Product Owner is correct — the PO has final say on which items are pulled into the Sprint."},
+      {t:"The Scrum Master should select the items as a neutral party."},
+      {t:"Stakeholders should be consulted to break the tie."}
+    ], exp:"The Scrum Guide 2020 states that through discussion with the Product Owner, the Developers select items from the Product Backlog to include in the current Sprint. The Developers know best what they can accomplish. The Product Owner helps clarify and influences ordering, but does not pull items on the team's behalf." },
+
+    { type:"single", cat:"framework", q:"A Product Owner is preparing for refinement and is considering writing all backlog item details alone, then handing the items to the Developers fully specified. What is the most appropriate stance per the Scrum Guide 2020?", opts:[
+      {t:"Refinement is an ongoing activity of the whole Scrum Team; the PO collaborates with Developers (who size and add technical perspective) and may invite stakeholders as needed.",c:true},
+      {t:"The Product Owner should write items alone to avoid wasting Developer time."},
+      {t:"Refinement is a Scrum Master responsibility; the PO contributes items only."},
+      {t:"Refinement only happens during Sprint Planning."}
+    ], exp:"The Scrum Guide 2020 describes refinement as an ongoing activity. The Product Owner is accountable for the Product Backlog content, but Developers do the sizing and contribute technical perspective. A PO who refines alone misses Developer insight (feasibility, dependencies, splitting) and undermines the whole-team responsibility for a high-quality backlog." },
+
+    { type:"single", cat:"framework", q:"Mid-Sprint, a Developer realizes they should swap one selected item for a different Product Backlog item that better serves the Sprint Goal. What is the appropriate path?", opts:[
+      {t:"The Developer discusses the change with the Product Owner; the Sprint Backlog is updated collaboratively, with the Sprint Goal protected.",c:true},
+      {t:"The Developer makes the swap silently — the Sprint Backlog is a Developer-owned plan."},
+      {t:"The change must wait for the next Sprint Planning."},
+      {t:"The Scrum Master decides whether the swap is allowed."}
+    ], exp:"The Scrum Guide 2020 states the Sprint Backlog is updated throughout the Sprint as more is learned, and scope can be renegotiated with the Product Owner. The Developers own the Sprint Backlog (the plan by and for the Developers), but changes that affect the work selected — and therefore the path to the Sprint Goal — are made in collaboration with the Product Owner." },
+
+    { type:"single", cat:"framework", q:"Mid-Sprint, a Product Owner walks up to a Developer and says: 'Stop what you are doing and start this new item I just thought of.' What is the most appropriate framing per Scrum?", opts:[
+      {t:"This violates Developer self-management; the PO can propose changes to the Sprint Backlog through collaboration with the Developers, but cannot direct individual Developer work.",c:true},
+      {t:"This is the PO's right since they are accountable for value."},
+      {t:"This is appropriate if the new item has higher business value than the current work."},
+      {t:"This is appropriate as long as the Scrum Master is informed."}
+    ], exp:"The Scrum Guide 2020 states the Scrum Team is self-managing — the Developers decide who does what, when, and how. The Product Owner cannot reassign work or interrupt Developer tasks. Mid-Sprint changes to the Sprint Backlog must be negotiated with the Developers as a whole and must protect the Sprint Goal. Direct command of individual Developers is a Product Owner anti-pattern." },
+
+    { type:"single", cat:"stakeholders", q:"A customer interview produces the request: 'Add a one-click export-to-PDF button to the dashboard.' What is the most professional first step for the Product Owner?", opts:[
+      {t:"Probe the underlying problem the customer is trying to solve; the requested feature is a hypothesis about a solution, not the actual need.",c:true},
+      {t:"Add the requested item to the Product Backlog exactly as worded."},
+      {t:"Decline the request because it sounds like an output, not an outcome."},
+      {t:"Forward the request to the Developers to implement during Sprint Planning."}
+    ], exp:"Customer-stated solutions are hypotheses about value, not validated needs. Recognized Product Owner practice (continuous discovery, Jobs-to-be-Done) is to probe the underlying problem — what is the customer trying to accomplish, why now, what happens today — before committing to any solution. The actual need may be solved better by a different capability than the one requested." },
+
+    { type:"single", cat:"stakeholders", q:"A team is using personas to align discussions about whom the product serves. A new team member asks, 'Are these real people we are designing for?' What is the most accurate description of how personas should be used?", opts:[
+      {t:"Personas are research-based archetypes representing a target user segment; they are alignment tools, not substitutes for real customer feedback.",c:true},
+      {t:"Personas are randomly invented characters used to add color to design discussions."},
+      {t:"Personas are exact transcripts of specific real customers, including their names and emails."},
+      {t:"Personas are Scrum artifacts defined in the Scrum Guide 2020."}
+    ], exp:"Personas are archetypes synthesized from real customer research and used to align the team's thinking about whom they serve. They are not random invention, not substitutes for real customer feedback, and not Scrum artifacts — the Scrum Guide 2020 does not define personas. They are a widely-used Product Owner practice for stakeholder/customer focus." },
+
+    { type:"single", cat:"stakeholders", q:"A stakeholder submits a Product Backlog item titled 'Add a dropdown of saved filters next to the search bar.' What additional content would most improve this item for the Scrum Team?", opts:[
+      {t:"A clear statement of the underlying user problem the item is meant to solve, so the Developers and Product Owner can design the right solution and measure its effect.",c:true},
+      {t:"A precise hour estimate written by the stakeholder."},
+      {t:"A mandatory deadline date set by the stakeholder."},
+      {t:"A list of which specific Developer should implement it."}
+    ], exp:"Effective Product Backlog items describe the problem and the desired outcome, not just a prescribed solution. This lets the Scrum Team discuss alternatives, validate assumptions, and measure whether the work actually delivers the intended value. Hour estimates from stakeholders, externally-imposed dates, and assigning specific Developers all undermine empirical, self-managed work." }
   ]
 };
 })();
