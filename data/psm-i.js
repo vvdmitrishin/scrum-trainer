@@ -5,12 +5,12 @@ window.BANKS["psm-i"] = {
   short: "PSM I",
   name: "Professional Scrum Master I",
   url: "https://www.scrum.org/assessments/professional-scrum-master-i-certification",
-  source: "Scrum Guide 2020",
+  source: "Scrum Guide 2020 + Professional Scrum Competencies + Nexus Guide + Scrum Master Stances",
   pass: 85,
   examCount: 80,
   minutes: 60,
   status: "complete",
-  cats: { theory:"Theory & Values", team:"Scrum Team", events:"Events", artifacts:"Artifacts" },
+  cats: { theory:"Theory & Values", team:"Scrum Team", events:"Events", artifacts:"Artifacts", people:"Developing People & Teams", product:"Managing Products (SM service)" },
   questions: [
     /* ---------------- THEORY & VALUES ---------------- */
     { type:"multi", cat:"theory", q:"What are the three pillars of empiricism in Scrum? (select 3)",
@@ -270,7 +270,109 @@ window.BANKS["psm-i"] = {
       exp:"The Product Backlog is an emergent, ordered list of what is needed to improve the product; it is the single source of work for the Scrum Team." },
     { type:"single", cat:"artifacts", q:"New work is discovered mid-Sprint that is needed to meet the Sprint Goal. What do the Developers do?",
       opts:[{t:"Add it to the Sprint Backlog as part of their plan",c:true},{t:"Wait until the next Sprint Planning"},{t:"Ask the Scrum Master to approve it"},{t:"Create a change request for management"}],
-      exp:"The Sprint Backlog is updated throughout the Sprint; Developers add newly discovered work needed to meet the Sprint Goal." }
+      exp:"The Sprint Backlog is updated throughout the Sprint; Developers add newly discovered work needed to meet the Sprint Goal." },
+
+    /* ---------------- DEVELOPING PEOPLE & TEAMS ---------------- */
+    { type:"single", cat:"people", q:"A team is repeatedly stuck on a recurring issue they could resolve themselves with effort. A coaching Scrum Master would most likely:",
+      opts:[{t:"Ask the team open-ended questions to help them find their own answer",c:true},{t:"Tell the team exactly what to do based on the SM's prior experience"},{t:"Solve the problem personally so the team can focus on Sprint work"},{t:"Escalate to management to fix it for the team"}],
+      exp:"Coaching unlocks the team's own potential through powerful questions, never giving the answer. Telling-by-experience is mentoring; solving-it is the 'Scrum Mom' anti-pattern; escalating prematurely removes the team's chance to grow." },
+
+    { type:"single", cat:"people", q:"A new Developer asks 'What does Definition of Done actually mean?' Which Scrum Master stance is most appropriate?",
+      opts:[{t:"Teaching — transfer the explicit knowledge of what DoD is",c:true},{t:"Coaching — ask 'What do you think it means?' until they discover it themselves"},{t:"Mentoring — share a story of when DoD helped on a past team"},{t:"Facilitating — design a neutral process for the team to discuss it"}],
+      exp:"Teaching transfers explicit knowledge — the right stance when there is a clear concept gap. Coaching is wasteful when the person literally does not know the framework yet. Mentoring shares experience for harder, contextual problems. Facilitating is process-neutral and inappropriate for definition transfer." },
+
+    { type:"single", cat:"people", q:"A new Product Owner is struggling to order their first Product Backlog and asks the experienced Scrum Master for help. Which stance is most appropriate?",
+      opts:[{t:"Mentor — share the SM's experience and concrete techniques that worked in similar situations",c:true},{t:"Coach — ask only open-ended questions and let the PO struggle indefinitely"},{t:"Manager — take over the ordering until the PO is ready"},{t:"Stakeholder — invite stakeholders to decide for the PO"}],
+      exp:"Mentoring is appropriate when the SM has relevant experience and the other person needs concrete help. Coaching is right when they have knowledge but need their own insight. Manager-style task-takeover is an anti-pattern; involving stakeholders does not help the PO grow." },
+
+    { type:"single", cat:"people", q:"The Developers ask whether the Scrum Master will run the Daily Scrum. What is the most accurate response per the Scrum Guide 2020?",
+      opts:[{t:"No — the Daily Scrum is for the Developers; the SM ensures it happens and stays within the timebox but does not run it",c:true},{t:"Yes — the SM facilitates every Scrum event including the Daily Scrum"},{t:"Yes — and the SM should record attendance for management visibility"},{t:"Only on Mondays — and asks each Developer three set questions"}],
+      exp:"The Scrum Guide 2020 explicitly states the Daily Scrum is for the Developers. The SM ensures it happens and stays within the 15-minute timebox but does not run it. The 'three questions' format was removed in 2020 — Developers may structure it as they wish." },
+
+    { type:"single", cat:"people", q:"During Sprint Planning, the Scrum Master notices the team has selected work but not crafted a Sprint Goal. What facilitation move best serves the team?",
+      opts:[{t:"Pause and facilitate a Why discussion — what value will this Sprint create — before locking in the selected work",c:true},{t:"Propose a Sprint Goal themselves and ask the team to ratify it"},{t:"Continue planning — a Sprint Goal can be set later if needed"},{t:"Cancel the planning and reschedule"}],
+      exp:"The Sprint Goal is the commitment for the Sprint Backlog and the 'why' of Sprint Planning. Selecting work without it is a common anti-pattern. A facilitating SM pauses to surface the Why through discussion — they do not author the goal for the team (that would undermine team commitment)." },
+
+    { type:"single", cat:"people", q:"The Scrum Team has used the same Start/Stop/Continue Retrospective format every Sprint for six months and the team is showing fatigue. What is the most appropriate Scrum Master response?",
+      opts:[{t:"Vary the format (e.g. 4Ls, Mad/Sad/Glad, Sailboat, Five Whys) and tailor to what the team needs to inspect this Sprint",c:true},{t:"Skip the Retrospective until the team requests it again"},{t:"Use the same format — consistency is more important than energy"},{t:"Make the Retrospective optional and only run it when problems arise"}],
+      exp:"The Retrospective is essential to empiricism and is never skipped. Multiple formats exist (4Ls, Mad/Sad/Glad, Five Whys, Sailboat, etc.) — the SM tailors the format to what the team needs to inspect that Sprint. Rotating formats keeps engagement and surfaces different insights." },
+
+    { type:"multi", cat:"people", q:"Which of the following are ways the Scrum Master serves the Product Owner per the Scrum Guide 2020? (select 2)",
+      opts:[{t:"Helping find techniques for effective Product Goal definition and Product Backlog management",c:true},{t:"Facilitating stakeholder collaboration as requested or needed",c:true},{t:"Approving the Product Owner's release decisions"},{t:"Writing Product Backlog items on the Product Owner's behalf"}],
+      exp:"The Scrum Guide 2020 lists four ways the SM serves the PO, including helping with Product Goal/Backlog techniques, helping the team understand the need for clear PBIs, helping establish empirical product planning for complex environments, and facilitating stakeholder collaboration. The SM does not approve releases (PO's decision) or write items on the PO's behalf." },
+
+    { type:"multi", cat:"people", q:"Which of the following are ways the Scrum Master serves the organization per the Scrum Guide 2020? (select 2)",
+      opts:[{t:"Leading, training, and coaching the organization in its Scrum adoption",c:true},{t:"Removing barriers between stakeholders and Scrum Teams",c:true},{t:"Managing the company's hiring and firing of Developers"},{t:"Approving the organization's product roadmap"}],
+      exp:"The Scrum Guide 2020 lists four ways the SM serves the organization: leading/training/coaching Scrum adoption, planning/advising Scrum implementations, helping employees/stakeholders enact an empirical approach, and removing barriers between stakeholders and Scrum Teams. The SM does NOT manage hiring/firing or approve roadmaps." },
+
+    { type:"single", cat:"people", q:"A Developer reports a slow internal build server. What is the most appropriate first action for the Scrum Master per the Scrum Guide 2020?",
+      opts:[{t:"Coach the Developers to engage the build team directly; the SM is accountable for causing the removal of impediments, not always personally removing them",c:true},{t:"Take ownership of the ticket and chase the build team daily"},{t:"File the issue and let the next Sprint deal with it"},{t:"Cancel the Sprint until the build server is fixed"}],
+      exp:"The Scrum Guide 2020 makes the SM accountable for 'causing the removal of impediments,' not always doing it personally. Team-resolvable impediments should be handled by the team to support self-management. The SM steps in directly for organizational impediments the team cannot influence." },
+
+    { type:"single", cat:"people", q:"A Developer says 'This authentication library is harder than I expected' during the Daily Scrum. Is this an impediment for the Scrum Master to remove?",
+      opts:[{t:"No — this is normal complex work the Developers should solve, perhaps with peer support; not an impediment",c:true},{t:"Yes — the SM should escalate to management to find a different library"},{t:"Yes — the SM should personally research the library and bring back a solution"},{t:"Yes — the SM should pause the Sprint and call in a consultant"}],
+      exp:"Complex technical work the Developers can solve themselves is not an impediment — it is the work. Treating every challenge as an impediment undermines self-management. An impediment is something blocking progress that the Developers cannot resolve within their own authority and knowledge." },
+
+    { type:"single", cat:"people", q:"Two Developers are in a tense debate during refinement about how to split an item. What is the best Scrum Master response?",
+      opts:[{t:"Hold space — let the team work through productive conflict; intervene only if the conversation becomes destructive or stalls",c:true},{t:"Step in immediately and pick a side to end the disagreement quickly"},{t:"Halt the refinement and escalate to management"},{t:"Tell both Developers to stop and follow the SM's chosen approach"}],
+      exp:"Productive (task-focused) conflict builds team strength; suppressing it leads to artificial harmony, a known team dysfunction. The SM intervenes sparingly — only when conflict becomes destructive or the team is stuck. Picking sides or imposing decisions undermines self-management and the Coach/Facilitator stance." },
+
+    { type:"single", cat:"people", q:"A Developer admits in the Retrospective that they made a mistake that caused last week's production incident. The Scrum Master's most appropriate response is to:",
+      opts:[{t:"Thank them for the openness and focus the team on what to learn and change, not on assigning blame",c:true},{t:"Note their name in a tracking document for accountability"},{t:"Suggest the team review the Developer's performance separately"},{t:"Ask the team to vote on whether the Developer should continue on the team"}],
+      exp:"Psychological safety is essential to empiricism — without it, the team cannot have honest inspection or transparent learning. Punishing openness drives mistakes underground, breaking transparency. The SM's role is to make it safe to surface and learn from issues, not to manage individual performance." },
+
+    { type:"single", cat:"people", q:"The Developers ask the Scrum Master to assign work to specific Developers based on their skills. What is the most appropriate Scrum Master response?",
+      opts:[{t:"Coach the team that as a self-managing team they internally decide who does what, when, and how; the SM does not assign work",c:true},{t:"Accept the request and start assigning work each Sprint"},{t:"Ask the Product Owner to assign work instead"},{t:"Escalate the request to the team's line manager"}],
+      exp:"The Scrum Guide 2020 states the Scrum Team is self-managing — they internally decide who does what. A SM who assigns work undermines self-management and creates dependency. Coaching the team on self-management is the SM's role; deferring to PO or manager perpetuates the anti-pattern." },
+
+    { type:"single", cat:"people", q:"A Scrum Master personally books all meeting rooms, takes minutes during every Scrum event, updates the task board on behalf of Developers, and runs errands to fix every small Developer ask. Which Scrum Master anti-pattern is this?",
+      opts:[{t:"Scrum Mom (or Scrum Secretary) — the SM does the team's tasks instead of coaching self-management",c:true},{t:"Servant Leader — the SM is correctly performing service"},{t:"Change Agent — the SM is leading organizational change"},{t:"Coach — the SM is properly serving the team"}],
+      exp:"The 'Scrum Mom/Secretary' anti-pattern is when the SM performs the team's clerical work instead of coaching the team to handle it themselves. This creates dependency and prevents self-management growth. Service does not equal personal assistance — a 'true leader who serves' coaches the team to become more capable." },
+
+    { type:"single", cat:"people", q:"A Scrum Team has matured significantly and now solves most problems on their own. The Scrum Master notices they are starting to coast and become complacent. What is the most appropriate next emphasis?",
+      opts:[{t:"Coaching with powerful questions to challenge the team toward higher performance and continuous improvement",c:true},{t:"Teaching the basics of Scrum framework again to refresh foundations"},{t:"Removing all impediments for them so they can produce more output"},{t:"Acting as a manager and setting harder performance targets"}],
+      exp:"Mature teams need Coaching and Facilitating, not Teaching/Mentoring (which would destroy credibility) or Manager-style targets (which removes ownership). Coaching with challenging questions keeps growth going without removing the team's accountability for their own performance." },
+
+    /* ---------------- MANAGING PRODUCTS (SM SERVICE) ---------------- */
+    { type:"single", cat:"product", q:"A senior stakeholder treats the Sprint Backlog as a contract and accuses the team of failing whenever any selected item is not Done. What is the most appropriate Scrum Master response?",
+      opts:[{t:"Coach the stakeholder that the Sprint Backlog is a forecast; the commitment is the Sprint Goal, and scope may be renegotiated as more is learned",c:true},{t:"Pressure the Developers to finish every item regardless of quality"},{t:"Stop selecting forecast items in Sprint Planning to avoid the issue"},{t:"Agree with the stakeholder — the team should always deliver everything forecast"}],
+      exp:"The Scrum Guide 2020 explicitly states selected items are a forecast; the Sprint Goal is the commitment. Treating the forecast as a contract leads to compromised quality. The SM serves the organization by coaching stakeholders on this distinction — a core empirical principle." },
+
+    { type:"single", cat:"product", q:"A manager wants to use the Scrum Team's velocity to commit to delivering a fixed number of story points each Sprint. The Scrum Master should:",
+      opts:[{t:"Coach the manager that velocity is a team-internal empirical measure for forecasting, not a delivery commitment or performance target",c:true},{t:"Set up a dashboard so the manager can track each Developer's contribution to velocity"},{t:"Help the manager hold the team accountable to that velocity number"},{t:"Compare this team's velocity against other teams in the organization"}],
+      exp:"Velocity is a team-internal observation used to forecast probabilistically. Using it as a commitment device incentivizes inflated estimates and compromised quality. Comparing velocity across teams is also invalid — each team's points are relative. The SM coaches the organization on these distinctions." },
+
+    { type:"single", cat:"product", q:"The Product Owner asks the Scrum Master to help improve how the team refines the Product Backlog. What is the most appropriate Scrum Master service?",
+      opts:[{t:"Help find techniques for effective Product Backlog management; help the team understand the need for clear, concise items; facilitate refinement as needed",c:true},{t:"Take over Product Backlog management and order items on the PO's behalf"},{t:"Decline — backlog refinement is solely a PO/Developer concern"},{t:"Hand the PO a fixed template and require the team to follow it"}],
+      exp:"Per the Scrum Guide 2020, the SM serves the PO by helping find techniques for effective Product Goal definition and Product Backlog management, and helping the team understand the need for clear, concise items. The SM coaches and facilitates; they do not take over ordering or content (PO accountability)." },
+
+    { type:"single", cat:"product", q:"At Sprint Review, stakeholders are not engaging — only nodding and asking minimal questions. What is the best Scrum Master facilitation move for next Sprint?",
+      opts:[{t:"Redesign the Review as a working session — use interactive techniques (live use, structured questions, written feedback) to draw stakeholder input on the Product Backlog and direction",c:true},{t:"Add a more polished slide deck so stakeholders pay closer attention"},{t:"Skip the Sprint Review and email the Increment summary instead"},{t:"Limit attendance to only senior stakeholders to keep discussion tight"}],
+      exp:"The Scrum Guide 2020 describes Sprint Review as a working session, not a demo, where the Scrum Team and stakeholders inspect the outcome and collaborate on what to do next. A passive review is an anti-pattern. The SM helps design the event so stakeholders meaningfully engage — interactive techniques over polished presentations." },
+
+    { type:"single", cat:"product", q:"A Product Owner wants a visual to share with stakeholders that shows release progress when scope is changing across multiple Sprints. The Scrum Master suggests:",
+      opts:[{t:"A burn-up chart, because it plots completed work and total scope as two lines, making scope changes visible",c:true},{t:"A burn-down chart, because the line always trends to zero"},{t:"A Gantt chart pinning every feature to a fixed date"},{t:"Hiding the chart from stakeholders to reduce pressure on the team"}],
+      exp:"Burn-up charts plot completed work against a separate scope line — scope additions/removals are explicit and progress is honest. Burn-down hides scope changes (added work makes the team appear to underperform). Transparency is a pillar of empiricism the SM must protect." },
+
+    { type:"single", cat:"product", q:"On the Tuesday of a two-week Sprint, the Developers complete a high-value Product Backlog item that meets the Definition of Done. The Product Owner wants to release it immediately. The Scrum Master's role is to:",
+      opts:[{t:"Support the release; the Scrum Guide 2020 states the Increment may be delivered to stakeholders prior to the end of the Sprint and the Sprint Review is not a release gate",c:true},{t:"Insist the release wait for the Sprint Review"},{t:"Insist the release wait for end-of-quarter approval"},{t:"Block the release until all selected items for the Sprint are Done"}],
+      exp:"The Scrum Guide 2020 says the Sprint Review should never be considered a gate to releasing value. Multiple Increments may be created within a Sprint, and the PO decides when to release. Early release supports Time to Market — the SM supports the empirical, value-maximizing path." },
+
+    { type:"single", cat:"product", q:"An executive team measures the Scrum Team's success by the number of features shipped per quarter. The Scrum Master can serve the organization best by:",
+      opts:[{t:"Coaching leadership on outcomes vs output — and helping them adopt empirical measures of actual customer and business value",c:true},{t:"Pressuring the team to ship more features to satisfy the executive metric"},{t:"Padding feature counts by splitting items finer to inflate numbers"},{t:"Ignoring the metric since it is not in the Scrum Guide"}],
+      exp:"Output (features shipped) does not equal value. The SM serves the organization by leading/training/coaching it in empirical thinking and value measurement. Gaming output metrics or ignoring leadership concerns are both anti-patterns; engaging and educating is the correct service." },
+
+    { type:"single", cat:"product", q:"The Product Owner is rarely available to the Scrum Team and key product decisions are being delayed. The Scrum Master should:",
+      opts:[{t:"Coach the organization and the PO on the importance of an engaged Product Owner, and surface the cost (delayed value, reduced empiricism) using evidence",c:true},{t:"Make ordering and value decisions on the PO's behalf to keep things moving"},{t:"Cancel the Sprint until the PO is available"},{t:"Recommend the PO be replaced"}],
+      exp:"For Product Owners to succeed, the entire organization must respect their role and they must be engaged. The SM serves both the PO and organization by coaching toward engagement using evidence. Taking over PO decisions is an anti-pattern (proxy PO). Cancellation is the PO's call, not the SM's." },
+
+    { type:"single", cat:"product", q:"The Product Owner is pressuring the Developers to skip Definition of Done items to ship a feature by a stakeholder-imposed date. The Scrum Master should:",
+      opts:[{t:"Coach the PO and stakeholders that the Definition of Done is the Increment's commitment; skipping it creates undone work, hidden technical debt, and reduces long-term value",c:true},{t:"Quietly let the team ship without DoD — the PO is accountable for value"},{t:"Help the Developers find a workaround to bypass the DoD"},{t:"Side with the PO and override Developer objections"}],
+      exp:"The Definition of Done is the commitment for the Increment and creates transparency about quality. Skipping it inflates apparent velocity, creates undone work, and erodes future capability over time. The SM coaches the PO, stakeholders, and team on why the DoD must hold — protecting quality is a core SM service." },
+
+    { type:"single", cat:"product", q:"Three Scrum Teams begin working together on the same product. They currently each have their own Product Owner. The Scrum Master should coach the organization to:",
+      opts:[{t:"Move to one Product Owner across the three teams — Scrum requires a single PO per product, with a single Product Backlog and single Product Goal",c:true},{t:"Keep three Product Owners but force them to vote on every decision"},{t:"Promote one of the POs to 'Chief PO' and demote the others"},{t:"Keep three separate Product Backlogs to avoid confusion"}],
+      exp:"The Scrum Guide 2020 states that multiple Scrum Teams working together on the same product share the same Product Goal, Product Backlog, and Product Owner. A single PO is one person (not a committee), accountable for ordering and value across the whole product. The SM serves the org by coaching toward this structure." }
   ]
 };
 })();
