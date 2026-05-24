@@ -5,12 +5,12 @@ window.BANKS["pspo-i"] = {
   short: "PSPO I",
   name: "Professional Scrum Product Owner I",
   url: "https://www.scrum.org/assessments/professional-scrum-product-owner-i-certification",
-  source: "Scrum Guide 2020 + Evidence-Based Management Guide",
+  source: "Scrum Guide 2020 + EBM Guide + Professional Scrum Competencies + PSPO I Suggested Reading",
   pass: 85,
   examCount: 80,
   minutes: 60,
   status: "complete",
-  cats: { framework:"Scrum & PO Accountability", value:"Product Value & EBM", backlog:"Product Backlog & Goal", stakeholders:"Stakeholders & Vision" },
+  cats: { framework:"Scrum & PO Accountability", value:"Product Value & EBM", backlog:"Product Backlog & Goal", stakeholders:"Stakeholders & Vision", forecasting:"Forecasting & Release Planning", strategy:"Product Strategy & Goals" },
   questions: [
     { type:"single", cat:"framework", q:"A senior manager tells the Product Owner to reorder the Product Backlog so that a feature she personally requested is built next, ahead of items the Product Owner believes deliver more value. What is the most appropriate response?", opts:[
       {t:"The Product Owner remains accountable for ordering the Product Backlog and decides; she should understand the manager's need and weigh it against overall value, but the decision is hers.",c:true},
@@ -456,7 +456,252 @@ window.BANKS["pspo-i"] = {
     { type:"tf", cat:"stakeholders", q:"Because the Product Owner represents the needs of stakeholders, they must accept every stakeholder request and add it to the Product Backlog.", opts:[
       {t:"True"},
       {t:"False",c:true}
-    ], exp:"False. The Scrum Guide 2020 states the Product Owner is accountable for the Product Backlog and is one person, not a committee. They may represent the needs of many stakeholders, but they decide what to add and how to order. Accepting every request would undermine focus on maximizing value and could endanger the Product Goal." }
+    ], exp:"False. The Scrum Guide 2020 states the Product Owner is accountable for the Product Backlog and is one person, not a committee. They may represent the needs of many stakeholders, but they decide what to add and how to order. Accepting every request would undermine focus on maximizing value and could endanger the Product Goal." },
+
+    { type:"single", cat:"framework", q:"Who is responsible for creating the Definition of Done used by the Scrum Team?", opts:[
+      {t:"If the organization provides a Definition of Done, the Scrum Team uses it as a minimum; otherwise, the Scrum Team creates one appropriate for the product.",c:true},
+      {t:"The Product Owner alone, since they are accountable for value."},
+      {t:"The Scrum Master, since they enforce quality."},
+      {t:"The organization's QA department exclusively, who hands it to the team."}
+    ], exp:"The Scrum Guide 2020 states that if the Definition of Done is part of the standards of the organization, all Scrum Teams must follow it as a minimum. If it is not an organizational standard, the Scrum Team must create a Definition of Done appropriate for the product. The whole Scrum Team owns the DoD." },
+
+    { type:"tf", cat:"framework", q:"When multiple Scrum Teams work together on the same product, each team can maintain its own independent Definition of Done with no overlap with the others.", opts:[
+      {t:"True"},
+      {t:"False",c:true}
+    ], exp:"False. The Scrum Guide 2020 states that if there are multiple Scrum Teams working together on a product, they must mutually define and comply with the same Definition of Done. Individual teams may add stricter criteria for their own context, but the shared product Increment must meet a shared minimum bar." },
+
+    { type:"single", cat:"framework", q:"At the end of a Sprint, several Product Backlog items selected for the Sprint do not meet the Definition of Done. What happens to them?", opts:[
+      {t:"They are not part of the Increment and return to the Product Backlog; the Product Owner orders them along with other work.",c:true},
+      {t:"They automatically roll into the next Sprint."},
+      {t:"They are still part of the Increment as partial work, with reduced credit."},
+      {t:"They are released as 'beta' versions to gather user feedback."}
+    ], exp:"The Scrum Guide 2020 states that work that does not meet the Definition of Done cannot be released, presented at Sprint Review, or counted toward the Increment. Such items are returned to the Product Backlog and the Product Owner decides their next ordering based on remaining value." },
+
+    { type:"tf", cat:"framework", q:"The Increment may be delivered to stakeholders at any time during the Sprint, not only at the Sprint Review.", opts:[
+      {t:"True",c:true},
+      {t:"False"}
+    ], exp:"The Scrum Guide 2020 explicitly states the Increment may be delivered to stakeholders prior to the end of the Sprint. The Sprint Review should never be considered a gate to releasing value. Multiple Increments may be created within a Sprint, and the Product Owner decides when to release." },
+
+    { type:"single", cat:"framework", q:"A Product Owner is concerned that a particular Developer has been carrying too much of a critical area. What is the Product Owner's most appropriate action?", opts:[
+      {t:"Raise the concern transparently with the Scrum Team; the Developers, as a self-managing team, decide internally who does what.",c:true},
+      {t:"Assign the next critical Product Backlog item to a different Developer to balance load."},
+      {t:"Privately ask the Scrum Master to reassign work."},
+      {t:"Escalate to a line manager to redistribute responsibilities."}
+    ], exp:"The Scrum Guide 2020 states Scrum Teams are self-managing: they internally decide who does what, when, and how. The Product Owner is accountable for value and Product Backlog ordering, not for assigning tasks. Raising the observation transparently with the team respects self-management and lets the Developers act on it." },
+
+    { type:"single", cat:"framework", q:"Who has authority over the SIZE (estimate) of a Product Backlog item?", opts:[
+      {t:"The Developers, who will perform the work.",c:true},
+      {t:"The Product Owner, who orders the backlog and knows what is most valuable."},
+      {t:"The Scrum Master, who tracks team velocity."},
+      {t:"The stakeholders who funded the item."}
+    ], exp:"The Scrum Guide 2020 states the Developers who will be doing the work are responsible for the sizing. The Product Owner may influence Developers by helping them understand and select trade-offs, but the people who will do the work make the final estimate." },
+
+    { type:"single", cat:"framework", q:"A Product Owner spends nearly all their time transcribing exactly what stakeholders ask for into Product Backlog items, with no shaping or value judgment. Which Product Owner anti-pattern best describes this?", opts:[
+      {t:"Scribe — the PO surrenders the value-maximization accountability and acts purely as a request-recorder.",c:true},
+      {t:"Visionary — the PO is over-focused on long-term direction."},
+      {t:"Decision Maker — the PO makes too many independent calls."},
+      {t:"Collaborator — the PO over-relies on stakeholder collaboration."}
+    ], exp:"The 'Scribe' is a recognized PO anti-pattern (Schuurman, McGreal/Jocham). The Product Owner is accountable for maximizing the value of the product, which requires judgment about which work belongs in the backlog and how to order it — not just recording requests." },
+
+    { type:"single", cat:"framework", q:"A team is told their 'Product Owner' must escalate every backlog ordering and acceptance decision to a separate, unavailable executive who is the real decider. What is the most accurate description of this situation per Scrum?", opts:[
+      {t:"This is a 'Proxy' Product Owner anti-pattern; the team does not have an empowered Product Owner as Scrum requires.",c:true},
+      {t:"This is acceptable as long as the proxy attends Sprint Reviews."},
+      {t:"This is a Decision Maker stance because decisions are still made."},
+      {t:"This is a normal scaling pattern when products are large."}
+    ], exp:"The Scrum Guide 2020 requires the Product Owner to be one person who is accountable for maximizing value and effective Product Backlog management — and for the PO to succeed, the entire organization must respect their decisions. A 'Proxy' PO without real authority is a recognized anti-pattern that prevents Scrum from working as intended." },
+
+    { type:"single", cat:"value", q:"Which statement most accurately describes a Minimum Viable Product (MVP) as Eric Ries originally defined it?", opts:[
+      {t:"The version of a product that allows a team to collect the maximum amount of validated learning about customers with the least effort.",c:true},
+      {t:"The smallest set of features that customers will pay for."},
+      {t:"A complete first release with all 'must-have' features cut to the minimum."},
+      {t:"A beta version released only to internal employees."}
+    ], exp:"Eric Ries defined the MVP as a learning vehicle: 'the version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.' Many teams mistakenly treat it as a stripped-down v1; Marty Cagan notes an MVP is better understood as a prototype for learning, not a product." },
+
+    { type:"multi", cat:"value", q:"Which of the following are steps in the Build-Measure-Learn loop that an empirical Product Owner uses? (select 3)", opts:[
+      {t:"Build the smallest thing that tests the hypothesis.",c:true},
+      {t:"Measure real customer behavior or outcomes.",c:true},
+      {t:"Learn whether the hypothesis is supported and decide to persevere, pivot, or kill.",c:true},
+      {t:"Forecast the next quarter's revenue from the increment."},
+      {t:"Get formal stakeholder sign-off before any user contact."}
+    ], exp:"Build-Measure-Learn (Eric Ries, aligned with EBM) is iterative: build the minimum needed to test a hypothesis, measure real behavior, learn from the evidence, and adapt. Speed through the loop is the key competitive advantage. Forecasting revenue or formal sign-offs are not part of the loop itself." },
+
+    { type:"single", cat:"value", q:"A Product Owner reports that the product has reached 100,000 total registered users since launch as evidence of success. What is the most likely issue with this metric from an empirical product-management view?", opts:[
+      {t:"It is a vanity metric — it can only go up and does not connect to a specific decision or behavior change.",c:true},
+      {t:"It is too actionable and should be aggregated into a higher-level KPI."},
+      {t:"It is one of the four EBM Key Value Areas."},
+      {t:"It is the appropriate measure of Time to Market."}
+    ], exp:"Vanity metrics (Eric Ries) are numbers that only trend up and cannot drive a decision. Total registered users tells you nothing about activation, retention, or value delivered. Actionable metrics tie clearly to cause-and-effect for specific decisions. EBM emphasizes outcome-focused, actionable measures." },
+
+    { type:"single", cat:"value", q:"Which of the following is an example of an outcome rather than an output?", opts:[
+      {t:"Weekly active users increased by 22% after the onboarding redesign.",c:true},
+      {t:"The team shipped 14 features this quarter."},
+      {t:"The team completed 240 story points last Sprint."},
+      {t:"Three pull requests were merged into the main branch yesterday."}
+    ], exp:"Outputs are what the team produces (features, code, story points). Outcomes are measurable changes in user/customer behavior (activation, retention, task success). The EBM Guide warns that 'working more hours and delivering more features does not necessarily lead to improved customer experiences.'" },
+
+    { type:"single", cat:"value", q:"A Product Owner wants a metric they can use mid-quarter to steer decisions, before the quarter's revenue is in. Which type of indicator best fits?", opts:[
+      {t:"A leading indicator (e.g. weekly activation rate) that predicts the lagging revenue outcome.",c:true},
+      {t:"A lagging indicator (e.g. quarterly revenue) so the team only optimizes for the final result."},
+      {t:"A vanity metric (e.g. cumulative downloads) since it always trends up."},
+      {t:"An output metric (e.g. story points completed) because it is fully under the team's control."}
+    ], exp:"Leading indicators (activation, engagement, early conversion) predict future outcomes and let the team adjust now. Lagging indicators (revenue, churn) confirm what already happened. Both have value; for in-flight steering, leading indicators are essential. EBM's Key Value Measures mix both." },
+
+    { type:"single", cat:"value", q:"A Scrum Team completed every selected Product Backlog item this Sprint and met the Definition of Done. Stakeholders are pleased with the demo. The Product Owner notices, however, that none of the released features are actually being used in production. From an EBM lens, how should the PO interpret this?", opts:[
+      {t:"Output was high, but outcome (Current Value, customer usage) did not improve; the next Sprint should test why and adjust.",c:true},
+      {t:"The Sprint was a clear success since all forecast items were delivered."},
+      {t:"The team should be praised and given a higher velocity target."},
+      {t:"This is not a Product Owner concern; release decisions and adoption are stakeholder responsibilities."}
+    ], exp:"EBM stresses managing toward value (outcomes) rather than output. Shipping features that are not used means Current Value did not improve and the customer satisfaction gap (Unrealized Value) remains. The PO is accountable for maximizing value and must close that loop empirically." },
+
+    { type:"single", cat:"backlog", q:"A team is preparing to split a large Product Backlog item to fit a Sprint. Which split most aligns with delivering a usable Increment?", opts:[
+      {t:"A vertical slice that delivers a thin end-to-end working capability (UI + business logic + data), even if narrow.",c:true},
+      {t:"A horizontal slice that delivers only the database schema first."},
+      {t:"A horizontal slice that delivers only the UI mockup first."},
+      {t:"Three parallel components assigned to three different Developers for separate delivery."}
+    ], exp:"To produce a usable Increment each Sprint, items should be split vertically — each slice contains all layers (UI, logic, data) needed to deliver value end-to-end. Horizontal (technical-layer) splits leave you with an unreleasable mid-state. Vertical slicing also supports clearer customer feedback per slice." },
+
+    { type:"tf", cat:"backlog", q:"Defects in the product belong in a separate bug-tracking system outside the Product Backlog so they don't compete with feature work for the Product Owner's attention.", opts:[
+      {t:"True"},
+      {t:"False",c:true}
+    ], exp:"False. The Scrum Guide 2020 states the Product Backlog is the single source of work undertaken by the Scrum Team. Defects, like any other work that affects product value, belong in the Product Backlog so the Product Owner can order them against other items by value, risk, and other factors — and so transparency is preserved." },
+
+    { type:"single", cat:"backlog", q:"A Product Owner discovers the Developers have been carrying significant technical debt that is starting to slow new feature delivery. From an EBM perspective, what is the most appropriate response?", opts:[
+      {t:"Treat technical debt reduction as Product Backlog work that competes for ordering with features, recognizing it directly affects Ability to Innovate (A2I).",c:true},
+      {t:"Ignore it since technical debt is an internal Developer concern."},
+      {t:"Forbid the Developers from spending Sprint capacity on it until all feature work is done."},
+      {t:"Have the Scrum Master maintain a parallel 'tech debt' backlog the PO does not see."}
+    ], exp:"EBM's Ability to Innovate (A2I) Key Value Area explicitly includes technical debt as a measure. Unaddressed debt accumulates, consumes capacity, and reduces the organization's capacity to innovate. Making it visible in the Product Backlog lets the PO balance it against features in a transparent ordering decision." },
+
+    { type:"single", cat:"backlog", q:"How small should a Product Backlog item be to be considered 'ready' for selection in Sprint Planning?", opts:[
+      {t:"Small enough that the Developers consider it doable within one Sprint, with enough transparency for the team to plan it.",c:true},
+      {t:"Sized at exactly 3 story points or fewer."},
+      {t:"As small as a single Developer can complete in one day."},
+      {t:"As small as can be implemented with no clarifying questions."}
+    ], exp:"The Scrum Guide 2020 states that Product Backlog items 'that can be Done by the Scrum Team within one Sprint are deemed ready for selection in a Sprint Planning event. They usually acquire this degree of transparency after refining activities.' Scrum does not prescribe a specific point or hour size; doability within a Sprint and sufficient clarity is the bar." },
+
+    { type:"tf", cat:"stakeholders", q:"Although the Product Vision is not a formal Scrum artifact in the Scrum Guide 2020, Scrum.org and recognized Product Owner literature treat developing and communicating a Product Vision as a standard Product Owner practice.", opts:[
+      {t:"True",c:true},
+      {t:"False"}
+    ], exp:"The Scrum Guide 2020 does not list 'Vision' as a Scrum artifact (it lists Product Backlog, Sprint Backlog, Increment, each with a commitment). However, Scrum.org's Professional Scrum Competencies and Suggested Reading for PSPO I explicitly include Product Vision; the McGreal/Jocham 'Professional Product Owner' book emphasizes vision as a core PO activity that 'sits above' the Scrum framework." },
+
+    { type:"multi", cat:"stakeholders", q:"According to widely-cited Product Vision guidance (e.g. Roman Pichler), which of the following are characteristics of an effective product vision? (select 3)", opts:[
+      {t:"Inspiring — emotionally connects with team and stakeholders.",c:true},
+      {t:"Broad and ambitious — survives pivots, multi-year.",c:true},
+      {t:"Solution-independent — describes the desired change or benefit, not specific features.",c:true},
+      {t:"A detailed feature list — enumerates everything the team will build."},
+      {t:"Fixed and unchangeable — never revised regardless of new learning."}
+    ], exp:"Pichler's widely-used criteria for a good product vision include being inspiring, shared, broad/ambitious, brief/memorable, solution-independent, testable, and customer-focused. Visions are not detailed requirement lists; they should evolve when new learning makes a better direction clear." },
+
+    { type:"single", cat:"stakeholders", q:"How do the Product Vision and the Product Goal differ?", opts:[
+      {t:"The Vision is the long-term aspirational 'why' for the product; the Product Goal is a measurable intermediate target on the way there, committed to the Product Backlog.",c:true},
+      {t:"They are interchangeable terms for the same thing."},
+      {t:"The Product Goal sets direction; the Vision is the current Sprint outcome."},
+      {t:"The Vision is owned by the Developers; the Product Goal is owned by stakeholders."}
+    ], exp:"The Product Vision describes the long-term purpose and desired future state. The Scrum Guide 2020's Product Goal is a 'future state of the product' as a target for the Scrum Team to plan against — it serves as an intermediate stepping stone toward the vision. Both are owned/communicated by the Product Owner." },
+
+    { type:"single", cat:"stakeholders", q:"A Product Owner is forming a new product vision and is debating whether to define it in isolation and then announce it, or to involve the Scrum Team and key stakeholders in shaping it. Which is more aligned with recognized Product Owner practice?", opts:[
+      {t:"Involve the Scrum Team and key stakeholders in shaping the vision; accountability remains with the PO but a co-created vision is more durable and shared.",c:true},
+      {t:"Define it alone — visions are personal expressions the team should accept."},
+      {t:"Outsource it to a marketing team since vision is a branding concern."},
+      {t:"Skip the vision and start writing Product Backlog items immediately."}
+    ], exp:"Recognized PO practice (Pichler, Scrum.org) treats vision as something the PO is accountable for but co-creates with the team and stakeholders. A shared vision is more inspiring and more likely to survive in execution. The Scrum Guide 2020 also expects the PO to engage stakeholders meaningfully — the vision is one of the key shared anchors." },
+
+    { type:"single", cat:"stakeholders", q:"During Sprint Review a senior stakeholder demands a feature be re-ordered to the very top of the Product Backlog. Several other stakeholders disagree. What is the most appropriate Product Owner response?", opts:[
+      {t:"Listen, weigh inputs against the Product Goal and value, and make a single ordering decision that the team can act on.",c:true},
+      {t:"Defer the decision to a vote among the stakeholders present."},
+      {t:"Add the requested item to the next Sprint immediately to satisfy the senior stakeholder."},
+      {t:"Postpone the decision indefinitely until all stakeholders agree."}
+    ], exp:"The Scrum Guide 2020 states the Product Owner is one person who is accountable for maximizing value. The PO may take input from many but the decision is theirs. The 'Decision Maker' stance (Schuurman/McGreal/Jocham) is making the call — keeping Time to Market short by keeping decision time short — once stakeholders have been heard." },
+
+    { type:"tf", cat:"forecasting", q:"The Sprint Backlog is a commitment by the Developers to deliver exactly the set of Product Backlog items selected in Sprint Planning.", opts:[
+      {t:"True"},
+      {t:"False",c:true}
+    ], exp:"False. The Scrum Guide 2020 explicitly says the selected items are a forecast. The Developers' commitment is the Sprint Goal, not the exact list. Scope may be renegotiated with the Product Owner as more is learned during the Sprint, as long as the Sprint Goal is not endangered. Treating the forecast as a contract is a recognized anti-pattern that historically led to teams sacrificing quality." },
+
+    { type:"single", cat:"forecasting", q:"A manager wants to use a Scrum Team's average velocity to commit to stakeholders that the team will deliver an exact number of story points each Sprint. What is the issue with this?", opts:[
+      {t:"Velocity is a team-internal empirical measure, not a commitment; using it as a promise of output incentivizes inflated estimates and compromised quality.",c:true},
+      {t:"Velocity is unreliable until measured for at least one year."},
+      {t:"Velocity should be measured in hours, not story points."},
+      {t:"Velocity must be approved by the Product Owner before use."}
+    ], exp:"Velocity (or throughput) is an empirical observation of past delivery, used by the team to forecast upcoming work probabilistically. It is not a commitment device. The Scrum Guide 2020 makes the Sprint Goal the commitment, not the forecast; velocity is also team-internal and not comparable across teams." },
+
+    { type:"single", cat:"forecasting", q:"A Product Owner is tracking progress toward a release date that spans several Sprints. Stakeholders are adding and removing items as the work progresses. Which chart best supports transparency about this progress?", opts:[
+      {t:"A burn-up chart, because it plots completed work against a separate scope line and makes scope changes visible.",c:true},
+      {t:"A burn-down chart, because the line always trends to zero."},
+      {t:"A bar chart of story points per Sprint."},
+      {t:"A Gantt chart of upfront-planned features and dates."}
+    ], exp:"Burn-down charts hide scope changes — added work makes the team appear to underperform. Burn-up charts plot completed work and total scope as two lines, so scope additions and removals are explicitly visible. Burn-up is widely recommended for release/product-level tracking under changing scope." },
+
+    { type:"single", cat:"forecasting", q:"A stakeholder asks 'When will all 80 remaining backlog items be done?' Which kind of answer is most consistent with empirical, evidence-based forecasting?", opts:[
+      {t:"A probabilistic range, e.g. '85% confidence we finish by date X, 50% confidence by date Y,' based on historical throughput.",c:true},
+      {t:"A precise single date guaranteed by the team's velocity."},
+      {t:"A date based on adding up each item's hour estimate from the Developers."},
+      {t:"A statement that Scrum cannot make any kind of forecast."}
+    ], exp:"Empirical forecasting techniques such as Monte Carlo simulation (Daniel Vacanti and others) use historical throughput to produce probability-banded forecasts rather than single-point promises. Single-point dates ignore variability; hour-based estimates are not what Scrum or modern forecasting recommend; and Scrum absolutely supports forecasting — using evidence." },
+
+    { type:"single", cat:"forecasting", q:"A senior stakeholder insists on a fixed scope, a fixed delivery date, and a fixed budget for a release. From a Scrum + EBM perspective, which variable is most likely to suffer if all three are held rigid?", opts:[
+      {t:"Quality — the team may be pressured to skip the Definition of Done to make all three hold, eroding long-term value and Ability to Innovate.",c:true},
+      {t:"Team size — additional Developers will silently solve the problem."},
+      {t:"Sprint length — Sprints will get longer automatically."},
+      {t:"Stakeholder count — fewer stakeholders will be involved."}
+    ], exp:"With scope, date, and budget all fixed in a complex environment, the implicit variable becomes quality. The Scrum Guide 2020 protects quality through the Definition of Done; Scrum.org guidance emphasizes that the PO's job is to shift conversations from 'original scope' to 'value delivered.' Empirical forecasting flexes scope, not quality." },
+
+    { type:"single", cat:"forecasting", q:"When can the Scrum Team release a Done Increment to customers or users?", opts:[
+      {t:"At any time during the Sprint, as soon as the Increment meets the Definition of Done; the Product Owner decides timing.",c:true},
+      {t:"Only at the end of the Sprint, at or after the Sprint Review."},
+      {t:"Only on dates pre-approved by stakeholders in advance."},
+      {t:"Only once per quarter to align with reporting cycles."}
+    ], exp:"The Scrum Guide 2020 states the Sprint Review should never be considered a gate to releasing value, and multiple Increments may be created within a Sprint. The Product Owner decides when the Increment is released. Continuous delivery — release as soon as Done — improves Time to Market (an EBM KVA)." },
+
+    { type:"tf", cat:"forecasting", q:"Story points should be directly converted to hours so stakeholders can be given a precise time estimate.", opts:[
+      {t:"True"},
+      {t:"False",c:true}
+    ], exp:"False. As Mike Cohn explains, story points are relative ratios reflecting effort, complexity, and risk — not durations. Converting them to hours defeats their purpose and reintroduces single-point time estimation, which is poor at forecasting in complex work. Velocity (points per Sprint) lets the team forecast capacity empirically without per-point hour conversion." },
+
+    { type:"single", cat:"forecasting", q:"Mid-Sprint, the Developers discover one of the selected items is significantly larger than estimated and threatens the Sprint Goal. What is the appropriate course of action?", opts:[
+      {t:"The Developers and Product Owner renegotiate the scope of the Sprint Backlog to protect the Sprint Goal; only the PO can cancel the Sprint if the goal becomes obsolete.",c:true},
+      {t:"Automatically extend the Sprint by a few days to fit the work."},
+      {t:"Force the Developers to skip Definition of Done items to finish on time."},
+      {t:"Cancel the Sprint immediately regardless of the Sprint Goal."}
+    ], exp:"The Scrum Guide 2020 states the Sprint Backlog is updated throughout the Sprint as more is learned; scope can be renegotiated with the Product Owner. The Sprint Goal is the commitment and should be protected. Sprint length is fixed (no extensions); skipping DoD is an anti-pattern; only the PO can cancel a Sprint." },
+
+    { type:"single", cat:"strategy", q:"In the EBM Guide, the goals hierarchy is Strategic Goal → Intermediate Goals → Immediate Tactical Goal. Which of these typically maps to the Scrum Product Goal?", opts:[
+      {t:"Intermediate Goal — a measurable, medium-term target on the path to the Strategic Goal.",c:true},
+      {t:"Strategic Goal — the long-term, aspirational organizational target."},
+      {t:"Immediate Tactical Goal — the single near-term objective."},
+      {t:"None — the Product Goal is independent of the EBM hierarchy."}
+    ], exp:"Per Scrum.org's mapping of EBM and Scrum, the Product Goal usually corresponds to an Intermediate Goal — a measurable, medium-term target — while the Sprint Goal is the Immediate Tactical Goal. The Strategic Goal aligns with the longer-term Product Vision or organizational mission." },
+
+    { type:"tf", cat:"strategy", q:"In the EBM goals hierarchy, the Scrum Sprint Goal corresponds most naturally to an Immediate Tactical Goal.", opts:[
+      {t:"True",c:true},
+      {t:"False"}
+    ], exp:"True. Per Scrum.org and the EBM Guide, the Sprint Goal is the single near-term objective for a Sprint — fitting the EBM definition of an Immediate Tactical Goal that a team works to in the very short term to move toward an Intermediate Goal (Product Goal)." },
+
+    { type:"single", cat:"strategy", q:"Roman Pichler describes a hierarchy of product-direction artifacts. Which order is correct, from longest-term to most-tactical?", opts:[
+      {t:"Vision → Strategy → Roadmap → Product Backlog.",c:true},
+      {t:"Product Backlog → Roadmap → Strategy → Vision."},
+      {t:"Roadmap → Vision → Strategy → Product Backlog."},
+      {t:"Vision → Roadmap → Strategy → Product Backlog."}
+    ], exp:"The widely-used Pichler hierarchy: the Vision describes the long-term future state, the Strategy explains how to reach it (problem, market, differentiators, business goals), the Roadmap is a medium-term outcome-based plan, and the Product Backlog is the emergent list of items that will deliver the next steps. Each layer becomes more concrete and shorter-horizon." },
+
+    { type:"single", cat:"strategy", q:"A 'North Star Metric' is best described as:", opts:[
+      {t:"A single leading indicator of sustainable customer value that ties product work to long-term business outcomes.",c:true},
+      {t:"A lagging revenue indicator reviewed only at year-end."},
+      {t:"A vanity metric used in marketing campaigns."},
+      {t:"The team's velocity normalized across Sprints."}
+    ], exp:"The North Star Metric (popularized by Sean Ellis and Amplitude) is a single leading indicator chosen to represent the value the product delivers to customers, intentionally tied to long-term business outcomes. It cannot usually be moved directly, forcing teams to build real value rather than game a number. Velocity and vanity metrics are explicitly contrasted with this concept." },
+
+    { type:"single", cat:"strategy", q:"Per Scrum.org's 'Managing Products with Agility' competency, one of the Product Owner's core responsibilities under 'Business Strategy' is best described as:", opts:[
+      {t:"Bridging the organization's mission and strategy to product execution, aligning product decisions with strategy and adapting based on Increment feedback.",c:true},
+      {t:"Setting the company's overall business strategy independently."},
+      {t:"Limiting the team's work to whatever the company strategy explicitly mentions."},
+      {t:"Avoiding business strategy entirely since that is leadership's job."}
+    ], exp:"Per the Scrum.org 'Managing Products with Agility' competency, the PO bridges company mission/strategy and product execution. They do not set the company's strategy alone, and they do not detach product work from strategy. They translate strategy into product decisions and adapt those decisions empirically based on Increment outcomes." },
+
+    { type:"tf", cat:"strategy", q:"When multiple Scrum Teams work on the same product, each team should set its own Product Goal aligned with its slice of the work.", opts:[
+      {t:"True"},
+      {t:"False",c:true}
+    ], exp:"False. The Scrum Guide 2020 is explicit: multiple Scrum Teams working together on the same product share the same Product Goal, Product Backlog, and Product Owner. One product → one Product Goal, regardless of how many teams contribute." }
   ]
 };
 })();
