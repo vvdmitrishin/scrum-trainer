@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Scrum Trainer — Social Card</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    background:radial-gradient(1400px 800px at 70% -10%,#1a2738 0,#0e131b 60%);
+    color:#e6edf5;
+    padding:64px 80px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .header{display:flex;align-items:center;gap:20px}
+  .logo{
+    width:80px;height:80px;border-radius:18px;
+    background:linear-gradient(135deg,#219AB5,#40586F);
+    display:grid;place-items:center;
+    font-weight:800;color:#fff;font-size:42px;
+  }
+  .brand{font-size:48px;font-weight:800;letter-spacing:-0.5px}
+  .sub{color:#8aa0b6;font-size:18px;margin-top:6px;letter-spacing:.3px}
+  .center{margin-top:-10px}
+  .big{
+    font-size:140px;
+    font-weight:800;
+    line-height:1;
+    background:linear-gradient(135deg,#219AB5,#3FB7CE);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:10px;
+    letter-spacing:-2px;
+  }
+  .label{font-size:26px;color:#cdd9e6;font-weight:600;letter-spacing:.3px}
+  .label .accent{color:#3FB7CE}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .chip{
+    font-size:15px;
+    padding:9px 18px;
+    border-radius:99px;
+    background:#161d28;
+    border:1px solid #2a3647;
+    color:#cdd9e6;
+    font-weight:600;
+  }
+  .footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    color:#6b8198;
+    font-size:15px;
+  }
+  .footer b{color:#3FB7CE}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">S</div>
+  <div>
+    <div class="brand">Scrum Trainer</div>
+    <div class="sub">Practice trainers for Scrum.org certifications</div>
+  </div>
+</div>
+
+<div class="center">
+  <div class="big">493</div>
+  <div class="label">practice questions across <span class="accent">8 certifications</span></div>
+  <div class="chips">
+    <span class="chip">PSPO I</span>
+    <span class="chip">PSM I</span>
+    <span class="chip">PSD I</span>
+    <span class="chip">PSK I</span>
+    <span class="chip">PAL-E</span>
+    <span class="chip">PSPO-AI</span>
+    <span class="chip">PSF Skills</span>
+    <span class="chip">PPDV</span>
+  </div>
+</div>
+
+<div class="footer">
+  <div>Grounded in <b>Scrum Guide 2020</b> &middot; <b>EBM Guide</b> &middot; <b>Kanban Guide for Scrum Teams</b></div>
+  <div>Free &middot; Open source &middot; No signup</div>
+</div>
+
+</body>
+</html>
