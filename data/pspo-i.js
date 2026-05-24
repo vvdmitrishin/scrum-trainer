@@ -9,7 +9,7 @@ window.BANKS["pspo-i"] = {
   pass: 85,
   examCount: 80,
   minutes: 60,
-  status: "starter",
+  status: "complete",
   cats: { framework:"Scrum & PO Accountability", value:"Product Value & EBM", backlog:"Product Backlog & Goal", stakeholders:"Stakeholders & Vision" },
   questions: [
     { type:"single", cat:"framework", q:"A senior manager tells the Product Owner to reorder the Product Backlog so that a feature she personally requested is built next, ahead of items the Product Owner believes deliver more value. What is the most appropriate response?", opts:[
@@ -116,7 +116,347 @@ window.BANKS["pspo-i"] = {
     { type:"tf", cat:"framework", q:"The Increment must meet the Definition of Done before it is considered usable, and multiple Increments may be created within a single Sprint.", opts:[
       {t:"True",c:true},
       {t:"False"}
-    ], exp:"The Scrum Guide 2020 states that the moment a Product Backlog item meets the Definition of Done, an Increment is born, and multiple Increments may be created within a Sprint. Work that does not meet the Definition of Done cannot be released or even presented at the Sprint Review; the Definition of Done is the commitment for the Increment that creates transparency about quality." }
+    ], exp:"The Scrum Guide 2020 states that the moment a Product Backlog item meets the Definition of Done, an Increment is born, and multiple Increments may be created within a Sprint. Work that does not meet the Definition of Done cannot be released or even presented at the Sprint Review; the Definition of Done is the commitment for the Increment that creates transparency about quality." },
+
+    { type:"multi", cat:"framework", q:"Which of the following are the three pillars upon which empirical process control rests, per the Scrum Guide 2020? (select 3)", opts:[
+      {t:"Transparency",c:true},
+      {t:"Inspection",c:true},
+      {t:"Adaptation",c:true},
+      {t:"Documentation"},
+      {t:"Estimation"}
+    ], exp:"The Scrum Guide 2020 states Scrum is founded on empiricism, which asserts that knowledge comes from experience and decisions are made based on what is observed. Three pillars uphold this approach: transparency, inspection, and adaptation. Documentation and estimation are activities, not pillars." },
+
+    { type:"multi", cat:"framework", q:"Which of the following are among the five Scrum values? (select 3)", opts:[
+      {t:"Commitment",c:true},
+      {t:"Focus",c:true},
+      {t:"Respect",c:true},
+      {t:"Velocity"},
+      {t:"Productivity"}
+    ], exp:"The Scrum Guide 2020 lists five Scrum values: Commitment, Focus, Openness, Respect, and Courage. Velocity and productivity are sometimes-used metrics, not Scrum values, and can even work against the values when overemphasized." },
+
+    { type:"tf", cat:"framework", q:"The Sprint Goal is the single objective of the Sprint and is the commitment for the Sprint Backlog.", opts:[
+      {t:"True",c:true},
+      {t:"False"}
+    ], exp:"The Scrum Guide 2020 states the Sprint Goal is the single objective for the Sprint and is the commitment for the Sprint Backlog. Each artifact contains a commitment: Product Backlog → Product Goal; Sprint Backlog → Sprint Goal; Increment → Definition of Done." },
+
+    { type:"single", cat:"framework", q:"Why does Scrum limit a Sprint to a maximum of one month?", opts:[
+      {t:"When a Sprint's horizon is too long, the Sprint Goal may become invalid, complexity may rise, and risk may increase; shorter cycles enable more frequent inspection and adaptation.",c:true},
+      {t:"Because longer Sprints would exceed the Scrum Master's capacity to facilitate."},
+      {t:"To make sure the Product Owner has enough time to write all requirements in detail beforehand."},
+      {t:"Because Scrum prescribes that release cycles must align to calendar months."}
+    ], exp:"The Scrum Guide 2020 explains a Sprint is timeboxed to one month or less for consistency, and that shorter Sprints can generate more learning cycles and limit the risk of cost and effort to a smaller window. When a Sprint's horizon is too long the Sprint Goal may become invalid, complexity may rise, and risk may increase." },
+
+    { type:"single", cat:"framework", q:"Who has the authority to cancel a Sprint before its timebox expires?", opts:[
+      {t:"Only the Product Owner.",c:true},
+      {t:"The Scrum Master, if they sense low team morale."},
+      {t:"The Developers, by majority vote."},
+      {t:"Any stakeholder funding the work."}
+    ], exp:"The Scrum Guide 2020 states only the Product Owner has the authority to cancel the Sprint, although they may do so under influence from stakeholders, the Developers, or the Scrum Master. A Sprint would be cancelled if the Sprint Goal becomes obsolete. Sprint cancellations are uncommon due to the short timeboxes involved." },
+
+    { type:"multi", cat:"framework", q:"Which of the following are true about the Daily Scrum per the Scrum Guide 2020? (select 2)", opts:[
+      {t:"It is a 15-minute event for the Developers of the Scrum Team.",c:true},
+      {t:"Its purpose is to inspect progress toward the Sprint Goal and adapt the Sprint Backlog as necessary, adjusting the upcoming planned work.",c:true},
+      {t:"The Scrum Master must lead the conversation by asking each Developer three set questions."},
+      {t:"The Product Owner must give a status report at the start of every Daily Scrum."}
+    ], exp:"The Scrum Guide 2020 describes the Daily Scrum as a 15-minute event for the Developers of the Scrum Team, held at the same time and place every working day of the Sprint, to inspect progress toward the Sprint Goal and adapt the Sprint Backlog as necessary. The Developers can structure it how they wish; the three-question format is optional and no longer prescribed. The Scrum Master and Product Owner may attend but are not required." },
+
+    { type:"single", cat:"framework", q:"What is the purpose of the Definition of Done?", opts:[
+      {t:"It is a formal description of the state of the Increment when it meets the quality measures required for the product, and it creates transparency by giving everyone a shared understanding of what 'Done' means.",c:true},
+      {t:"It is a checklist of acceptance criteria the Product Owner writes for each individual Product Backlog item."},
+      {t:"It is a contract between the Scrum Team and stakeholders that triggers payment milestones."},
+      {t:"It is a set of process steps the Developers must follow during Sprint Planning."}
+    ], exp:"The Scrum Guide 2020 defines the Definition of Done as a formal description of the state of the Increment when it meets the quality measures required for the product. It is the commitment for the Increment and creates transparency by providing everyone with a shared understanding of what work was completed as part of the Increment." },
+
+    { type:"single", cat:"framework", q:"What is the primary purpose of the Sprint Retrospective?", opts:[
+      {t:"The Scrum Team inspects how the last Sprint went with regards to individuals, interactions, processes, tools, and their Definition of Done, and identifies the most helpful changes to improve effectiveness.",c:true},
+      {t:"The Product Owner reviews team performance and gives feedback to individual Developers."},
+      {t:"The Scrum Master assigns improvement tasks to each team member."},
+      {t:"Stakeholders rate the Scrum Team and request adjustments for the next Sprint."}
+    ], exp:"The Scrum Guide 2020 states the purpose of the Sprint Retrospective is to plan ways to increase quality and effectiveness. The Scrum Team inspects how the last Sprint went and identifies the most helpful changes; the most impactful improvements are addressed as soon as possible and may even be added to the next Sprint Backlog." },
+
+    { type:"multi", cat:"framework", q:"Which of the following are ways the Scrum Master serves the Product Owner per the Scrum Guide 2020? (select 2)", opts:[
+      {t:"Helping find techniques for effective Product Goal definition and Product Backlog management.",c:true},
+      {t:"Helping the Scrum Team understand the need for clear and concise Product Backlog items.",c:true},
+      {t:"Writing and ordering Product Backlog items on behalf of the Product Owner."},
+      {t:"Approving the Product Owner's release decisions."}
+    ], exp:"The Scrum Guide 2020 explicitly lists ways the Scrum Master serves the Product Owner, including helping find techniques for effective Product Goal definition and Product Backlog management, helping the Scrum Team understand the need for clear and concise Product Backlog items, helping establish empirical product planning for a complex environment, and facilitating stakeholder collaboration as requested or needed. The Scrum Master does not author Product Backlog items or approve releases." },
+
+    { type:"tf", cat:"framework", q:"The Product Owner is one person, not a committee, and may represent the desires of many stakeholders in the Product Backlog.", opts:[
+      {t:"True",c:true},
+      {t:"False"}
+    ], exp:"The Scrum Guide 2020 states the Product Owner is one person, not a committee. The Product Owner may represent the needs of many stakeholders in the Product Backlog. Those wanting to change the Product Backlog can do so by trying to convince the Product Owner. For Product Owners to succeed, the entire organization must respect their decisions." },
+
+    { type:"single", cat:"framework", q:"What does it mean that a Scrum Team is cross-functional?", opts:[
+      {t:"The members collectively have all the skills necessary to create value each Sprint.",c:true},
+      {t:"Each Developer must be able to perform every task that any other Developer can perform."},
+      {t:"The team rotates through different functions of the business every Sprint."},
+      {t:"The team reports into multiple functional managers across the organization."}
+    ], exp:"The Scrum Guide 2020 states Scrum Teams are cross-functional, meaning the members have all the skills necessary to create value each Sprint. It does not require every individual to have every skill; it requires the team collectively to be capable. Scrum Teams are also self-managing — they choose internally who does what, when, and how." },
+
+    { type:"single", cat:"framework", q:"A Scrum Team is starting work on a new product. What does Scrum prescribe for the first Sprint?", opts:[
+      {t:"The Scrum Team begins a Sprint of the chosen length and produces at least one usable Increment that meets the Definition of Done.",c:true},
+      {t:"A 'Sprint Zero' for setup and design, with no requirement to produce an Increment."},
+      {t:"A discovery phase outside the Scrum framework until requirements stabilize."},
+      {t:"A double-length Sprint to absorb initial environment setup."}
+    ], exp:"The Scrum Guide 2020 does not define a 'Sprint Zero' or any setup phase. Each Sprint, including the first, must produce a usable Increment that meets the Definition of Done. Necessary setup work can be done within a normal Sprint alongside delivering a usable Increment, however small." },
+
+    { type:"single", cat:"value", q:"How does the EBM Guide define 'Current Value'?", opts:[
+      {t:"The value that the product delivers today, focusing on what exists right now, not what is possible or planned in the future.",c:true},
+      {t:"The total revenue forecast over the product's projected lifetime."},
+      {t:"The cumulative cost the organization has invested in the product so far."},
+      {t:"The size of the Product Backlog measured in story points."}
+    ], exp:"Per the EBM Guide, Current Value reveals the value the product delivers to customers and stakeholders today. The key question is: 'How happy are users and customers today? How happy are your employees today? Are your investors happy today?' Current Value focuses only on what the product is delivering now, not on its potential or its history." },
+
+    { type:"single", cat:"value", q:"What does the EBM Key Value Area 'Ability to Innovate' measure?", opts:[
+      {t:"The effectiveness of a product organization at delivering new capabilities that might better meet customer needs.",c:true},
+      {t:"The number of patents the product team has filed in the last year."},
+      {t:"The percentage of features delivered exactly on the originally promised date."},
+      {t:"The age of the oldest unresolved item in the Product Backlog."}
+    ], exp:"Per the EBM Guide, Ability to Innovate measures the effectiveness of a product organization at delivering new capabilities that might better meet customer needs. Many factors can reduce a team's Ability to Innovate (technical debt, low quality, distractions, etc.). When the goal of innovation is hampered, no further customer value can be delivered." },
+
+    { type:"multi", cat:"value", q:"Which of the following are example measures of Current Value per the EBM Guide? (select 2)", opts:[
+      {t:"Revenue per employee.",c:true},
+      {t:"Customer satisfaction.",c:true},
+      {t:"Release frequency."},
+      {t:"Technical debt."}
+    ], exp:"The EBM Guide lists example measures for Current Value including revenue per employee, product cost ratio, employee satisfaction, customer satisfaction, and customer usage index. Release frequency belongs to Time to Market, and technical debt belongs to Ability to Innovate." },
+
+    { type:"multi", cat:"value", q:"Which of the following are example measures of Time to Market per the EBM Guide? (select 2)", opts:[
+      {t:"Release frequency.",c:true},
+      {t:"Lead time.",c:true},
+      {t:"Customer satisfaction."},
+      {t:"Innovation rate."}
+    ], exp:"The EBM Guide lists example measures for Time to Market including build and integration frequency, release frequency, release stabilization period, mean time to repair, cycle time, and lead time. Customer satisfaction is a Current Value measure; innovation rate is an Ability to Innovate measure." },
+
+    { type:"multi", cat:"value", q:"Which of the following are example measures of Ability to Innovate per the EBM Guide? (select 2)", opts:[
+      {t:"Innovation rate (percent of effort spent on new product capabilities).",c:true},
+      {t:"Technical debt.",c:true},
+      {t:"Revenue per employee."},
+      {t:"Market share."}
+    ], exp:"The EBM Guide lists example measures for Ability to Innovate including innovation rate (the percent of effort or cost spent on building new product capabilities versus maintaining the existing product), defect trends, on-product index, installed version index, technical debt, production incident trends, and active product index. Revenue per employee is Current Value; market share relates to Unrealized Value." },
+
+    { type:"multi", cat:"value", q:"Which of the following are example measures of Unrealized Value per the EBM Guide? (select 2)", opts:[
+      {t:"Market share.",c:true},
+      {t:"Customer satisfaction gap.",c:true},
+      {t:"Cycle time."},
+      {t:"Release frequency."}
+    ], exp:"The EBM Guide lists example measures for Unrealized Value including market share and customer or user satisfaction gap (the difference between a customer's desired experience and their current experience). Cycle time and release frequency are Time to Market measures." },
+
+    { type:"single", cat:"value", q:"A Product Owner notices the team is repeatedly building features that, once released, are barely used. Which approach is most aligned with EBM thinking?", opts:[
+      {t:"Frame each significant feature as a hypothesis with a measurable expected outcome, then use Sprints to run experiments and inspect actual customer behavior.",c:true},
+      {t:"Stop releasing features until a full market study is completed."},
+      {t:"Track and reward Developers based on the number of features they ship per Sprint."},
+      {t:"Add more features per Sprint so that at least some of them succeed by chance."}
+    ], exp:"EBM advocates managing toward value and using empiricism: form a hypothesis, run an experiment (deliver an Increment), measure the outcome against the hypothesis, and learn. Output metrics like features shipped per Sprint do not reveal whether actual value improved. The Scrum Guide's empirical foundation supports the same approach: transparency, inspection, adaptation." },
+
+    { type:"single", cat:"value", q:"The EBM Guide describes a hierarchy of goals an organization can use to navigate toward value. Which set best matches that hierarchy?", opts:[
+      {t:"Strategic Goal, Intermediate Goals, and Immediate Tactical Goal (often expressed as Product Goal and Sprint Goal in Scrum).",c:true},
+      {t:"Vision, Mission, and KPI."},
+      {t:"Epic, Feature, and User Story."},
+      {t:"OKR, KR, and Task."}
+    ], exp:"The EBM Guide describes a hierarchy: the Strategic Goal (a long-term, often ambitious objective), Intermediate Goals (medium-term objectives that move the organization toward the Strategic Goal), and an Immediate Tactical Goal (the next concrete step). In Scrum these align naturally with a long-term product vision, the Product Goal, and the Sprint Goal." },
+
+    { type:"tf", cat:"value", q:"Evidence-Based Management is a framework intended only for individual Scrum Teams to measure their own velocity and Sprint outcomes.", opts:[
+      {t:"True"},
+      {t:"False",c:true}
+    ], exp:"False. EBM is a framework for organizations to measure, manage, and increase the value derived from product delivery — particularly under uncertainty. It applies across the organization, not only within a single Scrum Team, and it deliberately focuses on customer and business value rather than team output measures like velocity." },
+
+    { type:"single", cat:"value", q:"A leadership team is celebrating that the Scrum Team has doubled its velocity over the last quarter. From an EBM perspective, what is the most important follow-up question?", opts:[
+      {t:"Have any of the four Key Value Areas — particularly Current Value and Unrealized Value — actually improved as a result?",c:true},
+      {t:"How much further can velocity be increased next quarter?"},
+      {t:"How can the Definition of Done be relaxed to keep velocity high?"},
+      {t:"Should the team's Sprint length be shortened to compress more story points in?"}
+    ], exp:"EBM stresses managing toward value, not output. Velocity is a team-internal output measure; doubling it does not by itself prove anything about customer value, market position, or organizational capability. The relevant question is whether the Key Value Areas — Current Value, Unrealized Value, Time to Market, Ability to Innovate — have moved." },
+
+    { type:"single", cat:"value", q:"A product has strong Current Value but its Ability to Innovate is degrading due to mounting technical debt. What does EBM suggest the Product Owner should consider?", opts:[
+      {t:"Investing capacity into reducing technical debt so future capability delivery is not strangled, even if it slows new-feature Current Value gains short-term.",c:true},
+      {t:"Ignoring technical debt and continuing to maximize Current Value features."},
+      {t:"Dropping the Definition of Done so the team can ship more features faster."},
+      {t:"Outsourcing all maintenance so the Scrum Team can focus only on new features."}
+    ], exp:"EBM treats the four Key Value Areas as a balanced portfolio. A weakening Ability to Innovate will eventually erode Current Value as well, because the team becomes unable to respond to change. The Product Owner balances near-term value with the organization's capacity to keep delivering, using experiments and measures to inform that balance." },
+
+    { type:"single", cat:"value", q:"In which EBM Key Value Area does the 'customer satisfaction gap' (difference between desired and actual experience) most naturally fit?", opts:[
+      {t:"Unrealized Value.",c:true},
+      {t:"Current Value."},
+      {t:"Time to Market."},
+      {t:"Ability to Innovate."}
+    ], exp:"Per the EBM Guide, the customer satisfaction gap — the difference between a customer's desired experience and their current experience — is an example measure of Unrealized Value, because it points to value that could still be captured if the product more fully met customer needs." },
+
+    { type:"single", cat:"value", q:"An organization wants to improve its Time to Market. Which of the following changes most directly supports that goal?", opts:[
+      {t:"Shorten the path from idea to a usable Increment in production by automating builds, tests, and deployment.",c:true},
+      {t:"Increase the size of the Product Backlog so more items are 'ready' for the team."},
+      {t:"Add more approval gates before any release to ensure quality."},
+      {t:"Lengthen the Sprint so the team can include more features per release."}
+    ], exp:"Per the EBM Guide, Time to Market measures the organization's ability to quickly deliver new capabilities, services, or products. Shortening build/integration/release cycles and reducing manual gates directly improves Time to Market measures like release frequency, lead time, and cycle time. Larger backlogs, more gates, or longer Sprints typically push Time to Market in the wrong direction." },
+
+    { type:"multi", cat:"backlog", q:"Which of the following are attributes the Scrum Guide 2020 lists as commonly associated with Product Backlog items? (select 3)", opts:[
+      {t:"A description.",c:true},
+      {t:"An order.",c:true},
+      {t:"A size.",c:true},
+      {t:"An assigned Developer."},
+      {t:"A fixed delivery date set by the Scrum Master."}
+    ], exp:"The Scrum Guide 2020 states attributes of a Product Backlog item often include a description, order, size, and value. Items are not assigned to specific Developers (the Developers self-manage), and fixed delivery dates are not part of the item itself; they relate to release decisions made by the Product Owner." },
+
+    { type:"single", cat:"backlog", q:"Who is responsible for sizing (estimating) Product Backlog items?", opts:[
+      {t:"The Developers, who will perform the work.",c:true},
+      {t:"The Product Owner, who orders the backlog."},
+      {t:"The Scrum Master, who facilitates planning."},
+      {t:"Stakeholders, who fund the work."}
+    ], exp:"The Scrum Guide 2020 states the Developers who will be doing the work are responsible for the sizing. The Product Owner may influence them by helping them understand and select trade-offs, but the size is owned by those who will deliver." },
+
+    { type:"tf", cat:"backlog", q:"The Product Backlog is the single source of work undertaken by the Scrum Team.", opts:[
+      {t:"True",c:true},
+      {t:"False"}
+    ], exp:"The Scrum Guide 2020 explicitly states the Product Backlog is an emergent, ordered list of what is needed to improve the product. It is the single source of work undertaken by the Scrum Team. Work that does not appear in the Product Backlog should not be undertaken by the Scrum Team." },
+
+    { type:"single", cat:"backlog", q:"What does the Sprint Goal provide for the Sprint Backlog?", opts:[
+      {t:"It is the single objective of the Sprint and the commitment for the Sprint Backlog, providing focus and flexibility about how it is achieved.",c:true},
+      {t:"It is a list of items the Developers are contractually bound to deliver."},
+      {t:"It is a duplicate of the Product Goal scoped down."},
+      {t:"It is the Scrum Master's plan for facilitating the Sprint."}
+    ], exp:"The Scrum Guide 2020 states the Sprint Goal is the single objective for the Sprint and is the commitment for the Sprint Backlog. Although the Sprint Goal is a commitment by the Developers, it provides flexibility in terms of the exact work needed to achieve it. The Sprint Goal also creates coherence and focus, encouraging the Scrum Team to work together rather than on separate initiatives." },
+
+    { type:"single", cat:"backlog", q:"When can new items be added to the Product Backlog?", opts:[
+      {t:"At any time; the Product Backlog is emergent and the Product Owner decides what gets added and how it is ordered.",c:true},
+      {t:"Only during Sprint Planning."},
+      {t:"Only during Product Backlog refinement events scheduled by the Scrum Master."},
+      {t:"Only at the start of a new quarterly planning cycle."}
+    ], exp:"The Scrum Guide 2020 describes the Product Backlog as emergent — it evolves continuously as the product and the environment in which it will be used evolve. New items can be added at any time. Anyone may propose items, but the Product Owner is accountable for the Product Backlog's content, ordering, and availability." },
+
+    { type:"single", cat:"backlog", q:"A serious defect is discovered in the production product mid-Sprint. How is the work to fix it best managed?", opts:[
+      {t:"As a Product Backlog item that the Product Owner orders against other work; if it is urgent enough, the Developers may pull it into the current Sprint with the Product Owner's collaboration, provided the Sprint Goal is not endangered.",c:true},
+      {t:"Outside Scrum entirely; bugs do not belong on the Product Backlog."},
+      {t:"By immediately cancelling the Sprint regardless of the Sprint Goal."},
+      {t:"By the Scrum Master assigning it directly to a Developer."}
+    ], exp:"The Scrum Guide 2020 treats the Product Backlog as the single source of work; defects belong on it like any other work. The Product Owner orders items by value, risk, and other factors. Mid-Sprint scope can be renegotiated with the Product Owner as long as the Sprint Goal is not endangered; only the Product Owner may cancel a Sprint." },
+
+    { type:"tf", cat:"backlog", q:"The Sprint Backlog is fixed at the end of Sprint Planning and must not change during the Sprint.", opts:[
+      {t:"True"},
+      {t:"False",c:true}
+    ], exp:"False. The Scrum Guide 2020 states the Sprint Backlog is updated throughout the Sprint as more is learned. It should have enough detail that the Developers can inspect their progress in the Daily Scrum. The Sprint Goal, however, remains intact; scope is renegotiated between the Developers and the Product Owner as needed." },
+
+    { type:"multi", cat:"backlog", q:"Which of the following make up the Sprint Backlog per the Scrum Guide 2020? (select 3)", opts:[
+      {t:"The Sprint Goal (why).",c:true},
+      {t:"The set of Product Backlog items selected for the Sprint (what).",c:true},
+      {t:"An actionable plan for delivering the Increment (how).",c:true},
+      {t:"A list of stakeholder approvals required to release."},
+      {t:"A capacity calendar of each Developer's availability per day."}
+    ], exp:"The Scrum Guide 2020 states the Sprint Backlog is composed of the Sprint Goal (why), the set of Product Backlog items selected for the Sprint (what), and an actionable plan for delivering the Increment (how). It is a plan by and for the Developers. Stakeholder approvals and individual capacity calendars are not part of the Sprint Backlog as defined by Scrum." },
+
+    { type:"single", cat:"backlog", q:"Three Scrum Teams collaborate on the same product. According to the Scrum Guide 2020, how should their Product Backlogs and Product Goals be structured?", opts:[
+      {t:"All three teams share the same Product Backlog and the same Product Goal, with one Product Owner who is accountable for both.",c:true},
+      {t:"Each team has its own Product Backlog and its own Product Goal."},
+      {t:"Two of the teams use a shared backlog; the third works independently."},
+      {t:"The Scrum Master maintains a master backlog that synchronizes the three teams."}
+    ], exp:"The Scrum Guide 2020 states that if Scrum Teams become too large, they should consider reorganizing into multiple cohesive Scrum Teams, each focused on the same product. Therefore, they should share the same Product Goal, Product Backlog, and Product Owner. There is one Product Backlog and one Product Goal per product." },
+
+    { type:"single", cat:"backlog", q:"How do the Product Goal and the Sprint Goal relate to each other?", opts:[
+      {t:"The Product Goal describes a future state of the product and is the long-term objective; the Sprint Goal is the single objective of a Sprint and represents a concrete step toward the Product Goal.",c:true},
+      {t:"They are synonyms used interchangeably."},
+      {t:"The Sprint Goal is set first; the Product Goal is derived from completed Sprint Goals."},
+      {t:"The Product Goal is set by the Developers, the Sprint Goal by the Product Owner."}
+    ], exp:"The Scrum Guide 2020 states the Product Goal is the long-term objective for the Scrum Team — it describes a future state of the product. The Sprint Goal is the single objective of the Sprint and is the commitment for the Sprint Backlog. Each Sprint should bring the product closer to the overall Product Goal." },
+
+    { type:"single", cat:"backlog", q:"A team asks whether they must define a 'Definition of Ready' before items can enter a Sprint. What does the Scrum Guide 2020 say?", opts:[
+      {t:"It does not define or require a Definition of Ready; the Scrum Team may adopt such an agreement, but Product Backlog items only need to be refined to where the Developers consider them doable within one Sprint.",c:true},
+      {t:"Yes; the Definition of Ready is a Scrum artifact alongside the Definition of Done."},
+      {t:"Yes; the Product Owner must publish a Definition of Ready in writing before each Sprint."},
+      {t:"No; pre-Sprint refinement is forbidden in Scrum."}
+    ], exp:"The Scrum Guide 2020 does not define a Definition of Ready. It states Product Backlog items that can be Done by the Scrum Team within one Sprint are deemed ready for selection in a Sprint Planning event. They usually acquire this degree of transparency after refining activities. Teams are free to adopt their own working agreements about readiness, but it is not a Scrum requirement." },
+
+    { type:"single", cat:"backlog", q:"How does the level of detail of Product Backlog items typically compare between the top and the bottom of the backlog?", opts:[
+      {t:"Items near the top are smaller and more detailed; items near the bottom are larger and less precise, reflecting how much is known and how soon they will be worked on.",c:true},
+      {t:"Items are uniformly detailed regardless of position in the backlog."},
+      {t:"Items at the bottom are the most detailed because they have been waiting longest."},
+      {t:"Detail is determined only by stakeholder requests, not position."}
+    ], exp:"The Scrum Guide 2020 describes refinement as the act of breaking down and further defining Product Backlog items into smaller, more precise items. This is an ongoing activity, and items are refined more as they move higher in the order, so that the most imminent items have enough detail and small enough size to be selected in Sprint Planning." },
+
+    { type:"tf", cat:"backlog", q:"Only the Product Owner can add, remove, or reorder items in the Product Backlog.", opts:[
+      {t:"True",c:true},
+      {t:"False"}
+    ], exp:"The Scrum Guide 2020 states the Product Owner is accountable for the Product Backlog, including its content, availability, and ordering. While anyone may propose changes, only the Product Owner has the authority to decide what enters, what is removed, and in what order. The whole organization must respect those decisions." },
+
+    { type:"single", cat:"stakeholders", q:"Who attends the Sprint Review?", opts:[
+      {t:"The Scrum Team and key stakeholders invited by the Product Owner.",c:true},
+      {t:"Only the Product Owner and the Scrum Master."},
+      {t:"All employees of the organization."},
+      {t:"Only the Developers, who demonstrate the work themselves."}
+    ], exp:"The Scrum Guide 2020 describes the Sprint Review as a working session where the Scrum Team presents the results of their work to key stakeholders and progress toward the Product Goal is discussed. The Product Owner is accountable for stakeholder collaboration and invites the right stakeholders for the conversation." },
+
+    { type:"multi", cat:"stakeholders", q:"Which of the following are valid outcomes of a Sprint Review per the Scrum Guide 2020? (select 2)", opts:[
+      {t:"The Product Backlog may be adjusted to meet new opportunities.",c:true},
+      {t:"Stakeholders and the Scrum Team collaborate on what to do next.",c:true},
+      {t:"A formal sign-off document that locks the next Sprint's content."},
+      {t:"Individual performance ratings of each Developer."}
+    ], exp:"The Scrum Guide 2020 states the Sprint Review's purpose is to inspect the outcome of the Sprint and determine future adaptations. The Scrum Team presents the results of their work to key stakeholders and progress toward the Product Goal is discussed; based on this and any changes to the environment, attendees collaborate on what to do next. The Product Backlog may also be adjusted to meet new opportunities." },
+
+    { type:"single", cat:"stakeholders", q:"An influential stakeholder is openly skeptical of Scrum and refuses to attend Sprint Reviews. What is the most appropriate response by the Product Owner?", opts:[
+      {t:"Engage the stakeholder directly to understand their concerns, share evidence of value delivered, and invite them into the empirical process where their input shapes upcoming work.",c:true},
+      {t:"Escalate to leadership to force the stakeholder to attend."},
+      {t:"Exclude the stakeholder from all future product decisions."},
+      {t:"Revert to a non-Scrum process for that stakeholder's requests only."}
+    ], exp:"The Scrum Guide 2020 says the Product Owner is accountable for effective Product Backlog management, which includes stakeholder collaboration. Engaging the stakeholder, surfacing real outcomes via inspection, and inviting collaboration aligns with empiricism. Coercion or exclusion is contrary to the Scrum values of openness and respect and undermines transparency." },
+
+    { type:"single", cat:"stakeholders", q:"When is it appropriate for the Scrum Team to abandon a Product Goal?", opts:[
+      {t:"When inspection of outcomes and the environment shows the Product Goal is no longer the most valuable direction; the Product Owner decides to abandon it and the team commits to a new one.",c:true},
+      {t:"Never; once set, a Product Goal must be completed."},
+      {t:"Whenever the Developers find the work technically challenging."},
+      {t:"Only at the start of a calendar year, during annual planning."}
+    ], exp:"The Scrum Guide 2020 states the Scrum Team must fulfill (or abandon) one Product Goal before taking on the next. The Product Goal can be abandoned when inspection of outcomes and the environment makes it clear that pursuing it no longer maximizes value; the Product Owner is accountable for that decision. Abandonment is part of empiricism, not failure." },
+
+    { type:"single", cat:"stakeholders", q:"A Scrum Team finished a Sprint primarily focused on validating a risky assumption; no end-user feature was released. How should the Product Owner communicate Sprint outcomes to stakeholders?", opts:[
+      {t:"Share what was learned, how it changes the team's understanding of value, and how the Product Backlog and Product Goal are being adapted as a result.",c:true},
+      {t:"Hide the Sprint outcome until a user-facing feature is ready to demo."},
+      {t:"Report the Sprint as a failure since no new feature was released."},
+      {t:"Promise stakeholders the next Sprint will deliver double the features to compensate."}
+    ], exp:"EBM and the Scrum Guide 2020 both emphasize value and outcomes over output. Validated learning that changes Product Backlog ordering or Product Goal direction is a legitimate outcome of a Sprint. Transparent reporting — including what was learned and what will change — supports inspection and adaptation by stakeholders." },
+
+    { type:"single", cat:"stakeholders", q:"Two senior stakeholders demand different items be next on the Product Backlog. What is the Product Owner's best course of action?", opts:[
+      {t:"Listen to both, weigh their requests against overall product value and the Product Goal, and make a single ordering decision the team will work to.",c:true},
+      {t:"Implement both requests in parallel by splitting the team in half."},
+      {t:"Escalate to a committee that will vote on the order."},
+      {t:"Defer the decision until both stakeholders agree."}
+    ], exp:"The Scrum Guide 2020 states the Product Owner is one person, not a committee, and is accountable for ordering Product Backlog items so as to maximize value. The Product Owner may represent the needs of many stakeholders, but the decision is theirs. The whole organization must respect that decision." },
+
+    { type:"single", cat:"stakeholders", q:"A sales leader has promised an external customer that a specific list of features will ship by a fixed date. What is the Product Owner's most appropriate response?", opts:[
+      {t:"Engage the sales leader transparently about what is known and unknown, use empirical data and the Product Backlog to discuss likely scope at that date, and renegotiate scope or expectations as needed.",c:true},
+      {t:"Accept the promise and silently pressure the Developers to skip the Definition of Done if needed."},
+      {t:"Refuse to talk to sales since they are external to the Scrum Team."},
+      {t:"Cancel the current Sprint immediately to redirect all work to the promised list."}
+    ], exp:"The Scrum Guide 2020 emphasizes empiricism and transparency. Fixed-scope/fixed-date commitments in complex environments are hypotheses, not facts. The Product Owner uses inspection of progress and value to negotiate transparently with stakeholders, never by compromising the Definition of Done or hiding reality. Cancelling the Sprint mid-flight ignores empirical data and disrupts the team without need." },
+
+    { type:"single", cat:"stakeholders", q:"How can a Product Owner use the Evidence-Based Management Key Value Areas with stakeholders?", opts:[
+      {t:"As a shared lens to discuss whether changes to the product actually improve value (Current and Unrealized) and the organization's capability to deliver it (Time to Market and Ability to Innovate).",c:true},
+      {t:"As a compliance reporting framework to grade each Developer."},
+      {t:"As a substitute for the Sprint Review."},
+      {t:"As a budgeting tool only used by finance, not by Product Owners."}
+    ], exp:"Per the EBM Guide, the four Key Value Areas — Current Value, Unrealized Value, Time to Market, Ability to Innovate — give Product Owners and stakeholders a shared language for inspecting and adapting decisions about the product. EBM complements Scrum events (it does not replace them) and focuses on customer value, not on individual performance." },
+
+    { type:"single", cat:"stakeholders", q:"What is the most appropriate purpose of a product roadmap in a Scrum context?", opts:[
+      {t:"To communicate the Product Goal and likely direction over a horizon, while explicitly acknowledging uncertainty and the right to change based on empirical evidence.",c:true},
+      {t:"To lock in fixed feature delivery dates for the next 18 months."},
+      {t:"To replace the Product Backlog as the team's source of work."},
+      {t:"To assign individual Developers to features by quarter."}
+    ], exp:"The Scrum Guide 2020 does not prescribe a roadmap, but Product Owners commonly use one to communicate direction. Effective roadmaps reflect empiricism — they describe intent and likely sequence with appropriate uncertainty rather than fixed commitments. Locking in long-term feature dates contradicts the empirical foundation Scrum depends on." },
+
+    { type:"multi", cat:"stakeholders", q:"Which of the following are characteristics of an effective product vision? (select 2)", opts:[
+      {t:"It describes a desired future state and the value the product is intended to create for customers and the organization.",c:true},
+      {t:"It provides direction that helps the Scrum Team make day-to-day trade-offs aligned to the Product Goal.",c:true},
+      {t:"It is a complete set of detailed requirements for the next 12 months."},
+      {t:"It is fixed and must never be updated as the product or market changes."}
+    ], exp:"While the Scrum Guide 2020 does not prescribe a vision artifact, a useful product vision describes the desired future state and the value the product creates, providing direction for ordering trade-offs in line with the Product Goal. Visions are not detailed requirements documents and should evolve as learning makes a better direction clear." },
+
+    { type:"single", cat:"stakeholders", q:"A Product Owner is mapping stakeholders for a product. Which group is most often overlooked but still influences product success?", opts:[
+      {t:"Indirect stakeholders such as internal operations teams, regulators, or partners whose work is affected by the product.",c:true},
+      {t:"Direct end users of the product."},
+      {t:"The Scrum Master."},
+      {t:"The Developers."}
+    ], exp:"The Product Owner balances the needs of many stakeholders — both direct (end users, paying customers) and indirect (operations, support, compliance, partners). Indirect stakeholders are easy to overlook yet often determine whether value is actually realized. The Scrum Master and Developers are part of the Scrum Team, not external stakeholders." },
+
+    { type:"tf", cat:"stakeholders", q:"Because the Product Owner represents the needs of stakeholders, they must accept every stakeholder request and add it to the Product Backlog.", opts:[
+      {t:"True"},
+      {t:"False",c:true}
+    ], exp:"False. The Scrum Guide 2020 states the Product Owner is accountable for the Product Backlog and is one person, not a committee. They may represent the needs of many stakeholders, but they decide what to add and how to order. Accepting every request would undermine focus on maximizing value and could endanger the Product Goal." }
   ]
 };
 })();
