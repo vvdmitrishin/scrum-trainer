@@ -246,7 +246,15 @@ const app={
   },
 
   home(){
+    if(this.timer){clearInterval(this.timer);this.timer=null;}
+    this.items=[];this.idx=0;this.finished=false;
     $("results").classList.add("hide");$("quiz").classList.add("hide");$("start").classList.remove("hide");
     this.loadStats();window.scrollTo(0,0);
+  },
+
+  exitQuiz(){
+    const answered = this.items.some(it => it.selected.length || it.checked);
+    if(!this.finished && answered && !confirm("Exit the quiz? Your progress in this session will be lost.")) return;
+    this.home();
   }
 };

@@ -50,7 +50,10 @@
   .stats b{color:var(--accent);font-size:16px}
   .label{font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--muted);margin:18px 0 0}
   /* quiz */
-  .bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:13px;color:var(--muted)}
+  .bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;font-size:13px;color:var(--muted)}
+  .exitBtn{background:transparent;color:var(--muted);border:1px solid var(--line);padding:5px 11px;border-radius:7px;cursor:pointer;font-size:12px;font-weight:600;letter-spacing:.3px;transition:.12s}
+  .exitBtn:hover{color:var(--txt);border-color:var(--accent2);background:var(--panel2)}
+  #counter{flex:1;text-align:center}
   .timer{font-variant-numeric:tabular-nums;font-weight:700;color:var(--txt);background:var(--panel2);padding:6px 12px;border-radius:8px;border:1px solid var(--line)}
   .timer.low{color:var(--bad);border-color:var(--bad)}
   .progress{height:6px;background:var(--panel2);border-radius:99px;overflow:hidden;margin-bottom:18px}
@@ -146,7 +149,11 @@
 
   <!-- QUIZ -->
   <div id="quiz" class="card hide">
-    <div class="bar"><span id="counter"></span><span class="timer hide" id="timer"></span></div>
+    <div class="bar">
+      <button class="exitBtn" id="exitBtn" onclick="app.exitQuiz()" title="Exit and return to start">← Exit</button>
+      <span id="counter"></span>
+      <span class="timer hide" id="timer"></span>
+    </div>
     <div class="progress"><i id="pbar"></i></div>
     <div id="qbox"></div>
     <div id="expbox"></div>
