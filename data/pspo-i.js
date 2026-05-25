@@ -771,7 +771,440 @@ window.BANKS["pspo-i"] = {
       {t:"A precise hour estimate written by the stakeholder."},
       {t:"A mandatory deadline date set by the stakeholder."},
       {t:"A list of which specific Developer should implement it."}
-    ], exp:"Effective Product Backlog items describe the problem and the desired outcome, not just a prescribed solution. This lets the Scrum Team discuss alternatives, validate assumptions, and measure whether the work actually delivers the intended value. Hour estimates from stakeholders, externally-imposed dates, and assigning specific Developers all undermine empirical, self-managed work." }
+    ], exp:"Effective Product Backlog items describe the problem and the desired outcome, not just a prescribed solution. This lets the Scrum Team discuss alternatives, validate assumptions, and measure whether the work actually delivers the intended value. Hour estimates from stakeholders, externally-imposed dates, and assigning specific Developers all undermine empirical, self-managed work." },
+
+    { type:"single", cat:"framework", q:"What is the maximum timebox for Sprint Planning for a one-month Sprint?", opts:[
+      {t:"8 hours",c:true},
+      {t:"4 hours"},
+      {t:"2 hours"},
+      {t:"No fixed timebox"}
+    ], exp:"The Scrum Guide 2020 states Sprint Planning is timeboxed to a maximum of 8 hours for a one-month Sprint. For shorter Sprints, the event is usually shorter." },
+
+    { type:"single", cat:"framework", q:"What is the maximum timebox for the Sprint Review for a one-month Sprint?", opts:[
+      {t:"4 hours",c:true},
+      {t:"8 hours"},
+      {t:"2 hours"},
+      {t:"No fixed timebox"}
+    ], exp:"The Scrum Guide 2020 states the Sprint Review is timeboxed to a maximum of 4 hours for a one-month Sprint, shorter for shorter Sprints." },
+
+    { type:"single", cat:"framework", q:"What is the maximum timebox for the Sprint Retrospective for a one-month Sprint?", opts:[
+      {t:"3 hours",c:true},
+      {t:"1 hour"},
+      {t:"2 hours"},
+      {t:"4 hours"}
+    ], exp:"The Scrum Guide 2020 states the Sprint Retrospective is timeboxed to a maximum of 3 hours for a one-month Sprint. Shorter Sprints have shorter timeboxes." },
+
+    { type:"single", cat:"framework", q:"On what foundation is Scrum built per the Scrum Guide 2020?", opts:[
+      {t:"Empiricism and lean thinking",c:true},
+      {t:"Detailed up-front planning"},
+      {t:"Resource utilization optimization"},
+      {t:"Predictive process control"}
+    ], exp:"The Scrum Guide 2020 explicitly states Scrum is founded on empiricism and lean thinking. Empiricism asserts that knowledge comes from experience and decisions are based on what is observed. Lean thinking reduces waste and focuses on essentials." },
+
+    { type:"single", cat:"framework", q:"An organization has no Definition of Done as a standard. Who creates it?", opts:[
+      {t:"The Scrum Team creates a Definition of Done appropriate for the product",c:true},
+      {t:"The Product Owner writes it alone"},
+      {t:"The Scrum Master imposes it"},
+      {t:"The organization must mandate one before work can begin"}
+    ], exp:"Per the Scrum Guide 2020, if there is no organizational DoD standard, the Scrum Team must create a Definition of Done appropriate for the product. The whole Scrum Team owns and maintains it." },
+
+    { type:"single", cat:"framework", q:"Mid-Sprint the Developers learn one of the selected items will take twice as long as estimated. The Sprint Goal is still achievable. What is the most appropriate response?", opts:[
+      {t:"Renegotiate scope with the Product Owner — the Sprint Backlog evolves; the Sprint Goal stays intact",c:true},
+      {t:"Extend the Sprint by a few days to accommodate the work"},
+      {t:"Cancel the Sprint immediately"},
+      {t:"Force the Developers to work overtime to maintain scope"}
+    ], exp:"The Scrum Guide 2020 states scope may be renegotiated with the Product Owner as more is learned. Sprint length is fixed and cannot be extended. The Sprint Goal is the commitment; selected items are a forecast that can flex." },
+
+    { type:"single", cat:"framework", q:"Why are Sprint cancellations rare in practice?", opts:[
+      {t:"Sprints are short timeboxes, so completing the Sprint is usually faster than cancelling and restarting",c:true},
+      {t:"The Scrum Guide forbids cancellations"},
+      {t:"Only management can authorize them"},
+      {t:"They require unanimous team vote"}
+    ], exp:"The Scrum Guide 2020 notes Sprint cancellations are uncommon because Sprints are short. A Sprint may be cancelled only if the Sprint Goal becomes obsolete; only the Product Owner has authority. Practically, completing a short Sprint is usually more efficient than restarting." },
+
+    { type:"single", cat:"value", q:"A team uses 'Product Cost Ratio' (total expenses and operational costs vs. revenue) as a measure. Which EBM Key Value Area does this most naturally belong to?", opts:[
+      {t:"Current Value",c:true},
+      {t:"Unrealized Value"},
+      {t:"Time to Market"},
+      {t:"Ability to Innovate"}
+    ], exp:"Per the EBM Guide Appendix, Product Cost Ratio is a Current Value KVM. It reflects the value the product delivers today relative to what it costs to operate. CV KVMs include revenue per employee, product cost ratio, employee satisfaction, customer satisfaction, customer usage index." },
+
+    { type:"single", cat:"value", q:"A Product Owner reports 'employee satisfaction' as part of value reporting. Per the EBM Guide, this is a measure of:", opts:[
+      {t:"Current Value — engaged employees are key producers of the value the product delivers today",c:true},
+      {t:"Unrealized Value — happiness gap to ideal"},
+      {t:"Time to Market — how fast they deliver"},
+      {t:"Ability to Innovate — capacity for new capabilities"}
+    ], exp:"The EBM Guide explicitly lists Employee Satisfaction as a Current Value KVM. Engaged employees are 'ultimately the producers of value' — happy employees are more engaged and productive, contributing to today's value delivery." },
+
+    { type:"single", cat:"value", q:"A team tracks 'Customer Usage Index' — measurement of usage by feature, used to infer how useful customers find the product. Which KVA does this belong to?", opts:[
+      {t:"Current Value",c:true},
+      {t:"Unrealized Value"},
+      {t:"Time to Market"},
+      {t:"Ability to Innovate"}
+    ], exp:"Customer Usage Index is a Current Value KVM per the EBM Guide. It reveals whether customers find the product useful TODAY and whether actual usage matches expectations. It is not about future potential (UV), delivery speed (T2M), or innovation capacity (A2I)." },
+
+    { type:"single", cat:"value", q:"A team measures 'Mean Time to Repair' (MTTR) — average time from error detection to fix. This is a measure of:", opts:[
+      {t:"Time to Market — efficiency of the organization to fix an error",c:true},
+      {t:"Current Value"},
+      {t:"Unrealized Value"},
+      {t:"Ability to Innovate"}
+    ], exp:"MTTR is a Time to Market KVM per the EBM Guide. It reveals the efficiency of an organization to fix an error. T2M includes anything affecting how quickly the organization responds — release cadence, lead time, MTTR, cycle time." },
+
+    { type:"single", cat:"value", q:"A team's CI pipeline produces N integrated and tested builds per day. As an EBM value measure, this maps to:", opts:[
+      {t:"Time to Market",c:true},
+      {t:"Current Value"},
+      {t:"Unrealized Value"},
+      {t:"Ability to Innovate"}
+    ], exp:"Build and Integration Frequency is a Time to Market KVM per the EBM Guide. It reflects how often the team can integrate and test work — a leading indicator of how fast new value can reach customers." },
+
+    { type:"single", cat:"value", q:"A team tracks 'Customer Cycle Time' — elapsed time from when work starts on a release until release. Which KVA?", opts:[
+      {t:"Time to Market",c:true},
+      {t:"Current Value"},
+      {t:"Unrealized Value"},
+      {t:"Ability to Innovate"}
+    ], exp:"Customer Cycle Time is a Time to Market KVM. It reflects the organization's ability to reach its customer — start-to-release elapsed time. T2M is about responsiveness; CV is value delivered today; UV is unrealized potential; A2I is innovation capacity." },
+
+    { type:"single", cat:"value", q:"A team measures 'Innovation Rate' — percentage of effort spent on new product capabilities vs. maintaining existing product. This is a measure of:", opts:[
+      {t:"Ability to Innovate",c:true},
+      {t:"Current Value"},
+      {t:"Unrealized Value"},
+      {t:"Time to Market"}
+    ], exp:"Innovation Rate is the headline KVM for Ability to Innovate per the EBM Guide. It directly reflects the organization's capacity to deliver new capabilities — when too much effort goes to maintenance, A2I degrades." },
+
+    { type:"single", cat:"value", q:"A team tracks 'Defect Trends' — change in defects period over period. Which KVA does this most directly measure?", opts:[
+      {t:"Ability to Innovate",c:true},
+      {t:"Current Value"},
+      {t:"Time to Market"},
+      {t:"Unrealized Value"}
+    ], exp:"Defect Trends is an Ability to Innovate KVM. Defects reduce the value the product delivers and consume capacity that could be spent on innovation. Rising defects directly indicate A2I erosion." },
+
+    { type:"single", cat:"value", q:"A team tracks 'On-Product Index' — percentage of time team members spend working on the product itself vs. other tasks. Which KVA?", opts:[
+      {t:"Ability to Innovate",c:true},
+      {t:"Current Value"},
+      {t:"Time to Market"},
+      {t:"Unrealized Value"}
+    ], exp:"On-Product Index is an Ability to Innovate KVM per the EBM Guide. When teams spend significant time on non-product work (admin, context switching, meetings), A2I suffers. The metric reveals systemic impediments to innovation capacity." },
+
+    { type:"single", cat:"value", q:"A team tracks 'Installed Version Index' — number of versions of the product currently being supported. Which KVA does this affect?", opts:[
+      {t:"Ability to Innovate — supporting many old versions consumes capacity for new development",c:true},
+      {t:"Current Value"},
+      {t:"Time to Market"},
+      {t:"Unrealized Value"}
+    ], exp:"Installed Version Index is an Ability to Innovate KVM. The EBM Guide notes that supporting and maintaining older versions consumes capacity. The more versions in the wild, the less capacity for new capabilities." },
+
+    { type:"single", cat:"value", q:"A team measures 'Production Incident Count' — frequency of being interrupted to fix issues in installed products. What does this indicate?", opts:[
+      {t:"Ability to Innovate — interruption time is lost innovation capacity; incident frequency also signals product stability",c:true},
+      {t:"Current Value"},
+      {t:"Time to Market"},
+      {t:"Unrealized Value"}
+    ], exp:"Production Incident Count is an Ability to Innovate KVM per the EBM Guide. Frequent interruptions to fix issues drain innovation capacity. The number and frequency of incidents also help indicate product stability." },
+
+    { type:"single", cat:"value", q:"A team measures 'Desired Customer Experience' — a survey-based measure of what customers would like to experience. Which KVA?", opts:[
+      {t:"Unrealized Value",c:true},
+      {t:"Current Value"},
+      {t:"Time to Market"},
+      {t:"Ability to Innovate"}
+    ], exp:"Desired Customer Experience is an Unrealized Value KVM. It captures what customers would like — the target state. Together with current measures it reveals the satisfaction gap (also a UV KVM)." },
+
+    { type:"single", cat:"value", q:"A team tracks 'Market Share' — relative percentage of the market NOT yet controlled by the product. Which KVA?", opts:[
+      {t:"Unrealized Value",c:true},
+      {t:"Current Value"},
+      {t:"Time to Market"},
+      {t:"Ability to Innovate"}
+    ], exp:"Market Share (the percentage NOT yet controlled — the growth opportunity) is an Unrealized Value KVM per the EBM Guide. It reveals potential market the product might achieve if it better met customer needs." },
+
+    { type:"single", cat:"value", q:"A team measures 'Time-to-Learn' — total time to sketch an idea, build it, deliver to users, and learn from their usage. Which KVA?", opts:[
+      {t:"Time to Market",c:true},
+      {t:"Current Value"},
+      {t:"Unrealized Value"},
+      {t:"Ability to Innovate"}
+    ], exp:"Time-to-Learn is a Time to Market KVM per the EBM Guide. It captures how quickly the organization can complete a full learning cycle — directly tied to responsiveness and the ability to adapt under uncertainty." },
+
+    { type:"single", cat:"value", q:"A team measures 'Time to Pivot' — elapsed time between receiving competitor feedback/signal and responding with matching or exceeding capabilities. Which KVA?", opts:[
+      {t:"Time to Market",c:true},
+      {t:"Ability to Innovate"},
+      {t:"Current Value"},
+      {t:"Unrealized Value"}
+    ], exp:"Time to Pivot is a Time to Market KVM per the EBM Guide — a measure of true business agility expressed as elapsed time between signal and response. It is responsiveness, not innovation capacity." },
+
+    { type:"single", cat:"value", q:"A team measures 'Active Product Code Branches' — number of different versions/variants being actively developed. Which KVA does this most affect?", opts:[
+      {t:"Ability to Innovate — variants multiply complexity and reduce capacity for new capability",c:true},
+      {t:"Current Value"},
+      {t:"Time to Market"},
+      {t:"Unrealized Value"}
+    ], exp:"Active Product Code Branches is an Ability to Innovate KVM per the EBM Guide. Variants increase complexity, merging cost, and maintenance burden — eroding capacity for new innovation." },
+
+    { type:"single", cat:"value", q:"A product has both high Current Value AND high Unrealized Value. What does this combination most likely indicate?", opts:[
+      {t:"A successful product with significant remaining opportunity — continued investment is likely warranted",c:true},
+      {t:"A failing product that should be divested"},
+      {t:"A cash cow nearing end of investment cycle"},
+      {t:"A product with no further growth potential"}
+    ], exp:"High CV + high UV = the product delivers strong value today AND has significant additional opportunity ahead. This combination usually justifies continued investment to capture more UV. Low UV with high CV is the 'cash cow' case where new investment may not be warranted." },
+
+    { type:"single", cat:"value", q:"A team has stable Current Value but Time to Market is degrading (releases are getting slower). What is the most aligned EBM response?", opts:[
+      {t:"Invest in reducing T2M friction (build/test/release automation, smaller batches) — degrading T2M will eventually erode the ability to respond to customers",c:true},
+      {t:"Ignore T2M — CV is what matters"},
+      {t:"Replace the Scrum Master"},
+      {t:"Ship larger batches less frequently"}
+    ], exp:"EBM treats the four KVAs as a balanced portfolio. Degrading T2M means the organization is less able to respond — over time this will hurt CV as well. Investments in delivery flow are warranted." },
+
+    { type:"single", cat:"value", q:"A2I is improving (less tech debt, more capacity for new features), but Current Value is declining. What might this indicate from an EBM perspective?", opts:[
+      {t:"The team may be investing in capacity but not in things customers actually value — outcomes need to be re-examined",c:true},
+      {t:"Success — A2I always matters more than CV"},
+      {t:"The team should reduce A2I investment immediately"},
+      {t:"This combination is impossible"}
+    ], exp:"Improving capacity without translating it into customer value is a classic trap. The PO must check that A2I gains translate into validated CV/UV improvements. Capacity invested in the wrong work is still wasted." },
+
+    { type:"single", cat:"value", q:"A new product has very low Current Value but very high Unrealized Value. The PO is debating where to invest. The most aligned EBM action is:", opts:[
+      {t:"Invest in increasing CV (and supporting T2M) — the opportunity is large, the path is to capture it through delivery",c:true},
+      {t:"Skip the product since CV is low"},
+      {t:"Reduce all spending until CV organically rises"},
+      {t:"Focus only on A2I, ignoring market opportunity"}
+    ], exp:"Per the EBM Guide example, a new product with low CV and high UV is a classic invest-aggressively scenario — the opportunity is large; the path is to deliver and capture it. T2M and A2I also support the journey." },
+
+    { type:"tf", cat:"value", q:"Per the EBM Guide, EBM is a framework for organizations — not only for individual Scrum Teams — to measure and improve value delivery.", opts:[
+      {t:"True",c:true},
+      {t:"False"}
+    ], exp:"The EBM Guide explicitly states: 'Evidence-Based Management is an empirical approach that helps organizations to continuously improve customer outcomes, organizational capabilities, and business results.' Scope is organizational, not team-only." },
+
+    { type:"single", cat:"value", q:"Why does the EBM Guide intentionally not define a specific list of Key Value Measures (KVMs)?", opts:[
+      {t:"To encourage adaptability — organizations choose KVMs that fit their context, with the Appendix providing examples only",c:true},
+      {t:"Because measurement is unimportant"},
+      {t:"To make EBM harder to adopt"},
+      {t:"Because the list will be defined in a future version"}
+    ], exp:"The EBM Guide Appendix states explicitly: 'To encourage adaptability, EBM defines no specific Key Value Measures (KVMs). KVMs listed below are presented to show the kinds of measures that might help.' Organizations adapt KVMs to their context." },
+
+    { type:"single", cat:"value", q:"Per the EBM Guide, the Strategic Goal is best described as:", opts:[
+      {t:"Aspirational and far-away, with significant uncertainty in the path — requiring empiricism to reach",c:true},
+      {t:"A short, easily-measurable target the team can hit this quarter"},
+      {t:"The Sprint Goal renamed"},
+      {t:"A fixed deadline imposed by management"}
+    ], exp:"The EBM Guide describes the Strategic Goal as 'something important the organization would like to achieve... so big and far away, with many uncertainties along the journey that the organization must use empiricism.' It is aspirational, not tactical." },
+
+    { type:"single", cat:"backlog", q:"Per the Scrum Guide 2020, who participates in Product Backlog refinement?", opts:[
+      {t:"The whole Scrum Team — PO clarifies what/why, Developers add technical perspective and sizing, SM facilitates as needed",c:true},
+      {t:"The Product Owner alone"},
+      {t:"The Developers alone"},
+      {t:"Only stakeholders and the Product Owner"}
+    ], exp:"Refinement is an ongoing activity of the whole Scrum Team. The PO is accountable for content; Developers contribute sizing and technical perspective; the SM may facilitate. PO refining alone is a recognized anti-pattern." },
+
+    { type:"single", cat:"backlog", q:"How often should Product Backlog refinement happen per the Scrum Guide 2020?", opts:[
+      {t:"On an ongoing basis — refinement is a continuous activity, not a fixed event",c:true},
+      {t:"Exactly once per Sprint with a fixed 10% time allocation"},
+      {t:"Only at the start of a release"},
+      {t:"Only during Sprint Planning"}
+    ], exp:"The Scrum Guide 2020 describes refinement as an ongoing activity. It does NOT mandate a 10% cap (that was older guidance, now removed). It is not a formal Scrum event with a timebox — teams refine as needed throughout the Sprint." },
+
+    { type:"single", cat:"backlog", q:"A widely-used heuristic for good Product Backlog items is 'INVEST.' What does it stand for?", opts:[
+      {t:"Independent, Negotiable, Valuable, Estimable, Small, Testable",c:true},
+      {t:"Integrated, Numbered, Validated, Examined, Standard, Tested"},
+      {t:"Internal, Necessary, Versioned, Estimated, Selected, Tracked"},
+      {t:"Inspectable, Noted, Valued, Evaluated, Specified, Trusted"}
+    ], exp:"INVEST (Bill Wake) is a recognized PBI quality heuristic. It is not from the Scrum Guide but is widely adopted. Each PBI should ideally be Independent, Negotiable, Valuable, Estimable, Small (fits a Sprint), and Testable." },
+
+    { type:"single", cat:"backlog", q:"A Scrum Team uses 'SPIDR' as a splitting technique for large Product Backlog items. What do the letters represent?", opts:[
+      {t:"Spike, Path, Interface, Data, Rules — five ways to slice a large item",c:true},
+      {t:"Story, Plan, Implement, Deliver, Review"},
+      {t:"Sprint, Product, Item, Developer, Refinement"},
+      {t:"Splittable, Prioritized, Independent, Detailed, Ready"}
+    ], exp:"SPIDR (Mike Cohn) is a splitting heuristic that complements INVEST: split by Spike (learning), Path (workflow variations), Interface (different UIs/APIs), Data (variations), or Rules (business logic variations). Not from the Scrum Guide but widely used." },
+
+    { type:"single", cat:"backlog", q:"Per the Scrum Guide 2020, Product Backlog items often have a value attribute. Who decides on the value of a PBI?", opts:[
+      {t:"The Product Owner, who is accountable for maximizing the value of the product",c:true},
+      {t:"The Developers, who size the work"},
+      {t:"The Scrum Master, who tracks delivery"},
+      {t:"Stakeholders by vote"}
+    ], exp:"PBI attributes often include description, order, size, and value. While Developers size the work, the Product Owner is accountable for value — they decide on the value attribute as part of ordering for maximum product value." },
+
+    { type:"multi", cat:"backlog", q:"A Product Owner orders the Product Backlog. Beyond business value, which other factors commonly inform the order? (select 3)", opts:[
+      {t:"Risk — doing risky items early to learn fast",c:true},
+      {t:"Dependencies — sequencing items to unblock",c:true},
+      {t:"Learning — items that reduce uncertainty about the product",c:true},
+      {t:"Developer preferences for fun work"},
+      {t:"Stakeholder titles"}
+    ], exp:"Scrum.org notes the Product Backlog is 'ordered' not just 'prioritized by value.' Order considers value, risk, dependencies, learning, cost, and other factors. Developer preferences and stakeholder titles are not appropriate ordering criteria." },
+
+    { type:"single", cat:"backlog", q:"A team uses 'story mapping' to visualize the user journey across the Product Backlog. How does story mapping relate to Scrum?", opts:[
+      {t:"A complementary practice — not a Scrum artifact; output feeds into the Product Backlog and helps surface gaps in the user journey",c:true},
+      {t:"A required Scrum artifact alongside the Product Backlog"},
+      {t:"A replacement for the Product Backlog"},
+      {t:"A Scrum Master responsibility only"}
+    ], exp:"Story mapping (Jeff Patton) is widely used to visualize and structure backlogs along user activities. It is NOT a Scrum artifact (not in the Scrum Guide). It complements the Product Backlog by preserving the big picture and exposing gaps." },
+
+    { type:"single", cat:"backlog", q:"Per the Scrum Guide 2020, the Product Backlog is described as 'emergent.' This means:", opts:[
+      {t:"It evolves continuously as the product and the environment in which it will be used evolve — never 'complete'",c:true},
+      {t:"It is generated by an algorithm based on stakeholder requests"},
+      {t:"It must be fully detailed before the first Sprint"},
+      {t:"It is fixed once approved by management"}
+    ], exp:"The Scrum Guide 2020 calls the Product Backlog 'an emergent, ordered list.' As long as the product exists, the Product Backlog exists — never complete. Items are added/removed/refined continuously based on what is learned." },
+
+    { type:"single", cat:"stakeholders", q:"A stakeholder asks why the Sprint Review feels like a 'demo' to them. The PO wants to fix this. What does the Scrum Guide 2020 say the Sprint Review actually IS?", opts:[
+      {t:"A working session where the Scrum Team and stakeholders inspect the Increment, discuss progress toward the Product Goal, and adapt the Product Backlog together",c:true},
+      {t:"A formal stakeholder approval gate"},
+      {t:"A one-way presentation of completed features"},
+      {t:"A demo of polished software with no interaction"}
+    ], exp:"The Scrum Guide 2020 explicitly describes the Sprint Review as a working session and cautions teams to avoid limiting it to a presentation. The Scrum Team presents results AND collaborates with stakeholders on what to do next, potentially adjusting the Product Backlog." },
+
+    { type:"single", cat:"stakeholders", q:"A Product Owner has many stakeholders with varying influence and interest. Which approach helps decide collaboration patterns?", opts:[
+      {t:"Map stakeholders by influence (or power) and interest, then engage each group with an appropriate pattern",c:true},
+      {t:"Treat all stakeholders identically regardless of influence"},
+      {t:"Only engage the senior-most stakeholder"},
+      {t:"Refuse to engage stakeholders at all"}
+    ], exp:"Stakeholder mapping (a widely-used product practice, not Scrum-specific) helps the PO segment stakeholders by power and interest. High-power+high-interest → collaborate closely; high-power+low-interest → keep informed; etc. The Scrum Guide expects PO stakeholder collaboration." },
+
+    { type:"single", cat:"stakeholders", q:"At Sprint Review, several stakeholders consistently stay silent while one or two dominate. What is the most appropriate PO action?", opts:[
+      {t:"Structure the Review with techniques that distribute participation (silent writing, paired discussion, round-robin questions) so all voices are heard",c:true},
+      {t:"Accept that some stakeholders just prefer to listen"},
+      {t:"Stop inviting the quiet stakeholders"},
+      {t:"Let the dominant stakeholders decide all priorities"}
+    ], exp:"Voice equity is a core stakeholder collaboration principle. Structural facilitation (silent writing, paired discussion, round-robin) draws out quieter voices and balances airtime — much more effective than verbal cajoling. The PO designs the Review to encourage participation." },
+
+    { type:"single", cat:"stakeholders", q:"A stakeholder wants a precise delivery date for a feature 6 months out. The PO knows there is significant uncertainty. The most aligned PO response is:", opts:[
+      {t:"Communicate honestly using probabilistic forecasts (ranges, confidence levels) based on empirical evidence — not single-point guarantees",c:true},
+      {t:"Promise a specific date to keep the stakeholder happy"},
+      {t:"Refuse to forecast anything"},
+      {t:"Quote the longest plausible date to be safe"}
+    ], exp:"Per Scrum.org guidance on forecasting, the PO communicates honestly about uncertainty using probabilistic forecasts based on empirical data. Single-point guarantees in complex environments are dishonest and lead to compromised quality when reality differs." },
+
+    { type:"single", cat:"stakeholders", q:"During a customer interview, the PO repeatedly asks 'Would you use a feature that does X?' What is the issue with this kind of question?", opts:[
+      {t:"It is hypothetical and invites polite agreement — better to ask about past behavior in specific situations",c:true},
+      {t:"It is too long"},
+      {t:"It is too short"},
+      {t:"It uses the word 'feature' which is not allowed"}
+    ], exp:"Hypothetical future-intent questions ('would you use...?') invite politeness, not evidence. Asking about past behavior in specific situations ('tell me about the last time you faced [problem] — what did you do?') surfaces real signals. This is a widely-cited customer discovery principle." },
+
+    { type:"single", cat:"stakeholders", q:"A customer requests 'add a one-click PDF export.' Applying Jobs-to-be-Done framing, what is the PO's most appropriate next step?", opts:[
+      {t:"Probe what underlying job the customer is hiring this feature to make — the request is a hypothesis about solution, not the real need",c:true},
+      {t:"Add the feature to the Product Backlog exactly as requested"},
+      {t:"Decline the request immediately"},
+      {t:"Ask the Developers to estimate implementation"}
+    ], exp:"Jobs-to-be-Done (JTBD) reframes customer requests as 'jobs' — the progress customers seek. The actual job (e.g. 'I need to share this report with a regulator who only accepts PDF') may be solved differently than the literal request. JTBD prevents falling in love with the suggested solution." },
+
+    { type:"single", cat:"stakeholders", q:"A PO uses the Product Vision when deciding whether to accept a particular stakeholder request. The most aligned use of the vision is:", opts:[
+      {t:"As a filter — accept work that moves toward the vision; decline or defer work that doesn't",c:true},
+      {t:"As a marketing slogan only"},
+      {t:"As a fixed feature list that cannot be deviated from"},
+      {t:"As a guide for the Developers' technical choices"}
+    ], exp:"An effective Product Vision provides direction that helps the Scrum Team make day-to-day trade-offs. Using it as a filter for accept/decline/defer decisions is its primary practical function. It is not a marketing slogan or feature list." },
+
+    { type:"single", cat:"stakeholders", q:"A senior stakeholder wants to walk into the Developers' workspace mid-Sprint to direct new work. The PO's most appropriate response is:", opts:[
+      {t:"Coach the stakeholder that requests go through the PO and into the Product Backlog; the team and Sprint Goal must be protected",c:true},
+      {t:"Allow the stakeholder direct access — they outrank the PO"},
+      {t:"Quietly redirect the team to do what the stakeholder asked"},
+      {t:"Escalate to the Scrum Master to handle alone"}
+    ], exp:"The Scrum Guide 2020 states no one tells the Developers to work from a different set of requirements; PO ordering and stakeholder access run through the PO. Coaching stakeholders on this is the PO's job, supported by the SM serving the organization." },
+
+    { type:"single", cat:"stakeholders", q:"A stakeholder is skeptical of Scrum and the team's value. What is the most effective way the PO can build trust over time?", opts:[
+      {t:"Show measurable value delivered (using EBM KVAs/KVMs) and invite the stakeholder into the empirical inspect-adapt cycle",c:true},
+      {t:"Argue that Scrum is always correct"},
+      {t:"Exclude the stakeholder from future events"},
+      {t:"Escalate to the stakeholder's manager"}
+    ], exp:"Trust is built with evidence. Showing real customer/business outcomes (via KVA improvements) and engaging the skeptic in the empirical process gives them agency and proof. Argument, exclusion, and escalation rarely move skeptics — empirical evidence does." },
+
+    { type:"single", cat:"stakeholders", q:"A Product Owner is exploring whether to involve customers earlier in product decisions. The most aligned PO practice is:", opts:[
+      {t:"Engage customers continuously in discovery and validation, treating them as partners in shaping the product",c:true},
+      {t:"Survey customers once a year, then build for 12 months"},
+      {t:"Avoid customer contact to keep the vision pure"},
+      {t:"Let stakeholders speak for customers instead"}
+    ], exp:"Recognized PO practice (and Scrum.org guidance) treats customers as continuous partners. Annual surveys are too coarse for empirical product development. Avoiding customer contact or relying solely on internal stakeholders disconnects the team from real signals." },
+
+    { type:"single", cat:"forecasting", q:"Why do long-range product forecasts typically become less accurate the further into the future they extend?", opts:[
+      {t:"Uncertainty compounds over time — the cone of uncertainty widens as more variables can change",c:true},
+      {t:"Teams get lazier later in projects"},
+      {t:"Velocity always decreases over time"},
+      {t:"Stakeholders forget what they asked for"}
+    ], exp:"The cone of uncertainty is a well-known concept: forecast accuracy decreases over time as more variables can change (market, team, scope, technical reality). Empirical forecasting addresses this by frequent inspection and adaptation, not by trying for higher upfront precision." },
+
+    { type:"single", cat:"forecasting", q:"A team uses Throughput (count of completed items per Sprint) instead of Velocity (sum of story points). What is the main advantage from a forecasting view?", opts:[
+      {t:"Throughput counts actual finished items, bypassing estimation noise from story points",c:true},
+      {t:"Throughput is required by the Scrum Guide"},
+      {t:"Throughput always produces higher numbers"},
+      {t:"Throughput eliminates the need for forecasting"}
+    ], exp:"Throughput is robust to estimation noise — it counts what was actually finished. Velocity multiplies subjective story points and can be gamed. Many modern teams forecast from throughput + Monte Carlo. Neither is mandated by Scrum." },
+
+    { type:"single", cat:"forecasting", q:"What is the difference between Lead Time and Cycle Time in modern flow-based forecasting?", opts:[
+      {t:"Lead Time measures from idea (or customer request) to delivery; Cycle Time measures from when work starts to when it finishes",c:true},
+      {t:"They are identical terms"},
+      {t:"Lead Time is in hours; Cycle Time is in days"},
+      {t:"Lead Time is for releases; Cycle Time is for tests"}
+    ], exp:"Lead Time typically measures from request/idea to delivery (customer-facing). Cycle Time measures from work-started to work-finished (team-facing). Both are common Time to Market KVMs in EBM and core flow metrics for forecasting." },
+
+    { type:"single", cat:"forecasting", q:"What is the precise difference between the Sprint Goal and the Sprint Backlog selected items per the Scrum Guide 2020?", opts:[
+      {t:"The Sprint Goal is the commitment; the selected Product Backlog items are a forecast that may be renegotiated as more is learned",c:true},
+      {t:"They are the same thing"},
+      {t:"The Sprint Goal is optional; selected items are mandatory"},
+      {t:"The Sprint Goal is set by stakeholders; selected items by Developers"}
+    ], exp:"The Scrum Guide 2020 is explicit: the Sprint Goal is the commitment for the Sprint Backlog. The selected items are a forecast. Scope may flex around a fixed goal — not the reverse. This distinction is a frequent exam test." },
+
+    { type:"single", cat:"forecasting", q:"A stakeholder asks the PO 'will this feature ship by Q3?' Empirically-informed PO communication looks like:", opts:[
+      {t:"'Based on recent throughput, we are 70% likely to ship by Q3 and 90% likely by end of Q4; we'll inspect each Sprint and update.'",c:true},
+      {t:"'Yes, guaranteed.'"},
+      {t:"'I cannot give any estimate.'"},
+      {t:"'It depends on whether the Developers work harder.'"}
+    ], exp:"Empirical forecasting produces probability ranges based on actual throughput. Honest PO communication uses these ranges, commits to inspect-adapt, and avoids single-point guarantees. Refusing to forecast at all is the opposite anti-pattern." },
+
+    { type:"single", cat:"forecasting", q:"Why does the Scrum Guide 2020 cap Sprint length at one month?", opts:[
+      {t:"Shorter cycles increase the frequency of inspection and adaptation, reducing risk and complexity",c:true},
+      {t:"Longer Sprints are forbidden by labor law"},
+      {t:"Shorter Sprints are easier to plan in detail"},
+      {t:"Stakeholders are too busy for longer Sprints"}
+    ], exp:"The Scrum Guide 2020 explains shorter Sprints generate more learning cycles and limit risk to a smaller window. When a Sprint's horizon is too long, the Sprint Goal may become invalid, complexity may rise, risk may increase." },
+
+    { type:"single", cat:"forecasting", q:"Empirical process control (which Scrum is founded on) differs from predictive process control in that:", opts:[
+      {t:"Empirical relies on inspecting actual evidence frequently and adapting; predictive relies on detailed upfront plans assumed to hold",c:true},
+      {t:"Empirical means no plans at all"},
+      {t:"Predictive is what Scrum recommends"},
+      {t:"They are interchangeable terms"}
+    ], exp:"Empirical process control (transparency, inspection, adaptation) navigates complexity by frequent observation and adjustment. Predictive process control assumes the future is knowable enough to plan in detail upfront — appropriate only for simple/complicated domains, not complex product work." },
+
+    { type:"multi", cat:"forecasting", q:"A Product Owner is producing a release forecast. Which inputs are most useful per modern empirical forecasting? (select 2)", opts:[
+      {t:"Historical throughput from recent Sprints",c:true},
+      {t:"Statistical distribution of past cycle times",c:true},
+      {t:"A senior leader's preferred date"},
+      {t:"The longest possible single estimate from each Developer"}
+    ], exp:"Empirical forecasting uses historical throughput and cycle time distribution to project future likelihoods (often via Monte Carlo). Imposed dates and worst-case individual estimates do not reflect real flow data and yield poor forecasts." },
+
+    { type:"single", cat:"strategy", q:"How do the time horizons of a Product Vision and a Product Goal typically compare?", opts:[
+      {t:"Vision is long-term (often years, sometimes never fully reached); Product Goal is medium-term (months, achievable and replaced when fulfilled or abandoned)",c:true},
+      {t:"They are the same horizon"},
+      {t:"Vision is short-term; Product Goal is long-term"},
+      {t:"Both must be completed each Sprint"}
+    ], exp:"Vision is aspirational and long-horizon (often multi-year). Product Goal is a measurable, achievable intermediate target — when fulfilled (or abandoned), the team picks a new one. Sprint Goal is the immediate near-term step." },
+
+    { type:"single", cat:"strategy", q:"How does a hypothesis-driven roadmap differ from a traditional feature roadmap?", opts:[
+      {t:"A hypothesis-driven roadmap communicates intended outcomes and bets with explicit uncertainty; a feature roadmap commits to specific features by date",c:true},
+      {t:"They are identical"},
+      {t:"A hypothesis-driven roadmap is shorter"},
+      {t:"A feature roadmap is required by Scrum"}
+    ], exp:"Hypothesis-driven roadmaps express intended outcomes and the bets being made with explicit uncertainty — supporting empirical adaptation. Feature roadmaps locked to specific dates contradict the empirical nature of complex product work." },
+
+    { type:"single", cat:"strategy", q:"Per the EBM Guide, characteristics of a good Strategic Goal include:", opts:[
+      {t:"Aspirational, focused on a desired customer or organizational outcome, measurable, and far-reaching enough to require empirical navigation",c:true},
+      {t:"Concrete enough to deliver this Sprint"},
+      {t:"Set in stone and never revised"},
+      {t:"Measured only by feature count"}
+    ], exp:"Per the EBM Guide, a Strategic Goal is something important the organization wants to achieve — usually focused on an outcome (improved happiness, safety, well-being). It is aspirational and far enough that the path requires empirical learning, but measurable enough to know if progress is being made." },
+
+    { type:"single", cat:"strategy", q:"Evidence after several Sprints shows the current Intermediate Goal will not move the team meaningfully toward the Strategic Goal. The most aligned response is:", opts:[
+      {t:"Adapt or replace the Intermediate Goal based on evidence; reassess whether the Strategic Goal still holds",c:true},
+      {t:"Persist with the same Intermediate Goal regardless"},
+      {t:"Immediately abandon both Strategic and Intermediate Goals"},
+      {t:"Wait until next quarter to consider any changes"}
+    ], exp:"EBM is empirical: when evidence disconfirms a goal, adapt or replace based on evidence. Intermediate Goals turn over more frequently than Strategic Goals. Persisting blindly is anti-empirical; abandoning everything is overreaction." },
+
+    { type:"single", cat:"strategy", q:"An organization has multiple products contributing to one Strategic Goal. What does this imply for each product's Product Goal?", opts:[
+      {t:"Each product has its own Product Goal that contributes to the shared Strategic Goal — alignment without uniformity",c:true},
+      {t:"All products must share one identical Product Goal"},
+      {t:"Each product sets its Strategic Goal independently"},
+      {t:"Product Goals are unnecessary if there is a Strategic Goal"}
+    ], exp:"Multiple products can roll up to a single organizational Strategic Goal while each has its own Product Goal that addresses a specific slice of the journey. This is portfolio-level alignment — different products, complementary contributions, shared destination." },
+
+    { type:"single", cat:"strategy", q:"A PO is asked how the team's Product Goal links to the company's mission statement. The most aligned PO answer is:", opts:[
+      {t:"The Product Goal is a measurable intermediate step that contributes to the company's longer-term mission and strategy",c:true},
+      {t:"The two are unrelated"},
+      {t:"The Product Goal must restate the mission verbatim"},
+      {t:"The mission is owned by the Scrum Master"}
+    ], exp:"Per Scrum.org's 'Managing Products with Agility' competency, the PO bridges company mission/strategy and product execution. The Product Goal is a concrete intermediate step that should align with — but is more specific and measurable than — the broader mission." }
   ]
 };
 })();
