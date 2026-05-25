@@ -556,7 +556,189 @@ c:true},{t:"Make the technical decision personally"},{t:"Tell them to settle it 
       exp:"When multiple teams work on one product, they share one Product Goal, Product Backlog, and Product Owner. A consistent DoD across teams ensures Increments are truly integrated and the product progresses coherently." },
     { type:"single", cat:"product", q:"A Product Owner is treated by stakeholders as an 'order taker' who just funnels requests into the Backlog. The most aligned Scrum Master coaching is:",
       opts:[{t:"Coach the PO and stakeholders that the PO maximizes product value — they decide order based on value, not just transcribe requests",c:true},{t:"Tell the PO to refuse all requests"},{t:"Replace the PO"},{t:"Add stakeholder requests directly to the Sprint Backlog"}],
-      exp:"The PO is accountable for maximizing value; they balance stakeholder input against product goals, evidence, and trade-offs. SMs coach POs (and stakeholders) toward this stewardship role instead of being a passive request channel." }
+      exp:"The PO is accountable for maximizing value; they balance stakeholder input against product goals, evidence, and trade-offs. SMs coach POs (and stakeholders) toward this stewardship role instead of being a passive request channel." },
+
+    /* ---------------- NEW MULTI-SELECT — pushes multi share to ~20% ---------------- */
+    { type:"multi", cat:"theory", q:"Which behaviors most directly demonstrate the Scrum Value of Openness? (select 3)",
+      opts:[
+        {t:"Sharing impediments openly at the Daily Scrum",c:true},
+        {t:"Admitting incomplete work at the Sprint Review",c:true},
+        {t:"Inviting honest stakeholder feedback even when negative",c:true},
+        {t:"Renegotiating Sprint scope without telling the Product Owner"},
+        {t:"Concealing concerns to avoid team conflict"}
+      ],
+      exp:"Openness is being open about work and challenges. Surfacing impediments, admitting incomplete work, and welcoming honest feedback all enable transparency — the foundation of empiricism. Hiding concerns or going around the PO breaks Openness." },
+    { type:"multi", cat:"theory", q:"Which statements correctly describe Adaptation per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"Adjustments must be made as soon as possible to minimize further deviation",c:true},
+        {t:"Adaptation becomes more difficult when those involved are not empowered",c:true},
+        {t:"The Scrum Team is expected to adapt the moment it learns anything new",c:true},
+        {t:"Adaptation only happens at the Sprint Retrospective"},
+        {t:"Adaptation requires manager approval before changes are applied"}
+      ],
+      exp:"The Scrum Guide 2020 emphasizes adapting fast on new information, throughout the Sprint, with empowered self-managing teams. Adaptation isn't confined to one event nor gated by approval — it's continuous." },
+    { type:"multi", cat:"theory", q:"Which statements correctly describe empirical process control as applied in Scrum? (select 3)",
+      opts:[
+        {t:"It relies on observation of actual results rather than prediction",c:true},
+        {t:"Decisions are based on what is known from inspection",c:true},
+        {t:"It minimizes risk by frequent short cycles of inspection and adaptation",c:true},
+        {t:"It requires detailed upfront planning before any work begins"},
+        {t:"It works best when requirements are fully fixed at the start"}
+      ],
+      exp:"Empiricism navigates complexity through transparent observation, frequent inspection, and adaptation. Detailed upfront plans and fixed requirements fit defined (not empirical) process control — appropriate only for simple/complicated domains." },
+    { type:"multi", cat:"team", q:"Which statements about the Scrum Team are correct per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"It is a cohesive unit of professionals focused on one objective at a time",c:true},
+        {t:"It has no sub-teams or hierarchies",c:true},
+        {t:"It is typically 10 or fewer people",c:true},
+        {t:"It must include at least one architect among the Developers"},
+        {t:"The Scrum Master assigns tasks to individual Developers"}
+      ],
+      exp:"The Scrum Guide 2020 describes the Scrum Team as a cohesive unit, with no sub-teams or hierarchies, typically 10 or fewer people. There are no role mandates inside the Developers (no architect requirement) and the SM doesn't assign tasks." },
+    { type:"multi", cat:"team", q:"Which statements about the Product Owner are correct per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"One person, not a committee",c:true},
+        {t:"May delegate Product Backlog work but accountability remains with them",c:true},
+        {t:"Has the sole authority to cancel a Sprint",c:true},
+        {t:"Reports administratively to the Scrum Master"},
+        {t:"Is also formally called the 'Senior Backlog Manager'"}
+      ],
+      exp:"The PO is one person with full accountability that they may not delegate. Only the PO has Sprint-cancellation authority. There is no SM-over-PO reporting line and no formal alternate title in the Scrum Guide." },
+    { type:"multi", cat:"events", q:"Which statements correctly describe the Sprint Retrospective per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"The Scrum Team inspects how the last Sprint went regarding individuals, interactions, processes, tools, and Definition of Done",c:true},
+        {t:"It identifies the most helpful changes to improve effectiveness",c:true},
+        {t:"Selected improvements may be added to the next Sprint Backlog",c:true},
+        {t:"It is open to all stakeholders by default"},
+        {t:"It is run by an external coach"}
+      ],
+      exp:"The Retrospective is a Scrum Team event focused on inspect-adapt of how they work. Improvements often enter the next Sprint Backlog. It is not stakeholder-facing and not run by externals — it's the team's private learning space." },
+    { type:"multi", cat:"events", q:"Who typically attends the Sprint Review per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"The Scrum Team",c:true},
+        {t:"Key stakeholders invited by the Product Owner",c:true},
+        {t:"Customers, when their feedback is valuable",c:true},
+        {t:"Every employee in the company"},
+        {t:"The team's HR business partner by default"}
+      ],
+      exp:"The Sprint Review brings the Scrum Team together with key stakeholders (and often customers) to inspect the Increment and adapt the Product Backlog. It's not an all-hands and HR is not a default attendee." },
+    { type:"multi", cat:"events", q:"Which constraints hold during a Sprint per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"No changes are made that would endanger the Sprint Goal",c:true},
+        {t:"Quality does not decrease",c:true},
+        {t:"Scope may be clarified and renegotiated with the Product Owner as more is learned",c:true},
+        {t:"Sprint length may be extended for unusually complex items"},
+        {t:"The team may skip the Daily Scrum on busy days"}
+      ],
+      exp:"The Scrum Guide 2020 lists five constraints during the Sprint, including the three correct here. Sprint length is fixed once set; Daily Scrums are not optional." },
+    { type:"multi", cat:"events", q:"Which statements about the Daily Scrum are correct per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"It is held for the Developers",c:true},
+        {t:"Same time and same place each working day, to reduce complexity",c:true},
+        {t:"Timeboxed to 15 minutes for any Sprint length",c:true},
+        {t:"The three questions (yesterday/today/impediments) are mandatory"},
+        {t:"Run by the Scrum Master who collects status from Developers"}
+      ],
+      exp:"Daily Scrum: for Developers, same time/place daily, 15-minute timebox. The three-question format is not mandated (removed in 2020) — teams choose the structure. SMs facilitate as needed; they don't collect status." },
+    { type:"multi", cat:"events", q:"A Sprint Goal becomes obsolete mid-Sprint. Which responses are valid per the Scrum Guide 2020? (select 2)",
+      opts:[
+        {t:"The Product Owner can cancel the Sprint",c:true},
+        {t:"The Scrum Team may renegotiate the Sprint Backlog scope with the Product Owner",c:true},
+        {t:"The Scrum Master silently replaces the Sprint Goal"},
+        {t:"Sprint length is automatically extended to accommodate the change"},
+        {t:"Stakeholders vote on whether to continue the Sprint"}
+      ],
+      exp:"Only the PO can cancel a Sprint, and that's the appropriate response when the Goal is obsolete. Scope renegotiation with the PO is also valid. Silent SM changes, length extension, and stakeholder votes are not part of Scrum." },
+    { type:"multi", cat:"artifacts", q:"Which commitments are correctly paired with their Scrum artifacts per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"Product Goal — commitment for the Product Backlog",c:true},
+        {t:"Sprint Goal — commitment for the Sprint Backlog",c:true},
+        {t:"Definition of Done — commitment for the Increment",c:true},
+        {t:"Velocity — commitment for the Scrum Team"},
+        {t:"Definition of Ready — commitment for items entering Sprint Planning"}
+      ],
+      exp:"The Scrum Guide 2020 introduced explicit commitments: Product Goal/Product Backlog, Sprint Goal/Sprint Backlog, DoD/Increment. Velocity is a metric, not a commitment. Definition of Ready isn't a Scrum concept." },
+    { type:"multi", cat:"artifacts", q:"Which Product Backlog item attributes does the Scrum Guide 2020 explicitly mention? (select 3)",
+      opts:[
+        {t:"Description",c:true},
+        {t:"Order",c:true},
+        {t:"Size",c:true},
+        {t:"Estimated effort in hours"},
+        {t:"Name of the assigned Developer"}
+      ],
+      exp:"The Scrum Guide 2020 explicitly names description, order, and size (and value) as PBI attributes. Hour estimates and pre-assignment to Developers are not Scrum requirements." },
+    { type:"multi", cat:"artifacts", q:"Which statements about the Sprint Backlog are correct per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"A plan by and for the Developers",c:true},
+        {t:"Made visible and updated throughout the Sprint",c:true},
+        {t:"Includes the Sprint Goal, selected items, and the actionable plan for delivering the Increment",c:true},
+        {t:"Owned by the Product Owner and modified at the PO's discretion"},
+        {t:"Frozen at Sprint Planning and not changed thereafter"}
+      ],
+      exp:"The Sprint Backlog is the Developers' working plan, visible and emerging through the Sprint. It includes the Sprint Goal, selected PBIs, and the actionable plan. PO doesn't own it; it isn't frozen at Planning." },
+    { type:"multi", cat:"artifacts", q:"Which statements about the Definition of Done are correct per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"It creates transparency about what 'Done' means for the Increment",c:true},
+        {t:"If the organization has a DoD standard, all Scrum Teams must follow it at least",c:true},
+        {t:"Work cannot be considered part of an Increment without meeting the DoD",c:true},
+        {t:"It is set by the Product Owner alone"},
+        {t:"It can be relaxed for urgent releases when stakeholders agree"}
+      ],
+      exp:"The DoD is a transparency artifact; org standards are a minimum the Scrum Team must meet; only DoD-passing work counts as Increment. The DoD belongs to the Scrum Team (not PO alone) and is not negotiable per release." },
+    { type:"multi", cat:"artifacts", q:"Which statements about the Product Backlog are correct per the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"It is an emergent, ordered list of what is needed to improve the product",c:true},
+        {t:"It is the single source of work undertaken by the Scrum Team",c:true},
+        {t:"It contains the Product Goal",c:true},
+        {t:"It is completed and finalized before Sprint Planning"},
+        {t:"Each item must have a mandatory hour estimate"}
+      ],
+      exp:"The Product Backlog is emergent (never finalized), the single source of work, and contains the Product Goal. Items are sized (not necessarily in hours) and ordered. The backlog evolves as the product evolves." },
+    { type:"multi", cat:"people", q:"Which actions appropriately support the Developers' self-management? (select 3)",
+      opts:[
+        {t:"Coaching Developers toward solving impediments themselves",c:true},
+        {t:"Facilitating events without running them as a manager",c:true},
+        {t:"Removing organizational obstacles that exceed the team's reach",c:true},
+        {t:"Assigning individual tasks to maximize utilization"},
+        {t:"Approving every change to the Sprint Backlog"}
+      ],
+      exp:"Self-management is enabled by coaching, facilitating, and removing systemic blockers. Assigning tasks and gatekeeping Sprint Backlog changes are anti-patterns — they shift decision-making away from the team." },
+    { type:"multi", cat:"people", q:"A new Scrum Team is in early forming. Which actions help build a healthy foundation? (select 3)",
+      opts:[
+        {t:"Facilitating the creation of explicit working agreements",c:true},
+        {t:"Coaching on Scrum events and accountabilities",c:true},
+        {t:"Helping the team build a shared Definition of Done",c:true},
+        {t:"Assigning a permanent 'team lead' to make decisions"},
+        {t:"Reporting individual performance to managers each week"}
+      ],
+      exp:"Early-stage teams benefit from explicit norms, shared understanding of Scrum, and a team-owned DoD. Permanent hierarchies and individual performance reporting undermine the cohesion and self-management the team needs to grow." },
+    { type:"multi", cat:"people", q:"Which behaviors are recognized Scrum Master anti-patterns? (select 3)",
+      opts:[
+        {t:"Booking all meeting rooms and taking notes at every event",c:true},
+        {t:"Updating the Sprint Backlog on behalf of the Developers",c:true},
+        {t:"Making technical decisions for the team",c:true},
+        {t:"Facilitating conflict resolution between Developers"},
+        {t:"Coaching the Product Owner on backlog management"}
+      ],
+      exp:"Anti-patterns: clerking, owning the Sprint Backlog, deciding technical direction. Healthy SM behaviors include facilitating conflicts (helping the team resolve them) and coaching the PO." },
+    { type:"multi", cat:"product", q:"Which are recognized organizational barriers to empiricism that a Scrum Master often surfaces? (select 3)",
+      opts:[
+        {t:"Project-based funding that disbands teams after delivery",c:true},
+        {t:"Annual fixed-scope plans with no inspection points",c:true},
+        {t:"Output-only metrics (features shipped, hours worked) without outcome measures",c:true},
+        {t:"Frequent Sprint Reviews with active stakeholder engagement"},
+        {t:"A shared Product Goal across teams working on one product"}
+      ],
+      exp:"Common barriers: temporary project funding, frozen annual plans, output-not-outcome metrics. Frequent Reviews and shared Product Goals SUPPORT empiricism — those aren't barriers." },
+    { type:"multi", cat:"product", q:"A non-PO stakeholder demands work directly from the Developers mid-Sprint. Which Scrum Master actions are most aligned? (select 3)",
+      opts:[
+        {t:"Coach the stakeholder on routing requests through the Product Owner",c:true},
+        {t:"Protect the team's focus on the agreed Sprint Goal",c:true},
+        {t:"Help the organization understand single-PO ordering and the role of empiricism",c:true},
+        {t:"Quietly redirect the team to do the stakeholder's request"},
+        {t:"Add the demand to the Sprint Backlog without PO involvement"}
+      ],
+      exp:"Stakeholder bypass undermines the PO's accountability and the team's commitment to the Sprint Goal. SMs coach the stakeholder, protect the team, and help the org understand the structure — they don't accommodate the bypass." }
   ]
 };
 })();

@@ -387,7 +387,189 @@ window.BANKS["psd"] = {
       exp:"The Scrum Guide 2020 calls refinement an ongoing activity, not a formal event. Teams may schedule sessions; many also refine in conversations, pairings, or async. Single meeting only often misses opportunities." },
     { type:"single", cat:"refinement", q:"A 'Definition of Ready' applied as a hard gate before items enter Sprint Planning is:",
       opts:[{t:"Not a Scrum concept — and applied as a gate often becomes an anti-pattern by creating waterfall-style handoffs and a separate analysis phase",c:true},{t:"Required by the Scrum Guide"},{t:"Mandatory in Scrum"},{t:"A Scrum artifact"}],
-      exp:"The Scrum Guide does not define a DoR. As a heuristic for 'small + clear,' it's fine; as a strict gate, it tends to recreate phase-gates ('analysis Sprint' upstream). The Scrum Team decides what 'ready enough' means." }
+      exp:"The Scrum Guide does not define a DoR. As a heuristic for 'small + clear,' it's fine; as a strict gate, it tends to recreate phase-gates ('analysis Sprint' upstream). The Scrum Team decides what 'ready enough' means." },
+
+    /* ---------------- NEW MULTI-SELECT — pushes multi share higher ---------------- */
+    { type:"multi", cat:"scrum", q:"Which Scrum Values are most directly tested when a Sprint runs into trouble? (select 3)",
+      opts:[
+        {t:"Courage — to admit incomplete work and surface impediments",c:true},
+        {t:"Openness — to share difficulties early rather than at the end",c:true},
+        {t:"Commitment — to the Sprint Goal as a team, not just to scope",c:true},
+        {t:"Velocity — to maximize point throughput at any cost"},
+        {t:"Compliance — to follow each assigned task strictly"}
+      ],
+      exp:"Courage, Openness, and Commitment are explicit Scrum Values that the Scrum Guide 2020 highlights — they show up most when work gets hard. Velocity and Compliance are not Scrum Values; chasing them often degrades the empirical cycle." },
+    { type:"multi", cat:"scrum", q:"Mid-Sprint the Developers discover scope larger than estimated. Which actions are consistent with the Scrum Guide 2020? (select 3)",
+      opts:[
+        {t:"Renegotiate scope with the Product Owner without endangering the Sprint Goal",c:true},
+        {t:"Adjust the Sprint Backlog plan as Developers learn more",c:true},
+        {t:"Surface the discovery at the Daily Scrum to coordinate response",c:true},
+        {t:"Extend the Sprint length to fit the additional work"},
+        {t:"Skip Definition of Done items to deliver on the original forecast"}
+      ],
+      exp:"Scope flexes around a fixed Sprint Goal; the plan emerges; the Daily Scrum is the natural place to surface and adjust. Sprint length and DoD are not negotiable." },
+    { type:"multi", cat:"team", q:"Which practices help a Scrum Team reduce knowledge silos? (select 3)",
+      opts:[
+        {t:"Pair programming on tricky work",c:true},
+        {t:"Mob programming for onboarding and complex problems",c:true},
+        {t:"Code review combined with intentional ownership rotation",c:true},
+        {t:"Permanently assigning each Developer to one isolated module"},
+        {t:"Treating written documentation as the only knowledge-transfer mechanism"}
+      ],
+      exp:"Pairing, mobbing, and rotation distribute knowledge socially — faster and stickier than docs alone. Permanent narrow ownership creates bus-factor risks and flow impediments." },
+    { type:"multi", cat:"team", q:"Which statements correctly describe a cross-functional Scrum Team? (select 3)",
+      opts:[
+        {t:"Collectively has all skills needed to create value each Sprint",c:true},
+        {t:"Reduces dependence on outside teams or specialists",c:true},
+        {t:"Members willing to work outside their narrow specialty when needed",c:true},
+        {t:"Every Developer personally has every skill"},
+        {t:"Specialists who refuse to help outside their area"}
+      ],
+      exp:"Cross-functionality is about the team's collective capability + willingness to collaborate across boundaries — not about each person being a generalist or specialists locking down their lane." },
+    { type:"multi", cat:"team", q:"Which behaviors support psychological safety on a Scrum Team? (select 3)",
+      opts:[
+        {t:"Treating mistakes as systemic learning opportunities",c:true},
+        {t:"Making 'I don't know' a normal and respected statement",c:true},
+        {t:"Running blameless post-mortems after incidents",c:true},
+        {t:"Publicly punishing the Developer responsible for a production bug"},
+        {t:"Ranking Developers by lines of code shipped each Sprint"}
+      ],
+      exp:"Psychological safety (Edmondson) is built by separating people from systems, normalizing learning, and resisting blame. Public punishment and individual ranking destroy it." },
+    { type:"multi", cat:"practices", q:"Which behaviors characterize effective Continuous Integration? (select 3)",
+      opts:[
+        {t:"Everyone integrates to the mainline at least daily",c:true},
+        {t:"A fast automated build that runs on every commit",c:true},
+        {t:"A broken build is the team's top priority to fix",c:true},
+        {t:"Manual integration once per week in a coordination meeting"},
+        {t:"Skipping the build pipeline when releases are imminent"}
+      ],
+      exp:"CI is a discipline — frequent integration, fast feedback, immediate response to breaks. Manual cadences, batch integration, and skipping the pipeline all defeat its purpose." },
+    { type:"multi", cat:"practices", q:"DORA elite delivery performers consistently demonstrate which combination? (select 3)",
+      opts:[
+        {t:"High deployment frequency",c:true},
+        {t:"Short lead time for changes",c:true},
+        {t:"Low change failure rate with fast restore",c:true},
+        {t:"Long-lived feature branches merged near release"},
+        {t:"Heavy manual approval gates on every deployment"}
+      ],
+      exp:"DORA research shows elite teams achieve BOTH speed (deploy frequency, lead time) AND stability (CFR, MTTR). Long branches and heavy manual gates correlate with lower performance, not higher." },
+    { type:"multi", cat:"practices", q:"Which patterns enable Continuous Delivery? (select 3)",
+      opts:[
+        {t:"Feature toggles to decouple deploy from release",c:true},
+        {t:"Trunk-based development with short-lived branches",c:true},
+        {t:"Automated rollback / quick recovery procedures",c:true},
+        {t:"Year-long release cycles to accumulate features"},
+        {t:"Manually-run regression tests as the primary release gate"}
+      ],
+      exp:"Toggles, trunk-based work, and recovery automation make 'always releasable' achievable. Long cycles and manual-only regression are CD anti-patterns." },
+    { type:"multi", cat:"testing", q:"Which characteristics describe good unit tests? (select 3)",
+      opts:[
+        {t:"Fast (typically milliseconds)",c:true},
+        {t:"Isolated from external dependencies (DB, network, filesystem)",c:true},
+        {t:"Focused on one behavior per test, with clear failure messages",c:true},
+        {t:"Cover entire UI flows end-to-end through the browser"},
+        {t:"Require a live database instance for setup"}
+      ],
+      exp:"Unit tests sit at the base of the Test Pyramid: fast, isolated, focused. UI/E2E coverage and live-DB needs belong in higher pyramid layers (integration, end-to-end) — and should be relatively few." },
+    { type:"multi", cat:"testing", q:"Which approaches improve overall test suite reliability? (select 3)",
+      opts:[
+        {t:"Investigating and fixing flaky tests as real defects",c:true},
+        {t:"Following the Test Pyramid (many unit, fewer integration, few end-to-end)",c:true},
+        {t:"Using contract testing at service boundaries",c:true},
+        {t:"Re-running tests until they happen to pass"},
+        {t:"Deleting tests that fail occasionally rather than investigating"}
+      ],
+      exp:"Reliability comes from disciplined investigation and structural choices. Re-running until green and silent deletion hide problems and erode trust in the entire suite." },
+    { type:"multi", cat:"testing", q:"TDD's red-green-refactor cycle includes which activities? (select 3)",
+      opts:[
+        {t:"Writing a failing test first (red)",c:true},
+        {t:"Writing the minimum code to make it pass (green)",c:true},
+        {t:"Improving design while keeping tests green (refactor)",c:true},
+        {t:"Writing the test only after the production code is finished"},
+        {t:"Deleting tests that no longer pass after a refactor"}
+      ],
+      exp:"TDD: red (test fails) → green (minimum code passes) → refactor (design improves). Test-after isn't TDD; tests failing after refactor mean fix the code or update the test consciously, never silent deletion." },
+    { type:"multi", cat:"quality", q:"Which elements are appropriate to include in a strong Definition of Done? (select 3)",
+      opts:[
+        {t:"Code review completed",c:true},
+        {t:"Automated tests pass in the CI pipeline",c:true},
+        {t:"Non-functional requirements (security, accessibility, performance) appropriate to the product",c:true},
+        {t:"Pre-approval from every stakeholder for every item"},
+        {t:"A specific hour budget the item must fit within"}
+      ],
+      exp:"DoD encodes the team's quality bar — typically reviews + automation + NFRs. It's not a stakeholder gate or a time budget; those are different concerns." },
+    { type:"multi", cat:"quality", q:"Which statements correctly describe the relationship between the Definition of Done and acceptance criteria? (select 3)",
+      opts:[
+        {t:"The DoD is the Increment-level quality bar applying to ALL work",c:true},
+        {t:"Acceptance criteria are item-specific behavior conditions",c:true},
+        {t:"An item must meet BOTH its acceptance criteria AND the DoD to be Done",c:true},
+        {t:"Acceptance criteria and DoD are interchangeable terms"},
+        {t:"DoD applies only to user-facing items, not backend work"}
+      ],
+      exp:"DoD = product-wide quality bar; AC = item-specific intent. Both must hold for Done. Confusing the two is a common source of weak Increments." },
+    { type:"multi", cat:"quality", q:"Which signs indicate accumulating technical debt that hurts long-term Ability to Innovate? (select 3)",
+      opts:[
+        {t:"Code increasingly costly and risky to change safely",c:true},
+        {t:"Slow, flaky CI pipeline that erodes trust",c:true},
+        {t:"Mounting bug count in previously stable areas",c:true},
+        {t:"A team practicing continuous refactoring during regular work"},
+        {t:"Frequent small Increments shipped per Sprint"}
+      ],
+      exp:"Tech debt manifests as change cost, build degradation, and rising defects. Continuous refactoring and small frequent Increments are antidotes — not symptoms." },
+    { type:"multi", cat:"design", q:"Which are signs of well-designed code per recognized engineering practice? (select 3)",
+      opts:[
+        {t:"Low coupling between modules",c:true},
+        {t:"High cohesion within modules",c:true},
+        {t:"Behavior testable in isolation from infrastructure",c:true},
+        {t:"Many tightly-linked global variables",c:true ? false : true},
+        {t:"One giant class that handles every concern"}
+      ],
+      exp:"Low coupling + high cohesion + testability = maintainable code (Martin, Fowler). Global state and god-classes are well-known indicators of poor design." },
+    { type:"multi", cat:"design", q:"Emergent architecture in Scrum is supported by which behaviors? (select 3)",
+      opts:[
+        {t:"Deferring architectural decisions until they're justified by need",c:true},
+        {t:"Using fitness functions to keep the system aligned to desired properties",c:true},
+        {t:"Refactoring continuously to shape the architecture as it grows",c:true},
+        {t:"Locking the architecture before Sprint 1 begins"},
+        {t:"Forbidding any structural changes after the initial design"}
+      ],
+      exp:"Emergent architecture (Ford/Parsons/Kua) treats structure as evolving — guided by fitness functions and refactoring. Lock-down anti-patterns prevent adaptation as the product is learned." },
+    { type:"multi", cat:"design", q:"Which SOLID principles are correctly described? (select 3)",
+      opts:[
+        {t:"Single Responsibility — a class should have one reason to change",c:true},
+        {t:"Open/Closed — open for extension, closed for modification",c:true},
+        {t:"Dependency Inversion — depend on abstractions, not concrete implementations",c:true},
+        {t:"Single Repository — one source-control repo per organization"},
+        {t:"Optimistic Default — assume all inputs are valid"}
+      ],
+      exp:"SRP, OCP, DIP are three of the five SOLID principles (Martin). The other two are LSP (Liskov Substitution) and ISP (Interface Segregation). 'Single Repository' and 'Optimistic Default' are not SOLID." },
+    { type:"multi", cat:"refinement", q:"Which statements describe vertical slicing of a Product Backlog item? (select 3)",
+      opts:[
+        {t:"Cuts through every architectural layer end-to-end",c:true},
+        {t:"Delivers a thin but functioning capability that can be validated",c:true},
+        {t:"Supports independent release or stakeholder feedback per slice",c:true},
+        {t:"Always divides work by component (UI / API / DB) per Sprint"},
+        {t:"Requires a hardening phase afterward to integrate slices"}
+      ],
+      exp:"Vertical slices are end-to-end and demonstrable. Component-based ('horizontal') splits aren't vertical. Hardening phases are an anti-pattern Scrum aims to eliminate." },
+    { type:"multi", cat:"refinement", q:"Effective Product Backlog refinement produces which outcomes? (select 3)",
+      opts:[
+        {t:"Items become smaller and clearer as they approach the top",c:true},
+        {t:"The whole Scrum Team contributes (not just the PO)",c:true},
+        {t:"Estimates emerge from collaborative conversation that surfaces risk",c:true},
+        {t:"Every backlog item is estimated to the nearest hour"},
+        {t:"Refinement is a formal Scrum event with a fixed 10% Sprint timebox"}
+      ],
+      exp:"Refinement tapers detail toward the top with whole-team input. Hour-precision and the '10% rule' are not Scrum requirements (the 10% guidance was removed in 2020)." },
+    { type:"multi", cat:"refinement", q:"Which are valid PBI splitting strategies (per SPIDR and common practice)? (select 3)",
+      opts:[
+        {t:"By workflow path — happy path first, error cases later",c:true},
+        {t:"By data variation — one customer segment first, then others",c:true},
+        {t:"By interface — one channel first, then others",c:true},
+        {t:"By Developer — split a single feature across each Developer's daily work"},
+        {t:"By time of day — work to be completed in morning vs afternoon"}
+      ],
+      exp:"Splits along Path / Data / Interface / Rules / Spike yield independently valuable slices. Splitting by person or time-of-day doesn't deliver smaller value increments — those are scheduling tactics, not splits." }
   ]
 };
 })();

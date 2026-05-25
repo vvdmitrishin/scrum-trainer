@@ -151,7 +151,81 @@ window.BANKS["ppdv"] = {
       exp:"p-values describe how surprising the data is under the null hypothesis. p<0.05 ≠ truth ≠ business meaning. POs ask: is the effect size big enough to matter? does it persist? does it generalize beyond this segment? Significance is one input." },
     { type:"single", cat:"validation", q:"Common A/B testing pitfalls include:",
       opts:[{t:"Peeking (stopping early when significant), running too short, ignoring sample size, missing novelty/primacy effects, multiple comparisons without correction",c:true},{t:"Using statistical tests"},{t:"Pre-registering hypotheses"},{t:"Measuring effect size"}],
-      exp:"A/B testing has many traps. Peeking biases toward 'positive' results. Short runs miss longer-term effects. Small samples can't detect modest effects. Multiple tests inflate false-positive rates. POs working with data scientists/PMs design tests carefully." }
+      exp:"A/B testing has many traps. Peeking biases toward 'positive' results. Short runs miss longer-term effects. Small samples can't detect modest effects. Multiple tests inflate false-positive rates. POs working with data scientists/PMs design tests carefully." },
+
+    /* ---------------- NEW MULTI-SELECT — pushes multi share higher ---------------- */
+    { type:"multi", cat:"discovery", q:"Which describe Continuous Discovery practice (Teresa Torres)? (select 3)",
+      opts:[
+        {t:"Weekly customer touchpoints that build the discovery muscle",c:true},
+        {t:"Cross-functional team participation (PO, design, engineering together)",c:true},
+        {t:"Connecting opportunities to outcomes via opportunity solution trees",c:true},
+        {t:"One annual customer survey followed by 12 months of building"},
+        {t:"PO conducting customer research alone, without team involvement"}
+      ],
+      exp:"Continuous Discovery emphasizes frequent cadence + cross-functional engagement + opportunity-outcome connection. Annual surveys and solo-PO discovery are exactly what the practice replaces." },
+    { type:"multi", cat:"discovery", q:"Which research methods usefully complement customer interviews? (select 3)",
+      opts:[
+        {t:"Observational research (contextual inquiry) to see actual behavior",c:true},
+        {t:"Diary studies capturing experience over days or weeks",c:true},
+        {t:"Co-creation workshops with customers as design partners",c:true},
+        {t:"Reading internal stakeholder opinions as a substitute for customer contact"},
+        {t:"Surveying only the most vocal users who already complain loudly"}
+      ],
+      exp:"Behavior observation, longitudinal diaries, and co-creation each surface signal interviews can miss. Internal-only signals and self-selected vocal samples produce skewed signal." },
+    { type:"multi", cat:"customer", q:"Which interview practices align with The Mom Test (Fitzpatrick) for getting honest customer signal? (select 3)",
+      opts:[
+        {t:"Asking about specific past events and behaviors",c:true},
+        {t:"Probing for the underlying problem and current workarounds",c:true},
+        {t:"Listening more than talking and following follow-up questions to specifics",c:true},
+        {t:"Asking 'would you use a feature that does X?' hypothetical questions"},
+        {t:"Pitching the proposed solution and asking if they like it"}
+      ],
+      exp:"The Mom Test: anchor in past behavior, probe real problems, listen for specifics. Hypotheticals and pitches invite politeness, not signal — even your mom would lie to encourage you." },
+    { type:"multi", cat:"customer", q:"Which describe Jobs-to-be-Done framing for product discovery? (select 3)",
+      opts:[
+        {t:"Customers 'hire' products to make progress on jobs they're trying to do",c:true},
+        {t:"Different customers may hire the same product for different jobs",c:true},
+        {t:"The same job may be served by very different competing solutions",c:true},
+        {t:"Jobs are demographic categories like 'millennials' or 'enterprise users'"},
+        {t:"Jobs are equivalent to product feature names"}
+      ],
+      exp:"JTBD (Christensen) frames customer motivation as progress to make, not demographics or features. Two customers in the same demographic may have very different jobs; the same job can be served by very different solutions." },
+    { type:"multi", cat:"validation", q:"Which signals provide STRONGER evidence of demand for a product idea? (select 3)",
+      opts:[
+        {t:"Customers paying real money (pre-orders, paid waitlists)",c:true},
+        {t:"Customers manually doing the workaround the product would automate (Concierge MVP)",c:true},
+        {t:"Click-through and sign-up on a credible landing page (smoke test)",c:true},
+        {t:"Customers nodding politely when shown a mockup"},
+        {t:"Internal stakeholders enthusiastically approving"}
+      ],
+      exp:"Bland's evidence ladder: money > behavior > intent > opinion. Polite nods and internal approvals are weak. The three correct options are progressively stronger commitment signals." },
+    { type:"multi", cat:"validation", q:"Which describe a valid Wizard of Oz experiment? (select 3)",
+      opts:[
+        {t:"Manually performing what an automated system would do, presented as if automated",c:true},
+        {t:"Used to validate value before investing in expensive automation",c:true},
+        {t:"Run with real users who don't know about the manual back-end",c:true},
+        {t:"Requiring full production infrastructure to operate"},
+        {t:"Identical in design to a Concierge MVP (transparent manual service)"}
+      ],
+      exp:"Wizard of Oz tests demand by hiding the manual work behind an automated-feeling experience. It differs from Concierge MVPs (which are transparently manual) and intentionally avoids full infrastructure cost." },
+    { type:"multi", cat:"strategy", q:"Which describe a useful Now/Next/Later roadmap (vs a Gantt-style timed roadmap)? (select 3)",
+      opts:[
+        {t:"Expresses priority and intent without fixed dates",c:true},
+        {t:"Communicates direction while preserving empirical flexibility",c:true},
+        {t:"Updated as evidence accumulates and priorities shift",c:true},
+        {t:"Commits to specific delivery dates 12+ months out",c:true ? false : true},
+        {t:"Requires sign-off on every line before any work begins"}
+      ],
+      exp:"Now/Next/Later (Janna Bastow) communicates priority without false-precision dates and adapts as learning happens. Gantt-style date commitments lock in uncertainty and resist adaptation." },
+    { type:"multi", cat:"strategy", q:"Which characterize a useful North Star Metric? (select 3)",
+      opts:[
+        {t:"Captures the core value the product delivers, in one outcome",c:true},
+        {t:"Aligns teams on what matters most without listing all sub-metrics",c:true},
+        {t:"Outcome-oriented, not output-oriented (not 'features shipped')",c:true},
+        {t:"Defined as the team's velocity in story points per Sprint"},
+        {t:"The Sprint Goal renamed for stakeholders"}
+      ],
+      exp:"NSM (Amplitude/Sean Ellis) anchors strategy to one outcome metric tied to delivered value. Velocity and Sprint Goal serve different purposes — neither is a North Star." }
   ]
 };
 })();

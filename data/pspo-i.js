@@ -1204,7 +1204,90 @@ window.BANKS["pspo-i"] = {
       {t:"The two are unrelated"},
       {t:"The Product Goal must restate the mission verbatim"},
       {t:"The mission is owned by the Scrum Master"}
-    ], exp:"Per Scrum.org's 'Managing Products with Agility' competency, the PO bridges company mission/strategy and product execution. The Product Goal is a concrete intermediate step that should align with — but is more specific and measurable than — the broader mission." }
+    ], exp:"Per Scrum.org's 'Managing Products with Agility' competency, the PO bridges company mission/strategy and product execution. The Product Goal is a concrete intermediate step that should align with — but is more specific and measurable than — the broader mission." },
+
+    /* ---------------- NEW MULTI-SELECT — pushes multi share higher ---------------- */
+    { type:"multi", cat:"stakeholders", q:"Which Product Owner behaviors most reliably build trust with stakeholders over time? (select 3)",
+      opts:[
+        {t:"Communicating forecasts honestly with uncertainty ranges",c:true},
+        {t:"Sharing empirical evidence of value delivered (using EBM KVMs)",c:true},
+        {t:"Engaging stakeholders in the Sprint Review as collaborators, not an audience",c:true},
+        {t:"Promising fixed scope by a fixed date regardless of complexity"},
+        {t:"Avoiding stakeholder contact between releases"}
+      ],
+      exp:"Trust is built with honesty + evidence + collaborative engagement. Single-point promises in complex work erode credibility when reality differs; isolating stakeholders between releases starves the empirical loop." },
+    { type:"multi", cat:"value", q:"Which Product Owner behaviors most clearly demonstrate acting on empirical evidence rather than ego or plan adherence? (select 3)",
+      opts:[
+        {t:"Pivoting backlog priorities when usage data refutes a key hypothesis",c:true},
+        {t:"Replacing the Product Goal when evidence shows it's no longer relevant",c:true},
+        {t:"Stopping a feature track when customer outcomes fail to improve",c:true},
+        {t:"Sticking to the original 18-month plan because stakeholders approved it"},
+        {t:"Increasing the team's velocity target to compensate for missed forecasts"}
+      ],
+      exp:"Empirical POs follow the evidence — they adapt priorities, goals, and even kill features when outcomes don't materialize. Plan-adherence and velocity-pressure are anti-empirical." },
+    { type:"multi", cat:"forecasting", q:"Which inputs are most appropriate for empirical Sprint capacity forecasting? (select 2)",
+      opts:[
+        {t:"Recent throughput data from prior Sprints",c:true},
+        {t:"Historical cycle time distribution",c:true},
+        {t:"A manager-imposed deadline date"},
+        {t:"Each Developer's longest-case estimate, summed"},
+        {t:"Number of stakeholder emails per week"}
+      ],
+      exp:"Empirical forecasting uses throughput and cycle time distributions (e.g., via Monte Carlo). Imposed dates, worst-case sums, and unrelated activity metrics don't reflect actual flow data and produce poor forecasts." },
+    { type:"multi", cat:"strategy", q:"Which characteristics describe a healthy Strategic Goal per the EBM Guide? (select 3)",
+      opts:[
+        {t:"Aspirational and far-reaching",c:true},
+        {t:"Measurable enough to track progress against current state",c:true},
+        {t:"Requires empirical navigation due to inherent uncertainty",c:true},
+        {t:"Achievable comfortably within a single Sprint"},
+        {t:"Locked for 5+ years with no revision allowed"}
+      ],
+      exp:"The EBM Guide describes Strategic Goals as aspirational, measurable, and so uncertain they require empirical adaptation. They are not Sprint-sized nor frozen forever." },
+    { type:"multi", cat:"backlog", q:"Which qualities help a Product Backlog item be 'ready' for upcoming Sprint Planning? (select 3)",
+      opts:[
+        {t:"Small enough to be completed within a single Sprint",c:true},
+        {t:"Clear shared understanding among the Scrum Team",c:true},
+        {t:"Acceptance criteria defined and discussed",c:true},
+        {t:"Estimated to the nearest hour by the PO"},
+        {t:"Pre-approved in writing by every stakeholder"}
+      ],
+      exp:"Ready items are right-sized, well-understood, and have clear acceptance criteria — supporting confident Sprint Planning. Hour estimates and universal stakeholder sign-off are not Scrum requirements and often create waterfall-style gates." },
+    { type:"multi", cat:"stakeholders", q:"Which practices make customer discovery interviews more reliable for understanding real needs? (select 3)",
+      opts:[
+        {t:"Ask about past behavior in specific situations",c:true},
+        {t:"Probe the underlying job rather than the requested feature",c:true},
+        {t:"Use open-ended questions that invite stories",c:true},
+        {t:"Lead with 'would you use a feature that does X?' hypothetical questions"},
+        {t:"End the interview with a soft sales pitch for the upcoming feature"}
+      ],
+      exp:"Behavior-anchored, job-focused, open questions yield evidence (Mom Test, JTBD). Hypothetical-future and sales-pitch framing produces polite agreement, not signal." },
+    { type:"multi", cat:"framework", q:"On a multi-team product with one PO, one Product Backlog, and one Product Goal, which additional things should align across teams? (select 3)",
+      opts:[
+        {t:"Definition of Done — at minimum a shared baseline across teams",c:true},
+        {t:"Approach to the Sprint Review — typically joint or with cross-team inspection of one integrated Increment",c:true},
+        {t:"How each team's Sprint Goal contributes to the Product Goal",c:true},
+        {t:"Story-point scales must be numerically identical across all teams"},
+        {t:"Daily Scrum times must overlap exactly between all teams"}
+      ],
+      exp:"Shared product → shared minimum DoD, integrated Review, and Sprint-Goal-to-Product-Goal alignment. Story-point scales and Daily Scrum times don't need to be uniform; teams adapt locally." },
+    { type:"multi", cat:"stakeholders", q:"At Sprint Review, quieter stakeholders rarely speak. Which facilitation techniques distribute participation? (select 3)",
+      opts:[
+        {t:"Silent writing to surface ideas before group discussion",c:true},
+        {t:"Paired discussion (1-2-4-All) before group sharing",c:true},
+        {t:"Round-robin questions giving each person dedicated airtime",c:true},
+        {t:"Letting the loudest stakeholder set the tone to keep energy high"},
+        {t:"Skipping the Review when engagement seems low"}
+      ],
+      exp:"Structural facilitation distributes voice equity. Letting dominance or skipping events surrenders inspection-adaptation — both anti-patterns POs and SMs should resist." },
+    { type:"multi", cat:"strategy", q:"Which qualities describe a useful Product Goal per the Scrum Guide 2020 and broader product practice? (select 3)",
+      opts:[
+        {t:"Connected to a desired customer or business outcome",c:true},
+        {t:"Measurable enough to track empirical progress",c:true},
+        {t:"Replaced or adapted when fulfilled or invalidated",c:true},
+        {t:"A fixed list of features for the next 12 months"},
+        {t:"Identical in wording to the Sprint Goal"}
+      ],
+      exp:"Product Goals describe outcomes (not feature lists), are measurable, and turn over as the product evolves. They are distinct from Sprint Goals (immediate steps toward the Product Goal)." }
   ]
 };
 })();

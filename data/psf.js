@@ -324,7 +324,81 @@ window.BANKS["psf"] = {
       exp:"When emotion runs high, cognition drops. A 5–15 minute break restores capacity for thought and reduces reactivity. Facilitators read the room and use breaks deliberately — not as avoidance but as regulation." },
     { type:"single", cat:"conflict", q:"A group is stuck between two strong proposals. A useful facilitation move is:",
       opts:[{t:"Surface the underlying interests behind each position — often interests are compatible even when positions conflict (Fisher & Ury)",c:true},{t:"Ask the boss to decide"},{t:"Drop both proposals"},{t:"Coin flip"}],
-      exp:"Positions are what people demand; interests are why they want it. Two positions may serve the same interest (or compatible interests). 'Getting to Yes' (Fisher/Ury) — explore interests, generate options, use objective criteria — unlocks creative solutions." }
+      exp:"Positions are what people demand; interests are why they want it. Two positions may serve the same interest (or compatible interests). 'Getting to Yes' (Fisher/Ury) — explore interests, generate options, use objective criteria — unlocks creative solutions." },
+
+    /* ---------------- NEW MULTI-SELECT — pushes multi share higher ---------------- */
+    { type:"multi", cat:"principles", q:"Which behaviors help a facilitator maintain neutrality during a session? (select 3)",
+      opts:[
+        {t:"Owning the process while leaving content decisions to the group",c:true},
+        {t:"Declining to advocate for personal opinions on the topic",c:true},
+        {t:"Using techniques that distribute participation rather than amplifying favorites",c:true},
+        {t:"Sharing the facilitator's preferred solution at the start to set direction"},
+        {t:"Steering the group toward the outcome the facilitator believes is best"}
+      ],
+      exp:"Neutrality = own the process, let the group own the content. Personal advocacy and steering toward preferred outcomes break the facilitator stance and undermine group ownership." },
+    { type:"multi", cat:"principles", q:"Which describe healthy working agreements established at the start of a session? (select 3)",
+      opts:[
+        {t:"Co-created with the group, not imposed by the facilitator",c:true},
+        {t:"Made visible during the session so they can be referenced",c:true},
+        {t:"Periodically revisited and adjusted as the group learns",c:true},
+        {t:"Detailed legal contracts the participants must sign"},
+        {t:"Secret rules only the facilitator enforces"}
+      ],
+      exp:"Working agreements are shared norms the group owns. Imposed, hidden, or over-formal agreements undermine the very ownership they should create." },
+    { type:"multi", cat:"events", q:"Which adaptations make a Retrospective format effective for different inspection needs? (select 3)",
+      opts:[
+        {t:"Mad/Sad/Glad when emotional climate is the focus",c:true},
+        {t:"Timeline format when reconstructing events of the Sprint",c:true},
+        {t:"5 Whys when drilling to systemic causes of a recurring issue",c:true},
+        {t:"Using the same template every Sprint regardless of context"},
+        {t:"Skipping the Retrospective when nothing seems wrong"}
+      ],
+      exp:"Varying format matches the inspection target. Same-template-every-time degrades engagement; skipping forfeits empirical learning even when 'nothing's wrong.'" },
+    { type:"multi", cat:"events", q:"Which adaptations make a remote Sprint Review effective? (select 3)",
+      opts:[
+        {t:"Using a digital whiteboard for collaborative backlog adaptation",c:true},
+        {t:"Structured turn-taking to prevent dominance and ensure voice equity",c:true},
+        {t:"Pre-shared materials (videos, prototypes) participants review beforehand",c:true},
+        {t:"Letting whoever speaks first set the agenda for the rest of the session"},
+        {t:"Skipping the discussion portion to save time"}
+      ],
+      exp:"Remote Reviews need deliberate redesign — digital tools, structured participation, prework. Unstructured remote events tend to amplify dominance and lose feedback richness." },
+    { type:"multi", cat:"techniques", q:"Which Liberating Structures help distribute participation in large groups? (select 3)",
+      opts:[
+        {t:"1-2-4-All — scaling waves from individual through pair to whole group",c:true},
+        {t:"World Café — small-table conversations with rotation",c:true},
+        {t:"TRIZ — surfacing what to stop doing via humorous reverse brainstorming",c:true},
+        {t:"Open-mic Q&A — letting whoever raises hand first lead",c:true ? false : true},
+        {t:"PowerPoint presentation followed by silent listening"}
+      ],
+      exp:"Liberating Structures are deliberately designed to include all voices. Open-mic and one-way presentations concentrate participation in the loudest/highest-status voices." },
+    { type:"multi", cat:"techniques", q:"Which describe the ORID structured conversation method? (select 3)",
+      opts:[
+        {t:"Objective — surfacing facts and observations first",c:true},
+        {t:"Reflective — exploring feelings and emotional reactions",c:true},
+        {t:"Decisional — landing on action commitments at the end",c:true},
+        {t:"Imperative — assigning tasks to specific participants"},
+        {t:"Directive — the facilitator declares the conclusion"}
+      ],
+      exp:"ORID (Institute of Cultural Affairs): Objective → Reflective → Interpretive → Decisional. Walking through layers prevents premature decisions and surfaces underlying meaning before action." },
+    { type:"multi", cat:"conflict", q:"Which Thomas-Kilmann conflict modes are most often appropriate in Scrum-team disagreements? (select 2)",
+      opts:[
+        {t:"Collaborating — high concern for self AND others, time-intensive but durable",c:true},
+        {t:"Compromising — moderate concern for both, faster when stakes are middling",c:true},
+        {t:"Competing — pursue own concern with disregard for others"},
+        {t:"Avoiding — withdraw and hope it resolves on its own"},
+        {t:"Accommodating — yield entirely to keep peace"}
+      ],
+      exp:"Collaborating and Compromising preserve relationships while resolving substance. The other three (Competing/Avoiding/Accommodating) work occasionally but degrade Scrum-team trust if used as defaults." },
+    { type:"multi", cat:"conflict", q:"Which signals suggest a facilitator should call a deliberate break? (select 3)",
+      opts:[
+        {t:"Rising emotional intensity that's reducing productive thought",c:true},
+        {t:"Repetitive looping on the same points without progress",c:true},
+        {t:"Visible fatigue across the group after sustained effort",c:true},
+        {t:"A heated but productive exchange that's surfacing real insight"},
+        {t:"The facilitator's own preference for an earlier end time"}
+      ],
+      exp:"Breaks serve regulation, reset, and rest. Cutting off productive exchanges or breaking for facilitator convenience aren't aligned reasons — read the room for the group's needs." }
   ]
 };
 })();

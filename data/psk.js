@@ -196,7 +196,117 @@ window.BANKS["psk"] = {
       exp:"Flow data turns invisible waits into visible impediments. This is exactly what KGST is for — empirical pressure on real impediments. SMs use this signal to drive systemic change (e.g., bring review into the team)." },
     { type:"single", cat:"integration", q:"A team using KGST sees throughput dropping for three Sprints. The most aligned first action is:",
       opts:[{t:"Investigate at the Retrospective — variability, item size growth, dependencies, team changes, WIP growth — and adapt",c:true},{t:"Push the team to work harder"},{t:"Add more people immediately"},{t:"Switch back from KGST to pure Scrum"}],
-      exp:"Throughput drops are signals, not verdicts. Common causes: items getting larger, WIP growth, dependencies, team-composition change, environmental disruption. The Retrospective inspects causes and adapts. Pushing harder usually backfires." }
+      exp:"Throughput drops are signals, not verdicts. Common causes: items getting larger, WIP growth, dependencies, team-composition change, environmental disruption. The Retrospective inspects causes and adapts. Pushing harder usually backfires." },
+
+    /* ---------------- NEW MULTI-SELECT — pushes multi share higher ---------------- */
+    { type:"multi", cat:"metrics", q:"Per the Kanban Guide for Scrum Teams, which are the four flow metrics teams should track? (select 4)",
+      opts:[
+        {t:"Work in Progress (WIP)",c:true},
+        {t:"Cycle Time",c:true},
+        {t:"Work Item Age",c:true},
+        {t:"Throughput",c:true},
+        {t:"Velocity in story points"}
+      ],
+      exp:"KGST names exactly four: WIP, Cycle Time, Work Item Age, Throughput. Story-point velocity isn't a Kanban flow metric — it's an estimation aggregate that doesn't capture flow." },
+    { type:"multi", cat:"metrics", q:"Which inputs are appropriate for empirical Monte Carlo forecasting? (select 3)",
+      opts:[
+        {t:"Historical throughput data from recent Sprints",c:true},
+        {t:"Historical cycle time distribution",c:true},
+        {t:"Stable Definition of Workflow with explicit start and end points",c:true},
+        {t:"A manager-imposed deadline date"},
+        {t:"Each Developer's longest-case estimate, summed"}
+      ],
+      exp:"Monte Carlo simulates from actual flow data with consistent measurement boundaries. Imposed dates and worst-case sums aren't empirical inputs and produce unreliable forecasts." },
+    { type:"multi", cat:"metrics", q:"Which signals in a Cumulative Flow Diagram suggest flow problems worth investigating? (select 3)",
+      opts:[
+        {t:"Widening 'In Progress' bands over time (WIP accumulating)",c:true},
+        {t:"Flat 'Done' line with little progression",c:true},
+        {t:"Long horizontal stretches in any stage (items stalling)",c:true},
+        {t:"Steady upward 'Done' progression with stable WIP"},
+        {t:"Narrow 'In Progress' bands that match team size"}
+      ],
+      exp:"Widening WIP, flat Done, and stalls signal trouble. Steady Done progress with bounded WIP is exactly what a healthy CFD looks like." },
+    { type:"multi", cat:"metrics", q:"Which uses describe a Cycle Time Scatterplot's purpose? (select 3)",
+      opts:[
+        {t:"Visualizing the distribution of completed items' cycle times over time",c:true},
+        {t:"Identifying outliers that may indicate process issues",c:true},
+        {t:"Setting Service Level Expectations based on observed percentiles (e.g., 85%)",c:true},
+        {t:"Tracking individual Developer hours per item"},
+        {t:"Replacing the Product Backlog ordering"}
+      ],
+      exp:"The scatterplot reveals distribution, outliers, and supports SLE setting. It's not a per-person time-tracker or a backlog tool." },
+    { type:"multi", cat:"flow", q:"Which behaviors indicate a team is genuinely pulling work rather than pushing? (select 3)",
+      opts:[
+        {t:"New items enter the workflow only when WIP is below the limit",c:true},
+        {t:"Developers finishing in-progress items before starting new ones",c:true},
+        {t:"Swarming on a stalled item rather than spreading attention",c:true},
+        {t:"Starting items as soon as they're written, regardless of WIP",c:true ? false : true},
+        {t:"Adding parallel items to keep everyone individually busy"}
+      ],
+      exp:"Pull means downstream capacity decides when new work starts. Finishing-first, swarming, and respecting WIP limits all express pull. Starting on supply and maximizing individual utilization is push." },
+    { type:"multi", cat:"flow", q:"Which factors increase variability that hurts predictable flow? (select 3)",
+      opts:[
+        {t:"Wildly varying item sizes",c:true},
+        {t:"Frequent unplanned interruptions and context switches",c:true},
+        {t:"External dependencies adding wait time",c:true},
+        {t:"Consistent application of WIP limits"},
+        {t:"Right-sized items refined into similar sizes"}
+      ],
+      exp:"Variability comes from inconsistent sizes, interruptions, and dependencies. WIP limits and right-sizing REDUCE variability — they're the antidote, not a cause." },
+    { type:"multi", cat:"flow", q:"Which statements correctly describe applying Theory of Constraints to a workflow? (select 3)",
+      opts:[
+        {t:"System throughput is limited by its slowest step (the bottleneck)",c:true},
+        {t:"Improvements at non-bottlenecks yield little system gain",c:true},
+        {t:"Once a bottleneck moves, the next constraint becomes the focus",c:true},
+        {t:"Every step should be optimized equally regardless of where the bottleneck is"},
+        {t:"Bottlenecks should be ignored if non-bottleneck teams can work faster"}
+      ],
+      exp:"Goldratt's ToC focuses improvement at the constraint and cycles as the constraint moves. Equal-optimization and bottleneck-ignoring are common but ineffective approaches." },
+    { type:"multi", cat:"workflow", q:"Which elements should a Definition of Workflow typically include per KGST? (select 3)",
+      opts:[
+        {t:"Definition of individual work item types the team handles",c:true},
+        {t:"Definition of when work is 'started' and when it is 'finished'",c:true},
+        {t:"Explicit policies for items to flow between states",c:true},
+        {t:"Individual Developer hourly capacity per stage"},
+        {t:"Mandatory Sprint length and Daily Scrum times"}
+      ],
+      exp:"DoW captures item types, start/end points, and explicit transition policies — making the workflow inspectable. It doesn't replace Scrum events or capture individual capacity." },
+    { type:"multi", cat:"workflow", q:"Which characteristics describe a healthy Definition of Workflow? (select 3)",
+      opts:[
+        {t:"Visible to the whole team (on the board or in a shared artifact)",c:true},
+        {t:"Owned and evolved by the Scrum Team based on inspect-adapt cycles",c:true},
+        {t:"Updated at the Retrospective when flow data reveals improvements",c:true},
+        {t:"Stored in a hidden document only the Scrum Master maintains"},
+        {t:"Frozen for the entire fiscal year regardless of learning"}
+      ],
+      exp:"Visibility, ownership, and adaptation are DoW success factors. Hidden or frozen DoWs become ceremonial and stop influencing behavior." },
+    { type:"multi", cat:"integration", q:"Which Scrum elements remain UNCHANGED when a team adopts KGST? (select 3)",
+      opts:[
+        {t:"The three Scrum accountabilities (PO, SM, Developers)",c:true},
+        {t:"The five Scrum events (Sprint, Planning, Daily Scrum, Review, Retrospective)",c:true},
+        {t:"Sprint Goal as the commitment for the Sprint Backlog",c:true},
+        {t:"Daily Scrum must use the three-question status format"},
+        {t:"Story points replace flow metrics in Sprint Planning"}
+      ],
+      exp:"KGST is additive — accountabilities, events, and Sprint Goal commitment all stay. The Daily Scrum format isn't prescribed by the Scrum Guide; flow metrics complement (not replace) any sizing approach." },
+    { type:"multi", cat:"integration", q:"At Sprint Review, what does a KGST team typically share alongside the Increment? (select 3)",
+      opts:[
+        {t:"Throughput trends over recent Sprints",c:true},
+        {t:"Cycle time distribution and SLE compliance",c:true},
+        {t:"Aging WIP and any items at risk of breaching SLE",c:true},
+        {t:"Each Developer's individual completion count"},
+        {t:"Personal task assignments for the next Sprint"}
+      ],
+      exp:"Flow data enriches Sprint Review with empirical signal: throughput, cycle time, and aging WIP all inform Product Backlog adaptation. Individual stats and pre-assignment aren't appropriate inspection material." },
+    { type:"multi", cat:"integration", q:"Which signals from flow data should a KGST team inspect at the Retrospective? (select 3)",
+      opts:[
+        {t:"Increasing cycle time variance",c:true},
+        {t:"Patterns of long-aged items breaching SLE",c:true},
+        {t:"Throughput drops correlated with workflow changes",c:true},
+        {t:"Personal time-off patterns of individual Developers"},
+        {t:"Hour-by-hour activity logs from each team member"}
+      ],
+      exp:"Flow signals (variance, aging, throughput) drive systemic improvement. Personal time-off and hourly logs are not appropriate signals — they shift focus from system to surveillance." }
   ]
 };
 })();

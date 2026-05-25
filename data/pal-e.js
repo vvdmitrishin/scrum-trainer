@@ -288,7 +288,144 @@ window.BANKS["pal-e"] = {
       exp:"Counterintuitively, manual deployment is higher-risk: humans make mistakes, processes drift, recovery is slow. Automated, tested, repeatable deployment is far safer. DORA research confirms automation correlates with both speed and stability." },
     { type:"single", cat:"delivery", q:"What does 'technical excellence' refer to in the Agile Manifesto's 12 principles?",
       opts:[{t:"Continuous attention to good design and craftsmanship that enhances agility — not perfection or gold-plating",c:true},{t:"Choosing the latest framework"},{t:"Writing as much code as possible"},{t:"Eliminating all refactoring"}],
-      exp:"Manifesto principle 9: 'Continuous attention to technical excellence and good design enhances agility.' The point: good design enables change (the agile core); bad design prevents it. Leaders invest in craft, not perfection." }
+      exp:"Manifesto principle 9: 'Continuous attention to technical excellence and good design enhances agility.' The point: good design enables change (the agile core); bad design prevents it. Leaders invest in craft, not perfection." },
+
+    /* ---------------- NEW MULTI-SELECT — pushes multi share higher ---------------- */
+    { type:"multi", cat:"leadership", q:"Which behaviors characterize agile leaders coaching their organization toward empiricism? (select 3)",
+      opts:[
+        {t:"Setting clear outcomes and creating space for teams to experiment",c:true},
+        {t:"Coaching managers to shift from output to outcome conversations",c:true},
+        {t:"Modeling vulnerability and learning publicly from their own mistakes",c:true},
+        {t:"Prescribing detailed practices that every team must follow identically"},
+        {t:"Demanding fixed multi-year delivery plans before any work begins"}
+      ],
+      exp:"Empirical leadership sets direction, enables experimentation, and models the openness it wants from the org. Prescribing practices and locking long-term plans contradicts inspect-adapt." },
+    { type:"multi", cat:"leadership", q:"Which practices are consistent with Theory Y assumptions about people in knowledge work? (select 3)",
+      opts:[
+        {t:"Granting autonomy paired with clear outcome goals",c:true},
+        {t:"Investing in mastery development (training, pairing, learning time)",c:true},
+        {t:"Connecting daily work to a meaningful purpose or customer outcome",c:true},
+        {t:"Monitoring hours and presence as the primary measure of effort"},
+        {t:"Default skepticism that people will deliver without supervision"}
+      ],
+      exp:"Theory Y (McGregor) assumes people seek responsibility and meaningful work — Pink's autonomy/mastery/purpose maps directly. Surveillance-style management reflects Theory X." },
+    { type:"multi", cat:"leadership", q:"Which practices help leaders preserve self-management as teams mature? (select 3)",
+      opts:[
+        {t:"Delegating decision-making with clear outcomes and trust",c:true},
+        {t:"Coaching the team beyond directing them",c:true},
+        {t:"Removing senior managers from per-feature approval steps",c:true},
+        {t:"Increasing detailed daily check-ins with the leader"},
+        {t:"Adding approval gates above the Scrum Master for technical choices"}
+      ],
+      exp:"Mature teams thrive on delegation, coaching, and removal of intermediate gates. More check-ins and new gates reverse the maturity gain." },
+    { type:"multi", cat:"evidence", q:"Which are example Key Value Measures for Ability to Innovate per the EBM Guide? (select 3)",
+      opts:[
+        {t:"Innovation Rate",c:true},
+        {t:"Defect Trends",c:true},
+        {t:"On-Product Index",c:true},
+        {t:"Revenue per Employee"},
+        {t:"Release Frequency"}
+      ],
+      exp:"Innovation Rate, Defect Trends, and On-Product Index appear in the EBM Guide as A2I measures. Revenue per Employee is a CV KVM; Release Frequency is a T2M KVM." },
+    { type:"multi", cat:"evidence", q:"Which are example Key Value Measures for Unrealized Value per the EBM Guide? (select 3)",
+      opts:[
+        {t:"Market Share (the portion not yet captured)",c:true},
+        {t:"Customer/User Satisfaction Gap",c:true},
+        {t:"Desired Customer Experience",c:true},
+        {t:"Production Incident Count"},
+        {t:"Customer Cycle Time"}
+      ],
+      exp:"Market Share, Satisfaction Gap, and Desired Customer Experience are UV measures per the EBM Guide. Production Incident Count is an A2I measure; Customer Cycle Time is a T2M measure." },
+    { type:"multi", cat:"framework", q:"Which Scrum-aligned organizational practices does an agile leader actively encourage? (select 3)",
+      opts:[
+        {t:"Persistent product teams instead of project-based disbanding",c:true},
+        {t:"Funding tied to outcome evidence rather than fixed-scope plans",c:true},
+        {t:"A single Product Owner per product (no role-splits)",c:true},
+        {t:"Mandatory weekly status meetings for executives across all teams"},
+        {t:"Output metrics (features shipped, hours worked) as primary success measure"}
+      ],
+      exp:"Persistent teams, evidence-tied funding, single PO support empiricism. Executive status pipelines and output-only metrics undermine it." },
+    { type:"multi", cat:"people", q:"Which characteristics indicate high psychological safety on a team (per Edmondson)? (select 3)",
+      opts:[
+        {t:"People report more mistakes — not because they make more, but because they feel safe to surface them",c:true},
+        {t:"Asking for help is normal and not stigmatized",c:true},
+        {t:"Disagreement is welcomed and processed productively",c:true},
+        {t:"Everyone publicly agrees to keep harmony"},
+        {t:"Failures are punished with public reviews and blame"}
+      ],
+      exp:"Edmondson: safety enables learning, which surfaces (not hides) mistakes and supports productive conflict. Artificial harmony and blame are the opposite signature." },
+    { type:"multi", cat:"people", q:"Which leader behaviors erode team trust over time? (select 3)",
+      opts:[
+        {t:"Publicly punishing a Developer for an honest mistake",c:true},
+        {t:"Bypassing the Product Owner to give Developers direct demands",c:true},
+        {t:"Imposing velocity targets the team didn't set",c:true},
+        {t:"Coaching the PO on Product Backlog management techniques"},
+        {t:"Removing organizational impediments the team raises"}
+      ],
+      exp:"Public punishment, role bypass, and external velocity pressure all corrode trust. Coaching the PO and clearing impediments are exactly the help leaders should provide." },
+    { type:"multi", cat:"orgdesign", q:"Which describe the four team types in Team Topologies? (select 3)",
+      opts:[
+        {t:"Stream-aligned — the majority team type, focused on a flow of value",c:true},
+        {t:"Platform — provides self-service internal products to reduce cognitive load on stream-aligned teams",c:true},
+        {t:"Enabling — helps stream-aligned teams build capability, typically time-bounded",c:true},
+        {t:"Audit — governs and approves all other teams' work"},
+        {t:"Executive — sets all goals strictly top-down without team input"}
+      ],
+      exp:"Team Topologies (Skelton/Pais): Stream-aligned, Platform, Enabling, Complicated-Subsystem. Audit and top-down Executive teams are not part of the framework." },
+    { type:"multi", cat:"orgdesign", q:"Which characterize a Generative culture per Westrum? (select 3)",
+      opts:[
+        {t:"Information flows freely across the organization",c:true},
+        {t:"Failures are investigated for systemic causes, not blamed on individuals",c:true},
+        {t:"Novel ideas are welcomed and explored",c:true},
+        {t:"Messengers bringing bad news are punished"},
+        {t:"Strict jurisdictional boundaries on responsibility"}
+      ],
+      exp:"Westrum's Generative culture is performance-oriented — information flows, learning is systemic, novelty welcomed. Punishing messengers (Pathological) and rigid jurisdictions (Bureaucratic) are the other two culture types." },
+    { type:"multi", cat:"orgdesign", q:"Which signals indicate cognitive overload on a team that warrants leadership attention? (select 3)",
+      opts:[
+        {t:"Sustained context-switching across unrelated products or domains",c:true},
+        {t:"Long coordination meetings between many teams",c:true},
+        {t:"Toolchain friction consuming significant team capacity",c:true},
+        {t:"Stable team membership over time"},
+        {t:"Self-service platform usage that reduces external dependencies"}
+      ],
+      exp:"Extraneous cognitive load shows up as context-switching, coordination drag, and toolchain pain. Stable teams and platform self-service REDUCE load — they're not signs of overload." },
+    { type:"multi", cat:"product", q:"Which actions help a leader shift the organization from output to outcome conversations? (select 3)",
+      opts:[
+        {t:"Adopt EBM KVAs as the portfolio-level conversation",c:true},
+        {t:"Replace feature-count milestones with measurable customer outcomes",c:true},
+        {t:"Tie continued funding to evidence of value movement",c:true},
+        {t:"Stick to feature roadmaps even as evidence diverges"},
+        {t:"Use individual story-point output as the success metric"}
+      ],
+      exp:"Outcome focus uses KVAs, real customer measures, and evidence-tied funding. Sticking to features and individual-output metrics keeps the org locked in output thinking." },
+    { type:"multi", cat:"product", q:"Which stakeholder behaviors support a healthy PO accountability? (select 3)",
+      opts:[
+        {t:"Routing requests through the Product Owner rather than directly to Developers",c:true},
+        {t:"Engaging in the Sprint Review as collaborative participants",c:true},
+        {t:"Sharing strategic context with the PO openly and early",c:true},
+        {t:"Setting Sprint Backlog content directly with individual Developers"},
+        {t:"Issuing fixed multi-quarter scope contracts the team must honor"}
+      ],
+      exp:"Healthy stakeholder behaviors respect the PO's single-point ordering accountability and engage empirically. Bypass and fixed contracts undermine both empiricism and the PO." },
+    { type:"multi", cat:"delivery", q:"Which DORA-aligned investments most consistently improve BOTH speed and stability? (select 3)",
+      opts:[
+        {t:"Trunk-based development with short-lived branches",c:true},
+        {t:"Comprehensive automated test suites covering critical paths",c:true},
+        {t:"Frequent small deploys paired with fast rollback",c:true},
+        {t:"Long QA hardening phases at the end of each release",c:true ? false : true},
+        {t:"Manual approval gates for every deployment"}
+      ],
+      exp:"DORA research links trunk-based + automation + small deploys with elite outcomes on both speed AND stability. Hardening phases and manual gates correlate with worse outcomes on both." },
+    { type:"multi", cat:"delivery", q:"Which signs indicate a weak Definition of Done at the team level that a leader should address? (select 3)",
+      opts:[
+        {t:"Need for periodic 'hardening' Sprints before release",c:true},
+        {t:"Defects discovered after Sprint Review that should have been caught",c:true},
+        {t:"'Done' items requiring rework before they can be released",c:true},
+        {t:"A stable test pyramid with fast CI feedback"},
+        {t:"Increments deployed multiple times per Sprint without rollback"}
+      ],
+      exp:"Hardening Sprints, post-Review defects, and pre-release rework all signal DoD that doesn't actually mean releasable. Test pyramid + frequent deploys are HEALTHY indicators, not weak-DoD symptoms." }
   ]
 };
 })();

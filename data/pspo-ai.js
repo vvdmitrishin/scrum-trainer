@@ -138,7 +138,81 @@ window.BANKS["pspo-ai"] = {
       exp:"Prompt and configuration are part of the product. Untracked changes break reproducibility, hide regressions, and make rollback hard. Treat them like code: versioned, reviewed, tested. Many teams now adopt 'PromptOps'." },
     { type:"single", cat:"ownership", q:"A PO is choosing between two AI features. Both deliver similar value but one has 10x inference cost. The aligned PO consideration is:",
       opts:[{t:"Cost-aware value — the lower-cost option may free budget for other value or improve sustainability; cost should inform value decisions",c:true},{t:"Always pick the most expensive"},{t:"Always pick the cheapest regardless of value"},{t:"Cost is irrelevant"}],
-      exp:"AI inference costs can scale dramatically. POs weigh value, cost, and scale together. A modestly less accurate but 10x cheaper option may unlock broader rollout. Cost is a value input, not a separate concern." }
+      exp:"AI inference costs can scale dramatically. POs weigh value, cost, and scale together. A modestly less accurate but 10x cheaper option may unlock broader rollout. Cost is a value input, not a separate concern." },
+
+    /* ---------------- NEW MULTI-SELECT — pushes multi share higher ---------------- */
+    { type:"multi", cat:"theory", q:"Which statements correctly describe a foundation model? (select 3)",
+      opts:[
+        {t:"A large, general-purpose model trained on broad data",c:true},
+        {t:"Adaptable to many downstream tasks via prompting, fine-tuning, or RAG",c:true},
+        {t:"Examples include GPT, Claude, Gemini, Llama",c:true},
+        {t:"A narrowly-scoped model trained for one specific task only"},
+        {t:"A model that runs entirely on a single user device with no cloud"}
+      ],
+      exp:"Foundation models (Bommasani et al.) are broad pretrained models adapted for many uses. They're not narrow task models nor inherently on-device — those are different categories." },
+    { type:"multi", cat:"theory", q:"Which are real limitations of LLM outputs a PO must account for? (select 3)",
+      opts:[
+        {t:"Hallucinations — confident outputs that aren't factually grounded",c:true},
+        {t:"Knowledge cutoffs — model doesn't know events after a certain date",c:true},
+        {t:"Sensitivity to prompt wording — small changes can dramatically shift output",c:true},
+        {t:"Perfect factual accuracy on all topics by default"},
+        {t:"Deterministic outputs identical across runs without configuration"}
+      ],
+      exp:"Hallucination, cutoffs, and prompt sensitivity are core LLM realities. Perfect accuracy and determinism are not properties of LLMs in their default sampling modes." },
+    { type:"multi", cat:"responsible", q:"Which practices help mitigate bias in an AI feature? (select 3)",
+      opts:[
+        {t:"Diverse training and evaluation data covering target segments",c:true},
+        {t:"Ongoing fairness evaluation across customer segments after launch",c:true},
+        {t:"Transparency to users about model limits and override paths",c:true},
+        {t:"Training only on the largest customer segment to maximize accuracy",c:true ? false : true},
+        {t:"Trusting vendor claims of fairness without verification"}
+      ],
+      exp:"Bias mitigation is ongoing: diverse data + post-launch evaluation + transparency + human-override. Training narrowly and trusting vendor claims are common failure modes." },
+    { type:"multi", cat:"responsible", q:"Per the EU AI Act, which obligations apply to high-risk AI systems? (select 3)",
+      opts:[
+        {t:"Risk management systems and technical documentation",c:true},
+        {t:"Data quality processes and human oversight",c:true},
+        {t:"Conformity assessment before deployment",c:true},
+        {t:"No special obligations beyond GDPR"},
+        {t:"A vendor self-declaration alone is sufficient"}
+      ],
+      exp:"The EU AI Act adds formal obligations on high-risk AI: risk management, data governance, documentation, oversight, accuracy/robustness, and conformity assessment. It's a substantive layer beyond GDPR." },
+    { type:"multi", cat:"discovery", q:"Which uses of AI are appropriate in product discovery? (select 3)",
+      opts:[
+        {t:"Drafting candidate personas from existing customer data that the PO then validates with real customers",c:true},
+        {t:"Synthesizing themes from open-text survey responses for human review",c:true},
+        {t:"Generating hypothesis candidates the team filters and tests empirically",c:true},
+        {t:"Replacing all customer interviews with model-generated personas as confirmed truth"},
+        {t:"Letting AI decide which customer segment is most strategic"}
+      ],
+      exp:"AI accelerates discovery as a starting hypothesis — validation against real customers remains the PO's accountability. Letting AI replace customer contact or set strategy is over-reach." },
+    { type:"multi", cat:"value", q:"Which describe healthy outcome-based measurement of AI features? (select 3)",
+      opts:[
+        {t:"Tracking customer/business outcomes (CV/UV/A2I/T2M), not just model metrics",c:true},
+        {t:"Watching for concept drift where the task-to-answer mapping shifts over time",c:true},
+        {t:"Slicing results by segment to catch heterogeneous effects",c:true},
+        {t:"Reporting only aggregate accuracy as the success measure"},
+        {t:"Stopping monitoring after the launch Sprint succeeds"}
+      ],
+      exp:"AI features need outcome-based measurement, drift detection, and segment slicing — sustained, not one-shot. Aggregate accuracy alone hides important signals." },
+    { type:"multi", cat:"ownership", q:"Which design choices support responsible AI as a Product Owner? (select 3)",
+      opts:[
+        {t:"Human-in-the-loop review for high-stakes decisions",c:true},
+        {t:"Confidence-based UX (high confidence shows directly; low routes to human)",c:true},
+        {t:"Versioned prompts/configs with rollback path",c:true},
+        {t:"Fully autonomous agents executing irreversible financial transactions without review"},
+        {t:"Hiding the use of AI from users to avoid 'distrust'"}
+      ],
+      exp:"Responsible AI features keep humans in the loop where it matters, calibrate to confidence, and treat config as code. Autonomous high-risk actions and hidden AI both erode trust." },
+    { type:"multi", cat:"ownership", q:"Which describe the difference between model metrics and product outcomes for AI features? (select 3)",
+      opts:[
+        {t:"Model metrics (accuracy, F1) measure the model in isolation",c:true},
+        {t:"Product outcomes measure customer/business impact of the feature in context",c:true},
+        {t:"A model can score high on metrics yet deliver no real outcome (and vice versa)",c:true},
+        {t:"Model metrics always correlate perfectly with outcomes"},
+        {t:"Outcomes are unnecessary if model metrics look strong"}
+      ],
+      exp:"Model and outcome metrics measure different things. A 99% accurate model nobody uses produces no value. POs prioritize outcomes; model metrics inform but don't substitute." }
   ]
 };
 })();
