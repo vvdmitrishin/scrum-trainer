@@ -7,54 +7,74 @@
   *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
   html,body{width:1200px;height:630px;overflow:hidden}
   body{
-    background:radial-gradient(1400px 800px at 70% -10%,#1a2738 0,#0e131b 60%);
-    color:#e6edf5;
-    padding:64px 80px;
+    background:
+      radial-gradient(900px 500px at 85% -10%, #d4ecf2 0, transparent 60%),
+      radial-gradient(800px 600px at 0% 110%, #e0f4f2 0, transparent 55%),
+      linear-gradient(180deg, #f0f7fa 0%, #ffffff 100%);
+    color:#0c2a36;
+    padding:60px 72px;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
+    position:relative;
+  }
+  /* subtle teal accent line at top */
+  body::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:5px;
+    background:linear-gradient(90deg, #0f766e, #14b8a6, #5eead4, transparent);
   }
   .header{display:flex;align-items:center;gap:20px}
   .logo{
-    width:80px;height:80px;border-radius:18px;
-    background:linear-gradient(135deg,#219AB5,#40586F);
+    width:80px;height:80px;border-radius:20px;
+    background:linear-gradient(135deg,#0f766e,#14b8a6);
     display:grid;place-items:center;
     font-weight:800;color:#fff;font-size:42px;
+    box-shadow:0 8px 24px rgba(15,118,110,.22);
   }
-  .brand{font-size:48px;font-weight:800;letter-spacing:-0.5px}
-  .sub{color:#8aa0b6;font-size:18px;margin-top:6px;letter-spacing:.3px}
-  .center{margin-top:-10px}
+  .brand{font-size:52px;font-weight:800;letter-spacing:-0.8px;color:#0c2a36}
+  .sub{color:#5d7a86;font-size:18px;margin-top:6px;letter-spacing:.2px;font-weight:500}
+
+  .center{margin-top:-6px}
   .big{
-    font-size:140px;
+    font-size:160px;
     font-weight:800;
     line-height:1;
-    background:linear-gradient(135deg,#219AB5,#3FB7CE);
+    background:linear-gradient(135deg, #0f766e, #14b8a6);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
-    margin-bottom:10px;
-    letter-spacing:-2px;
+    margin-bottom:8px;
+    letter-spacing:-3px;
   }
-  .label{font-size:26px;color:#cdd9e6;font-weight:600;letter-spacing:.3px}
-  .label .accent{color:#3FB7CE}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .label{font-size:28px;color:#0c2a36;font-weight:600;letter-spacing:.1px}
+  .label .accent{
+    color:#0f766e;
+    font-weight:700;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
   .chip{
-    font-size:15px;
-    padding:9px 18px;
+    font-size:14px;
+    padding:8px 16px;
     border-radius:99px;
-    background:#161d28;
-    border:1px solid #2a3647;
-    color:#cdd9e6;
+    background:#ffffff;
+    border:1px solid #cfe5ec;
+    color:#0c2a36;
     font-weight:600;
+    letter-spacing:.2px;
+    box-shadow:0 1px 2px rgba(15,30,40,.04);
   }
   .footer{
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
-    color:#6b8198;
+    color:#5d7a86;
     font-size:15px;
+    font-weight:500;
   }
-  .footer b{color:#3FB7CE}
+  .footer b{color:#0f766e;font-weight:700}
 </style>
 </head>
 <body>
@@ -68,7 +88,7 @@
 </div>
 
 <div class="center">
-  <div class="big">855</div>
+  <div class="big">955</div>
   <div class="label">practice questions across <span class="accent">8 certifications</span></div>
   <div class="chips">
     <span class="chip">PSPO I</span>
