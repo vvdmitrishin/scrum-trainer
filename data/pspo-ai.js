@@ -65,7 +65,80 @@ window.BANKS["pspo-ai"] = {
 
     { type:"single", cat:"ownership", q:"AI Product Backlog items often cluster into 4 types. Which set is most accurate?", opts:[{t:"Data (sourcing/labeling/quality), Model (training/evaluation), Integration (APIs/latency/fallbacks), UX (uncertainty surfaces/opt-outs/override paths)",c:true},{t:"Frontend, Backend, Database, DevOps"},{t:"Vision, Roadmap, Backlog, Sprint"},{t:"Feature, Bug, Spike, Task"}], exp:"AI Product Backlog items typically include data work (collection, labeling, quality), model work (training, evaluation), integration work (APIs, fallbacks when AI fails), and UX work (showing uncertainty, opt-outs, override paths). Generic technical layers are not AI-specific." },
 
-    { type:"single", cat:"ownership", q:"For an AI feature where false negatives are very costly (e.g. fraud detection), the PO should prioritize:", opts:[{t:"Recall (coverage of true positives) over precision — accepting more false positives in exchange for catching fraud",c:true},{t:"Precision over recall — accepting more false negatives"},{t:"Accuracy alone, ignoring precision/recall trade-off"},{t:"F1 score with no business context"}], exp:"Precision and recall are usually traded against each other. For fraud/safety where missing real cases is costly, recall (catching all true positives) matters more even at the cost of some false alarms. The PO picks the operating point based on business cost — a value-decision, not a technical one." }
+    { type:"single", cat:"ownership", q:"For an AI feature where false negatives are very costly (e.g. fraud detection), the PO should prioritize:", opts:[{t:"Recall (coverage of true positives) over precision — accepting more false positives in exchange for catching fraud",c:true},{t:"Precision over recall — accepting more false negatives"},{t:"Accuracy alone, ignoring precision/recall trade-off"},{t:"F1 score with no business context"}], exp:"Precision and recall are usually traded against each other. For fraud/safety where missing real cases is costly, recall (catching all true positives) matters more even at the cost of some false alarms. The PO picks the operating point based on business cost — a value-decision, not a technical one." },
+
+    /* ---------------- AI THEORY & PRIMER — extended ---------------- */
+    { type:"single", cat:"theory", q:"A 'foundation model' is best described as:",
+      opts:[{t:"A large, general-purpose model trained on broad data that can be adapted (fine-tuned, prompted, RAG'd) for many downstream tasks",c:true},{t:"A model trained for one narrow task only"},{t:"A model that powers the foundation of a website"},{t:"A model that runs entirely on-device"}],
+      exp:"Foundation models (Bommasani et al., Stanford) are general-purpose pretrained models adapted to many tasks. Examples: GPT, Claude, Gemini, Llama. Adaptation strategies: prompting, fine-tuning, RAG. The 'foundation' is the broad base for many downstream products." },
+    { type:"single", cat:"theory", q:"Retrieval-Augmented Generation (RAG) addresses which limitation of LLMs?",
+      opts:[{t:"Knowledge cutoffs and hallucinations — RAG grounds answers in retrieved documents from a current knowledge base",c:true},{t:"Slow inference"},{t:"GPU cost"},{t:"Token length"}],
+      exp:"RAG retrieves relevant context (from vector stores, search) and feeds it to the LLM as part of the prompt. This grounds answers in up-to-date, organization-specific knowledge, reducing hallucinations and stale outputs. Common architecture for enterprise AI products." },
+    { type:"single", cat:"theory", q:"Embeddings (vector representations) are used in AI products primarily to:",
+      opts:[{t:"Represent text/data as numeric vectors so semantic similarity can be computed (search, recommendations, clustering, RAG retrieval)",c:true},{t:"Compress files"},{t:"Encrypt data"},{t:"Replace tokens"}],
+      exp:"Embeddings map text/items into high-dimensional vectors where similar things are close. Powers semantic search ('find docs similar to this'), recommendation, clustering, classification, and RAG retrieval. A foundational AI product capability." },
+    { type:"single", cat:"theory", q:"An 'AI agent' (as distinct from a plain LLM call) typically:",
+      opts:[{t:"Plans multi-step actions, calls tools/APIs, and operates over a loop — taking actions based on goals rather than a single response",c:true},{t:"Is the same as a chatbot"},{t:"Cannot use external tools"},{t:"Returns only text"}],
+      exp:"Agents combine an LLM brain with tool use, memory, planning, and action loops. They can browse, query APIs, write to systems. Different product surface from chat: stronger automation potential, also bigger risk surface (autonomous actions, error compounding)." },
+
+    /* ---------------- RESPONSIBLE AI — extended ---------------- */
+    { type:"single", cat:"responsible", q:"A PO wants to mitigate bias in an AI feature. Which is the MOST aligned set of practices?",
+      opts:[{t:"Diverse training data, ongoing fairness evaluation across segments, transparency about limits, and clear human-override paths",c:true},{t:"Hide the model entirely"},{t:"Train only on the largest customer segment"},{t:"Trust vendor claims without verification"}],
+      exp:"Bias mitigation is multi-pronged: data diversity, ongoing measurement (disparate impact, accuracy by segment), transparency to users, override mechanisms. No single technique 'solves' bias — ongoing inspection is required (an empirical loop the PO owns)." },
+    { type:"single", cat:"responsible", q:"Per the EU AI Act, 'high-risk' AI systems require:",
+      opts:[{t:"Risk management systems, data quality processes, technical documentation, transparency, human oversight, accuracy and security — and conformity assessment",c:true},{t:"Nothing extra beyond GDPR"},{t:"Only a vendor declaration"},{t:"Insurance coverage only"}],
+      exp:"The EU AI Act classifies systems by risk. High-risk (employment, credit, biometrics, etc.) require formal risk management, data governance, documentation, human oversight, accuracy/robustness/security measures, and conformity assessment before deployment." },
+    { type:"single", cat:"responsible", q:"An AI feature shipped 6 months ago. Customer outcomes are degrading silently. The most aligned PO response is:",
+      opts:[{t:"Build ongoing monitoring of model performance + outcomes (drift detection, A/B comparison, periodic evaluation) — ship-and-forget is unsafe",c:true},{t:"Trust the model since it worked at launch"},{t:"Wait for customer complaints to escalate"},{t:"Remove all AI features"}],
+      exp:"AI features can drift: data shifts, user behavior changes, retraining lags. POs must maintain monitoring — quality metrics, business outcomes, fairness over time — and intervene (retrain, adjust, pause) when degradation appears." },
+    { type:"single", cat:"responsible", q:"A user-facing AI feature should typically disclose:",
+      opts:[{t:"That AI is involved, what it does and doesn't do, limits/uncertainty, and how to override or appeal — this is good practice AND often legal requirement",c:true},{t:"Nothing — keep AI hidden"},{t:"Only that the model is large"},{t:"Only vendor names"}],
+      exp:"Transparency builds trust, supports informed user choice, and is increasingly legally required (EU AI Act, FTC guidance). Disclose: AI involvement, scope, confidence, override path, who's accountable. Hidden AI erodes trust when discovered." },
+
+    /* ---------------- DISCOVERY — extended ---------------- */
+    { type:"single", cat:"discovery", q:"A PO uses AI to draft personas from existing customer data. The most aligned next step is:",
+      opts:[{t:"Validate AI-drafted personas with real customer conversations — AI synthesis is a starting hypothesis, not a confirmed truth",c:true},{t:"Use the personas as final truth"},{t:"Skip customer conversations now"},{t:"Disband the customer research team"}],
+      exp:"AI-drafted personas are hypotheses based on the data the AI saw. They may miss segments, encode bias, or overgeneralize. Validating against real conversations is the empirical step that turns drafts into trustworthy artifacts." },
+    { type:"single", cat:"discovery", q:"An AI summarizes 200 customer interviews and surfaces 3 themes. A PO should:",
+      opts:[{t:"Treat themes as hypotheses worth probing — verify quotes, check coverage, look for what AI may have missed (outliers, conflicting signals)",c:true},{t:"Accept themes as truth and move to implementation"},{t:"Disregard the AI's output entirely"},{t:"Pick the most popular theme by vote"}],
+      exp:"AI synthesis is fast but lossy. Themes may oversmooth, ignore outliers (which can be the most important signal), or be biased by training. POs verify themes against source data, dig into outliers, and look for missing perspectives." },
+    { type:"single", cat:"discovery", q:"A PO wants to generate experiment ideas faster. AI is most appropriately used to:",
+      opts:[{t:"Brainstorm and expand the option space — then the PO and team curate, prioritize, and select what to run",c:true},{t:"Pick which experiment to run"},{t:"Run experiments without team review"},{t:"Replace customer conversation"}],
+      exp:"AI excels at expanding option spaces — generating many candidate experiments quickly. Selection and prioritization remain PO and team work: assessing learning value, cost, risk, ethics. AI augments creativity rather than replacing judgment." },
+    { type:"single", cat:"discovery", q:"A PO uses AI to generate hypotheses about a struggling feature. The strongest hypotheses to test are:",
+      opts:[{t:"Falsifiable predictions with measurable outcomes — AI-generated ideas filtered to those that can be cheaply tested against real evidence",c:true},{t:"The hypothesis that sounds most impressive"},{t:"All hypotheses tested simultaneously"},{t:"The first one returned by the AI"}],
+      exp:"Strong hypotheses are falsifiable, specific, and cheap to test. AI generates breadth; the PO ranks by testability and value of learning. Random or impressive-sounding hypotheses without falsification criteria waste cycles." },
+
+    /* ---------------- VALUE & EXPERIMENTATION — extended ---------------- */
+    { type:"single", cat:"value", q:"How does EBM apply to AI product features?",
+      opts:[{t:"AI features are measured by the same KVAs (CV, UV, A2I, T2M) — output metrics like prompt count don't substitute for outcome measures",c:true},{t:"AI is exempt from EBM"},{t:"AI features only need accuracy metrics"},{t:"AI outputs are the only thing to measure"}],
+      exp:"AI is a means; value remains the end. EBM measures still apply — does the AI feature improve CV (customer satisfaction, usage), UV (gap to ideal), T2M (delivery speed), A2I (capacity for new value)? Internal AI metrics (accuracy) are inputs, not outputs." },
+    { type:"single", cat:"value", q:"AI model quality metrics (accuracy, F1) and AI product outcomes (customer satisfaction, completion rate) often diverge. Which should the PO prioritize?",
+      opts:[{t:"Outcomes — model metrics are instrumental; if the feature is accurate but unused or unhelpful, it has no value",c:true},{t:"Always model metrics"},{t:"Always accuracy alone"},{t:"Whatever the data scientist prefers"}],
+      exp:"A 99% accurate model that nobody uses produces no value. POs focus on outcomes: does the feature help customers achieve their job? Model metrics matter as inputs but don't substitute for outcome validation." },
+    { type:"single", cat:"value", q:"A PO is asked to justify continued AI investment. The most aligned framing is:",
+      opts:[{t:"Tie investment to evidence of value across CV/UV/A2I/T2M with explicit hypotheses and outcome thresholds — pivot or stop if evidence doesn't materialize",c:true},{t:"Justify by AI hype trends"},{t:"Promise fixed ROI numbers"},{t:"Avoid talking about ROI"}],
+      exp:"AI investments should follow the same empirical funding logic as any product bet. Set hypotheses, measure outcomes, scale what works, stop what doesn't. Hype-based funding is fragile and often unjustified by outcomes." },
+    { type:"single", cat:"value", q:"A small A/B test of an AI feature shows positive results in one segment but negative in another. The aligned PO response is:",
+      opts:[{t:"Investigate the segment difference — heterogeneous effects are common with AI; a single average can hide important winners and losers",c:true},{t:"Roll out to everyone based on the average"},{t:"Cancel the feature based on the negative segment"},{t:"Ignore segment differences"}],
+      exp:"AI features often perform differently across segments (due to data representation, context, capability fit). Aggregate metrics hide this. POs slice results, understand why, and adapt: targeted rollout, segment-specific tuning, or different solutions." },
+    { type:"single", cat:"value", q:"Concept drift in an AI feature means:",
+      opts:[{t:"The relationship between inputs and the right answer changes over time — yesterday's model may be wrong today",c:true},{t:"The product team's vision changes"},{t:"The model's source code changes"},{t:"The UI changes"}],
+      exp:"Concept drift = the underlying task changes (e.g., spam patterns evolve, customer language shifts). Even a perfectly-trained model degrades over time. POs build retraining/refresh into the product's lifecycle, not as an afterthought." },
+
+    /* ---------------- AI PRODUCT OWNERSHIP — extended ---------------- */
+    { type:"single", cat:"ownership", q:"AI model confidence scores are useful to a PO because:",
+      opts:[{t:"They enable nuanced UX — high-confidence answers shown directly, low-confidence handed to a human or surfaced with uncertainty",c:true},{t:"They are always 100% reliable"},{t:"They eliminate the need for human oversight"},{t:"They predict business value"}],
+      exp:"Calibrated confidence drives product behavior: auto-accept above threshold, route to human below, display uncertainty in UX. Caveat: many models are poorly calibrated; the PO validates calibration before trusting it for routing." },
+    { type:"single", cat:"ownership", q:"'Human-in-the-loop' design for an AI feature means:",
+      opts:[{t:"AI proposes, a human reviews and approves (or amends) — preserves accountability and catches errors while keeping AI speed",c:true},{t:"Removing all humans"},{t:"Humans block all AI use"},{t:"AI replaces all humans"}],
+      exp:"Human-in-the-loop is a recognized pattern for high-stakes AI: AI accelerates, human verifies. The PO designs the workflow to keep accountability with humans for consequential decisions while leveraging AI for breadth and speed." },
+    { type:"single", cat:"ownership", q:"Prompt and configuration changes for an AI feature should be:",
+      opts:[{t:"Versioned and tracked like code — small prompt tweaks can dramatically shift behavior; reproducibility and rollback matter",c:true},{t:"Made ad-hoc without tracking"},{t:"Stored only in chat history"},{t:"Made only by the loudest stakeholder"}],
+      exp:"Prompt and configuration are part of the product. Untracked changes break reproducibility, hide regressions, and make rollback hard. Treat them like code: versioned, reviewed, tested. Many teams now adopt 'PromptOps'." },
+    { type:"single", cat:"ownership", q:"A PO is choosing between two AI features. Both deliver similar value but one has 10x inference cost. The aligned PO consideration is:",
+      opts:[{t:"Cost-aware value — the lower-cost option may free budget for other value or improve sustainability; cost should inform value decisions",c:true},{t:"Always pick the most expensive"},{t:"Always pick the cheapest regardless of value"},{t:"Cost is irrelevant"}],
+      exp:"AI inference costs can scale dramatically. POs weigh value, cost, and scale together. A modestly less accurate but 10x cheaper option may unlock broader rollout. Cost is a value input, not a separate concern." }
   ]
 };
 })();
