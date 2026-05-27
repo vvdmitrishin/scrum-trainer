@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Scrum Trainer — Design Previews</title>
+<style>
+  * { box-sizing: border-box }
+  body {
+    margin: 0;
+    font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    transition: background .25s;
+  }
+  .switcher {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; gap: 8px; padding: 14px 24px;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .switcher button {
+    font: inherit; font-weight: 600; font-size: 13px;
+    padding: 8px 14px; border-radius: 8px;
+    border: 1px solid #d1d5db; background: #fff; color: #374151;
+    cursor: pointer; transition: .12s;
+  }
+  .switcher button:hover { border-color: #6b7280 }
+  .switcher button.active { background: #111827; color: #fff; border-color: #111827 }
+  .switcher .lbl { color: #6b7280; font-size: 13px; align-self: center; margin-right: 8px }
+
+  /* =================== THEME 1: Crisp White (Linear/Notion-ish) =================== */
+  body.t1 {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --panel2: #f4f6f8;
+    --line: #e5e7eb;
+    --line-hover: #d1d5db;
+    --txt: #0f172a;
+    --muted: #6b7280;
+    --accent: #0891b2;
+    --accent2: #06b6d4;
+    --accent-tint: rgba(8,145,178,.08);
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 1px 3px rgba(0,0,0,.04);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,.06);
+    background: var(--bg);
+  }
+
+  /* =================== THEME 2: Warm Cream (Paper) =================== */
+  body.t2 {
+    --bg: #fbf8f3;
+    --panel: #ffffff;
+    --panel2: #f7f3eb;
+    --line: #e8e2d4;
+    --line-hover: #d3c9b3;
+    --txt: #1f1d18;
+    --muted: #78716c;
+    --accent: #b45309;
+    --accent2: #d97706;
+    --accent-tint: rgba(180,83,9,.07);
+    --shadow: 0 1px 2px rgba(120,80,20,.05), 0 1px 3px rgba(120,80,20,.04);
+    --shadow-lg: 0 6px 16px rgba(120,80,20,.07);
+    background: var(--bg);
+  }
+
+  /* =================== THEME 3: Sky Mint (Fresh/Glass) =================== */
+  body.t3 {
+    --bg: #f0f7fa;
+    --panel: #ffffff;
+    --panel2: #e8f3f6;
+    --line: #cfe5ec;
+    --line-hover: #93c5d4;
+    --txt: #0c2a36;
+    --muted: #5d7a86;
+    --accent: #0f766e;
+    --accent2: #14b8a6;
+    --accent-tint: rgba(15,118,110,.08);
+    --shadow: 0 1px 2px rgba(15,30,40,.05), 0 1px 3px rgba(15,30,40,.04);
+    --shadow-lg: 0 8px 24px rgba(15,118,110,.08);
+    background: linear-gradient(180deg, #e8f4f7 0%, var(--bg) 30%);
+    background-attachment: fixed;
+  }
+
+  /* ===================== shared layout ===================== */
+  .wrap { max-width: 840px; margin: 0 auto; padding: 28px 18px 60px; color: var(--txt) }
+
+  header.top { display: flex; align-items: center; gap: 12px; margin-bottom: 18px }
+  .logo {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: grid; place-items: center;
+    font-weight: 800; color: #fff; font-size: 19px;
+  }
+  h1 { font-size: 21px; margin: 0; font-weight: 800; color: var(--txt) }
+  .sub { color: var(--muted); font-size: 13px }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .fld {
+    display: block;
+    font-size: 12px; letter-spacing: .4px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 6px; font-weight: 600;
+  }
+  select {
+    width: 100%; font: inherit; font-size: 15px; font-weight: 600;
+    background: var(--panel2); color: var(--txt);
+    border: 1px solid var(--line); border-radius: 9px;
+    padding: 11px 12px;
+  }
+  select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-tint) }
+
+  .meta { font-size: 13px; color: var(--muted); margin-top: 10px }
+  .meta b { color: var(--txt) }
+  .meta a { color: var(--accent); text-decoration: none; font-weight: 600 }
+
+  .row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px }
+  .row > div { flex: 1; min-width: 150px }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px }
+  .chip {
+    font-size: 13px;
+    background: var(--panel2); color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 7px 12px; border-radius: 99px;
+    cursor: pointer; transition: .12s;
+  }
+  .chip:hover { border-color: var(--line-hover); color: var(--txt) }
+  .chip.on {
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-color: transparent; font-weight: 600;
+  }
+
+  .btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff; border: none;
+    padding: 12px 20px; border-radius: 10px;
+    font-weight: 700; cursor: pointer; transition: .15s;
+    font-size: 15px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  }
+  .btn:hover { filter: brightness(1.08); transform: translateY(-1px) }
+  .btn.ghost { background: transparent; color: var(--txt); border: 1px solid var(--line); box-shadow: none }
+  .btn.ghost:hover { background: var(--panel2); filter: none }
+  .btns { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap }
+
+  .toggle {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 14px; font-size: 14px; color: var(--muted);
+  }
+  .toggle input { width: 18px; height: 18px; accent-color: var(--accent) }
+
+  .pool { font-size: 13px; color: var(--muted); margin-top: 12px }
+  .pool b { color: var(--txt) }
+
+  .label {
+    font-size: 12px; letter-spacing: .4px; text-transform: uppercase;
+    color: var(--muted); margin: 18px 0 6px; font-weight: 600;
+  }
+
+  /* sample quiz preview */
+  .qtype {
+    display: inline-block; font-size: 11px;
+    letter-spacing: .5px; text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-tint);
+    padding: 3px 9px; border-radius: 99px;
+  }
+  .qcat {
+    display: inline-block; font-size: 11px;
+    letter-spacing: .4px; text-transform: uppercase;
+    color: var(--muted);
+    background: var(--panel2);
+    border: 1px solid var(--line);
+    padding: 3px 9px; border-radius: 99px;
+    margin-left: 6px;
+  }
+  .qtext { font-size: 18px; font-weight: 600; margin: 12px 0 18px }
+  .opt {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--panel2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 13px 15px; margin-bottom: 10px;
+    cursor: pointer; transition: .12s;
+  }
+  .opt:hover { border-color: var(--line-hover) }
+  .opt input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--accent); flex-shrink: 0 }
+  .onum {
+    flex-shrink: 0; min-width: 22px; height: 22px; padding: 0 5px;
+    border-radius: 6px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--muted);
+    font-size: 12px; font-weight: 700;
+    display: grid; place-items: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .opt.sel {
+    border-color: var(--accent);
+    background: var(--accent-tint);
+  }
+  .opt.sel .onum { border-color: var(--accent); color: var(--accent) }
+
+  .foot { text-align: center; color: var(--muted); font-size: 12px; margin-top: 24px }
+  .foot a { color: var(--accent); text-decoration: none; font-weight: 600 }
+
+  .stats { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; font-size: 13px; color: var(--muted) }
+  .stats b { color: var(--accent); font-size: 16px }
+
+  .preview-section {
+    max-width: 840px; margin: 0 auto;
+    padding: 16px 18px 0;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: .5px; text-transform: uppercase;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body class="t1">
+
+<div class="switcher">
+  <span class="lbl">Theme:</span>
+  <button data-theme="t1" class="active">1. Crisp White</button>
+  <button data-theme="t2">2. Warm Cream</button>
+  <button data-theme="t3">3. Sky Mint</button>
+</div>
+
+<div class="preview-section">— Start screen —</div>
+
+<div class="wrap">
+  <header class="top">
+    <div class="logo">S</div>
+    <div>
+      <h1>Scrum Trainer</h1>
+      <div class="sub">Practice trainers for Scrum.org certifications · runs entirely in your browser</div>
+    </div>
+  </header>
+
+  <div class="card">
+    <label class="fld">Certification</label>
+    <select>
+      <option>PSPO I — Professional Scrum Product Owner I</option>
+    </select>
+    <div class="meta">
+      <b>173 questions</b> · 60 min · Pass 85% · 80 questions on the real exam<br>
+      Source: <a href="#">Scrum Guide 2020 + EBM Guide</a>
+    </div>
+
+    <div class="row">
+      <div>
+        <label class="fld">Mode</label>
+        <select>
+          <option>Practice — instant feedback</option>
+        </select>
+      </div>
+      <div>
+        <label class="fld">Number of questions</label>
+        <select>
+          <option>20</option>
+        </select>
+      </div>
+    </div>
+
+    <label class="fld" style="margin-top:14px">Categories</label>
+    <div class="chips">
+      <span class="chip on">All</span>
+      <span class="chip">Product Value &amp; EBM <b style="color:inherit;opacity:.6;font-weight:400">· 46</b></span>
+      <span class="chip">Stakeholders &amp; Vision <b style="opacity:.6;font-weight:400">· 33</b></span>
+      <span class="chip">Scrum &amp; PO <b style="opacity:.6;font-weight:400">· 37</b></span>
+      <span class="chip">Backlog &amp; Goal <b style="opacity:.6;font-weight:400">· 29</b></span>
+      <span class="chip">Forecasting <b style="opacity:.6;font-weight:400">· 16</b></span>
+      <span class="chip">Strategy &amp; Goals <b style="opacity:.6;font-weight:400">· 12</b></span>
+    </div>
+
+    <div class="toggle">
+      <input type="checkbox" checked> Shuffle questions
+    </div>
+
+    <div class="pool">Pool: <b>173</b> matching questions</div>
+
+    <div class="btns">
+      <button class="btn">Start practice</button>
+      <button class="btn ghost">Review wrong answers</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <span><b>855</b> total questions</span>
+    <span><b>8</b> certifications</span>
+    <span><b>0</b> signups</span>
+  </div>
+</div>
+
+<div class="preview-section">— Quiz screen sample —</div>
+
+<div class="wrap">
+  <div class="card">
+    <span class="qtype">Single choice</span>
+    <span class="qcat">Product Value</span>
+    <div class="qtext">A team tracks 'Customer Usage Index' — measurement of usage by feature, used to infer how useful customers find the product. Which KVA does this belong to?</div>
+
+    <div class="opt sel">
+      <input type="radio" checked>
+      <div class="onum">A</div>
+      <div>Current Value</div>
+    </div>
+    <div class="opt">
+      <input type="radio">
+      <div class="onum">B</div>
+      <div>Unrealized Value</div>
+    </div>
+    <div class="opt">
+      <input type="radio">
+      <div class="onum">C</div>
+      <div>Time to Market</div>
+    </div>
+    <div class="opt">
+      <input type="radio">
+      <div class="onum">D</div>
+      <div>Ability to Innovate</div>
+    </div>
+
+    <div class="btns">
+      <button class="btn ghost">← Previous</button>
+      <button class="btn">Submit answer</button>
+    </div>
+  </div>
+
+  <div class="foot">
+    Free · Open source · No signup · <a href="#">GitHub</a>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.switcher button').forEach(b => {
+    b.onclick = () => {
+      document.body.className = b.dataset.theme;
+      document.querySelectorAll('.switcher button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+    };
+  });
+</script>
+
+</body>
+</html>
